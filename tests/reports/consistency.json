@@ -1,0 +1,62 @@
+{
+ "results": [
+  {
+   "id": "C1",
+   "name": "Cloisonnement des périmètres et identité des références",
+   "ok": true,
+   "note": "demandeur o1 : 3 dossiers (DNG-2026-009, DNG-2026-017, DNG-2026-001), aucune fuite · registre du Ministre : 5 réf. · DNG-2026-012 « complement » vu par les 4 profils",
+   "ms": 12386
+  },
+  {
+   "id": "C2",
+   "name": "Instruction puis complément : service → demandeur → service",
+   "ok": true,
+   "note": "DNG-2026-017 : recu → en_cours (service) → complement (CPL-2026-0011) → réponse du demandeur → en_cours ; 3 pièces rattachées, historique partagé par les deux profils",
+   "ms": 15709
+  },
+  {
+   "id": "C3",
+   "name": "Transmission → décision → ordre de recette → reçu → vérification",
+   "ok": true,
+   "note": "DNG-2026-012 : note visée (vise) → transmis (TR-2026-0151, TR-2026-0134, TR-2026-0128) → décision approuvée par le Ministre → OR-2026-0116 émis par le service → reçu déposé par le demandeur → vérifié par la Régie ; statut du dossier inchangé",
+   "ms": 44828
+  },
+  {
+   "id": "C4",
+   "name": "Remise effective : stock, dossier, distinction et clôture de la cérémonie",
+   "ok": true,
+   "note": "REM-2026-0002 → remise effective par la Régie : Bronze 148→146, Argent 96→94, réservations libérées (−2/−2) · historique du dossier 002 et distinction du récipiendaire à jour · clôture impossible avant la remise (« én attente de la remise »), possible ensuite (date de cérémonie ramenée au 1er oct. pour le test) → CER-2026-02 terminée",
+   "ms": 20134
+  },
+  {
+   "id": "C5",
+   "name": "Cérémonie : proposition, absence de confirmation prématurée, validation",
+   "ok": true,
+   "note": "CER-2026-06 (DNG-2026-019, 29 oct. 2026) : proposée par le service → « propose » côté autorité sans mention de confirmation → validée par le Ministre → « confirmée » au calendrier",
+   "ms": 20259
+  },
+  {
+   "id": "C6",
+   "name": "Retrait sans cérémonie : récipiendaire → régie → distinction et stock",
+   "ok": true,
+   "note": "RET-2026-0002 (DNG-2026-021) : demande du récipiendaire → autorisation de la Régie (réf. + rendez-vous) → retrait effectif : 3 sortie(s) de stock, remise REM-2026-0003 (mode retrait), distinction mise à jour côté récipiendaire",
+   "ms": 16382
+  },
+  {
+   "id": "C7",
+   "name": "Contrôle documentaire : inspecteur → service",
+   "ok": true,
+   "note": "contrôle CTL-2026-0005 (DNG-2026-009) enregistré par l’inspecteur — conclusion « anomalie » · visible au service dans le dossier DNG-2026-009 et 2 notification(s) liée(s)",
+   "ms": 6918
+  },
+  {
+   "id": "C8",
+   "name": "Journalisation des écritures et traçabilité des acteurs",
+   "ok": true,
+   "note": "journal 5 → 65 entrées · 65 lignes affichées · acteurs : Wilfried Ekomi (Chef de service), Joséphine Mba-Ondo (Inspecteur), Rosine Lekogo (Inspecteur), Rosine Lekogo (Employé / Récipiendaire), Ghislain Assoumou (Régisseur des médailles), Nadège Koumba (Régisseur des médailles), Nadège Koumba (Employé / Récipiendaire), Ghislain Assoumou (Employé / Récipiendaire), Ghislain Assoumou (Ministre du Travail)",
+   "ms": 2071
+  }
+ ],
+ "jsErrors": [],
+ "at": "2026-10-15T14:31:37.280Z"
+}

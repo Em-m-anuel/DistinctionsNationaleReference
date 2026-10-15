@@ -1,0 +1,1191 @@
+{
+ "generatedAt": "2026-10-15T14:35:22.169Z",
+ "roles": [
+  {
+   "id": "demandeur_entreprise",
+   "label": "Demandeur — Entreprise",
+   "short": "Entreprise demandeur",
+   "family": "demandeur",
+   "views": [
+    "apercu",
+    "dossiers",
+    "nouveau",
+    "beneficiaires",
+    "pieces",
+    "complements",
+    "recours",
+    "recettes",
+    "courriers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "create",
+    "answer",
+    "propose",
+    "recours",
+    "observe",
+    "deposer_recu"
+   ],
+   "scope": {
+    "kind": "org",
+    "value": "o1"
+   },
+   "user": {
+    "name": "Hervé Nguema",
+    "title": "Directeur des ressources humaines"
+   }
+  },
+  {
+   "id": "demandeur_ministere",
+   "label": "Demandeur — Ministère",
+   "short": "Ministère demandeur",
+   "family": "demandeur",
+   "views": [
+    "apercu",
+    "dossiers",
+    "nouveau",
+    "beneficiaires",
+    "pieces",
+    "complements",
+    "recours",
+    "recettes",
+    "courriers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "create",
+    "answer",
+    "propose",
+    "recours",
+    "observe",
+    "deposer_recu"
+   ],
+   "scope": {
+    "kind": "org",
+    "value": "o6"
+   },
+   "user": {
+    "name": "Olga Mintsa",
+    "title": "Secrétaire générale adjointe"
+   }
+  },
+  {
+   "id": "recipiendaire",
+   "label": "Employé / Récipiendaire",
+   "short": "Récipiendaire",
+   "family": "recipiendaire",
+   "views": [
+    "apercu",
+    "distinctions",
+    "pieces",
+    "ceremonies",
+    "retraits",
+    "dossiers",
+    "courriers",
+    "notifications"
+   ],
+   "can": [
+    "retrait",
+    "observe"
+   ],
+   "scope": {
+    "kind": "person",
+    "value": [
+     "DNG-2026-002-R3",
+     "DNG-2026-021-R1"
+    ]
+   },
+   "user": {
+    "name": "Récipiendaire",
+    "title": "Agent"
+   }
+  },
+  {
+   "id": "sec_min",
+   "label": "Secrétaire du Ministre",
+   "short": "Secrétariat Ministre",
+   "family": "secretariat",
+   "views": [
+    "apercu",
+    "transmissions",
+    "courriers",
+    "dossiers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "receive",
+    "register",
+    "route",
+    "classify"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "min"
+   },
+   "user": {
+    "name": "Sylvie Nzamba",
+    "title": "Secrétaire du Ministre"
+   }
+  },
+  {
+   "id": "sec_dgt",
+   "label": "Secrétaire de la DGT",
+   "short": "Secrétariat DGT",
+   "family": "secretariat",
+   "views": [
+    "apercu",
+    "transmissions",
+    "courriers",
+    "dossiers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "receive",
+    "register",
+    "route",
+    "classify"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "dgt"
+   },
+   "user": {
+    "name": "Brice Oyane",
+    "title": "Secrétaire de la Direction générale du Travail"
+   }
+  },
+  {
+   "id": "sec_dr",
+   "label": "Secrétaire de la DR",
+   "short": "Secrétariat DR",
+   "family": "secretariat",
+   "views": [
+    "apercu",
+    "transmissions",
+    "courriers",
+    "dossiers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "receive",
+    "register",
+    "route",
+    "classify"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "dr"
+   },
+   "user": {
+    "name": "Ghislain Makaya",
+    "title": "Secrétaire de la Direction régionale du Travail"
+   }
+  },
+  {
+   "id": "chef",
+   "label": "Chef de service",
+   "short": "Chef de service",
+   "family": "service",
+   "views": [
+    "apercu",
+    "dossiers",
+    "nouveau",
+    "instruction",
+    "supervision",
+    "beneficiaires",
+    "complements",
+    "recours",
+    "recettes",
+    "remises",
+    "courriers",
+    "ceremonies",
+    "statistiques",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "create",
+    "instruct",
+    "verify",
+    "complement",
+    "relance",
+    "note",
+    "transmit",
+    "visa",
+    "recette",
+    "propose",
+    "coordinate",
+    "observe",
+    "remise"
+   ],
+   "scope": null,
+   "user": {
+    "name": "Joséphine Mba-Ondo",
+    "title": "Chef du Service des Distinctions"
+   }
+  },
+  {
+   "id": "agent",
+   "label": "Agent du Service des Distinctions",
+   "short": "Agent instructeur",
+   "family": "service",
+   "views": [
+    "apercu",
+    "dossiers",
+    "nouveau",
+    "instruction",
+    "beneficiaires",
+    "complements",
+    "recours",
+    "recettes",
+    "courriers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "create",
+    "instruct",
+    "verify",
+    "complement",
+    "relance",
+    "note",
+    "propose",
+    "observe",
+    "recette"
+   ],
+   "scope": null,
+   "user": {
+    "name": "Landry Moussavou",
+    "title": "Agent instructeur"
+   }
+  },
+  {
+   "id": "inspecteur",
+   "label": "Inspecteur",
+   "short": "Inspecteur",
+   "family": "inspection",
+   "views": [
+    "apercu",
+    "dossiers",
+    "controle",
+    "beneficiaires",
+    "courriers",
+    "ceremonies",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "control",
+    "flag",
+    "observe",
+    "verifier_pieces"
+   ],
+   "scope": null,
+   "user": {
+    "name": "Rosine Lekogo",
+    "title": "Inspectrice du travail"
+   }
+  },
+  {
+   "id": "dgt",
+   "label": "DGT — Directeur général du Travail",
+   "short": "DGT",
+   "family": "autorite",
+   "views": [
+    "apercu",
+    "dossiers",
+    "decisions",
+    "recours",
+    "courriers",
+    "ceremonies",
+    "statistiques",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "decide",
+    "avis",
+    "recours",
+    "relance",
+    "valider_ceremonie",
+    "observe",
+    "receive"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "dgt"
+   },
+   "user": {
+    "name": "Aline Mintsa",
+    "title": "Directeur général du Travail"
+   }
+  },
+  {
+   "id": "ministre",
+   "label": "Ministre du Travail",
+   "short": "Ministre",
+   "family": "autorite",
+   "views": [
+    "apercu",
+    "dossiers",
+    "decisions",
+    "recours",
+    "courriers",
+    "ceremonies",
+    "statistiques",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "decide",
+    "avis",
+    "recours",
+    "relance",
+    "valider_ceremonie",
+    "observe",
+    "receive"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "min"
+   },
+   "user": {
+    "name": "Patrick Obame",
+    "title": "Ministre du Travail"
+   }
+  },
+  {
+   "id": "dr",
+   "label": "DR — Directeur régional du Travail",
+   "short": "DR",
+   "family": "autorite",
+   "views": [
+    "apercu",
+    "dossiers",
+    "decisions",
+    "recours",
+    "courriers",
+    "ceremonies",
+    "statistiques",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "decide",
+    "recours",
+    "relance",
+    "avis",
+    "observe",
+    "receive"
+   ],
+   "scope": {
+    "kind": "authority",
+    "value": "dr"
+   },
+   "user": {
+    "name": "Serge Bivigou",
+    "title": "Directeur régional du Travail — Estuaire"
+   }
+  },
+  {
+   "id": "regisseur",
+   "label": "Régisseur des médailles",
+   "short": "Régisseur",
+   "family": "regie",
+   "views": [
+    "apercu",
+    "recettes",
+    "stock",
+    "remises",
+    "retraits",
+    "dossiers",
+    "ceremonies",
+    "courriers",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "paiement_verif",
+    "stock",
+    "remise",
+    "retrait_traitement",
+    "observe"
+   ],
+   "scope": null,
+   "user": {
+    "name": "Nadège Koumba",
+    "title": "Régisseur des médailles"
+   }
+  },
+  {
+   "id": "admin",
+   "label": "Administrateur",
+   "short": "Administrateur",
+   "family": "administration",
+   "views": [
+    "apercu",
+    "administration",
+    "journal",
+    "notifications"
+   ],
+   "can": [
+    "admin"
+   ],
+   "scope": null,
+   "user": {
+    "name": "Wilfried Ekomi",
+    "title": "Administrateur GAB-ORIENT"
+   }
+  }
+ ],
+ "families": [
+  {
+   "id": "demandeur",
+   "label": "Demandeurs",
+   "roles": [
+    "demandeur_entreprise",
+    "demandeur_ministere"
+   ]
+  },
+  {
+   "id": "recipiendaire",
+   "label": "Bénéficiaires",
+   "roles": [
+    "recipiendaire"
+   ]
+  },
+  {
+   "id": "secretariat",
+   "label": "Secrétariats",
+   "roles": [
+    "sec_min",
+    "sec_dgt",
+    "sec_dr"
+   ]
+  },
+  {
+   "id": "service",
+   "label": "Service des Distinctions",
+   "roles": [
+    "chef",
+    "agent"
+   ]
+  },
+  {
+   "id": "inspection",
+   "label": "Contrôle",
+   "roles": [
+    "inspecteur"
+   ]
+  },
+  {
+   "id": "autorite",
+   "label": "Autorités destinataires",
+   "roles": [
+    "dgt",
+    "ministre",
+    "dr"
+   ]
+  },
+  {
+   "id": "regie",
+   "label": "Régie",
+   "roles": [
+    "regisseur"
+   ]
+  },
+  {
+   "id": "administration",
+   "label": "Administration",
+   "roles": [
+    "admin"
+   ]
+  }
+ ],
+ "permissions": {
+  "create": "Créer un dossier",
+  "instruct": "Ouvrir l’instruction",
+  "verify": "Vérifier les bénéficiaires et les pièces",
+  "complement": "Demander un complément",
+  "relance": "Relancer un demandeur",
+  "note": "Préparer une note de transmission",
+  "transmit": "Transmettre à la hiérarchie",
+  "visa": "Apposer un visa interne",
+  "decide": "Enregistrer une décision",
+  "avis": "Émettre un avis hiérarchique",
+  "recours": "Examiner un recours",
+  "propose": "Proposer une cérémonie",
+  "coordinate": "Coordonner les cérémonies",
+  "valider_ceremonie": "Valider une date de cérémonie",
+  "observe": "Ajouter des observations",
+  "answer": "Déposer un complément",
+  "receive": "Accuser réception d’un courrier",
+  "register": "Enregistrer un courrier au registre",
+  "route": "Transmettre à un service ou à une autorité",
+  "classify": "Classer un courrier",
+  "control": "Effectuer un contrôle",
+  "flag": "Signaler une anomalie",
+  "verifier_pieces": "Vérifier les pièces justificatives",
+  "recette": "Émettre un ordre de recette",
+  "deposer_recu": "Déposer un reçu de paiement",
+  "paiement_verif": "Vérifier un reçu de paiement",
+  "stock": "Gérer le stock et les mouvements",
+  "remise": "Enregistrer une remise effective",
+  "retrait": "Demander un retrait sans cérémonie",
+  "retrait_traitement": "Traiter les retraits sans cérémonie",
+  "admin": "Administrer les comptes et les journaux"
+ },
+ "authorities": [
+  {
+   "id": "min",
+   "label": "Cabinet du Ministre du Travail",
+   "short": "Ministre",
+   "kind": "Ministre",
+   "unit": "Cabinet du Ministre du Travail",
+   "secretariat": "sec_min",
+   "role": "ministre",
+   "office": "Libreville",
+   "scope": "national",
+   "competence": "Décision ministérielle et validation des dates de cérémonie"
+  },
+  {
+   "id": "dgt",
+   "label": "Direction générale du Travail",
+   "short": "DGT",
+   "kind": "Direction générale",
+   "unit": "Direction générale du Travail",
+   "secretariat": "sec_dgt",
+   "role": "dgt",
+   "office": "Libreville",
+   "scope": "national",
+   "competence": "Avis hiérarchique, transmission au cabinet, contrôle des actes préparatoires"
+  },
+  {
+   "id": "dr",
+   "label": "Direction régionale du Travail — Estuaire",
+   "short": "DR Estuaire",
+   "kind": "Direction régionale",
+   "unit": "Direction régionale du Travail — Estuaire",
+   "secretariat": "sec_dr",
+   "role": "dr",
+   "office": "Libreville",
+   "scope": "régional",
+   "region": "Estuaire",
+   "competence": "Décision finale sur le dossier initial déposé dans son ressort"
+  }
+ ],
+ "users": [
+  {
+   "id": "u1",
+   "name": "Joséphine Mba-Ondo",
+   "title": "Chef du Service des Distinctions"
+  },
+  {
+   "id": "u2",
+   "name": "Landry Moussavou",
+   "title": "Agent instructeur"
+  },
+  {
+   "id": "u3",
+   "name": "Hervé Nguema",
+   "title": "Directeur des ressources humaines"
+  },
+  {
+   "id": "u_min",
+   "name": "Sylvie Nzamba",
+   "title": "Secrétaire du Ministre"
+  },
+  {
+   "id": "u_dgt",
+   "name": "Brice Oyane",
+   "title": "Secrétaire de la Direction générale du Travail"
+  },
+  {
+   "id": "u_dr",
+   "name": "Ghislain Makaya",
+   "title": "Secrétaire de la Direction régionale du Travail"
+  },
+  {
+   "id": "u_ins",
+   "name": "Rosine Lekogo",
+   "title": "Inspectrice du travail"
+  },
+  {
+   "id": "u_aut",
+   "name": "Aline Mintsa",
+   "title": "Directeur général du Travail"
+  },
+  {
+   "id": "u_min2",
+   "name": "Patrick Obame",
+   "title": "Ministre du Travail"
+  },
+  {
+   "id": "u_dr2",
+   "name": "Serge Bivigou",
+   "title": "Directeur régional du Travail — Estuaire"
+  },
+  {
+   "id": "u_reg",
+   "name": "Nadège Koumba",
+   "title": "Régisseur des médailles"
+  },
+  {
+   "id": "u_adm",
+   "name": "Wilfried Ekomi",
+   "title": "Administrateur GAB-ORIENT"
+  },
+  {
+   "id": "u_ms",
+   "name": "Olga Mintsa",
+   "title": "Secrétaire générale adjointe"
+  },
+  {
+   "id": "u_rec",
+   "name": "Récipiendaire",
+   "title": "Agent"
+  }
+ ],
+ "dictionaries": {
+  "statuses": {
+   "recu": {
+    "label": "Reçu — à traiter",
+    "short": "À traiter",
+    "tone": "slate"
+   },
+   "en_cours": {
+    "label": "En instruction",
+    "short": "En instruction",
+    "tone": "blue"
+   },
+   "complement": {
+    "label": "Complément demandé",
+    "short": "Complément",
+    "tone": "yellow"
+   },
+   "transmis": {
+    "label": "Transmis à la hiérarchie",
+    "short": "Transmis",
+    "tone": "navy"
+   },
+   "approuve": {
+    "label": "Approuvé",
+    "short": "Approuvé",
+    "tone": "green"
+   },
+   "refuse": {
+    "label": "Refusé",
+    "short": "Refusé",
+    "tone": "red"
+   }
+  },
+  "ceremonyStates": {
+   "propose": {
+    "label": "Date proposée",
+    "tone": "blue",
+    "desc": "Proposition en attente d’examen. La date n’est pas confirmée."
+   },
+   "negociation": {
+    "label": "En négociation",
+    "tone": "yellow",
+    "desc": "Échanges en cours avec le lieu ou le demandeur sur la date."
+   },
+   "confirme": {
+    "label": "Confirmée",
+    "tone": "green",
+    "desc": "Date validée par l’autorité compétente."
+   },
+   "termine": {
+    "label": "Terminée",
+    "tone": "slate",
+    "desc": "La cérémonie a eu lieu."
+   },
+   "conflit": {
+    "label": "Conflit identifié",
+    "tone": "red",
+    "desc": "La date proposée entre en conflit avec une réservation existante."
+   }
+  },
+  "remiseStates": {
+   "a_preparer": {
+    "label": "Remise à préparer",
+    "tone": "slate"
+   },
+   "preparee": {
+    "label": "Médailles préparées et réservées",
+    "tone": "blue"
+   },
+   "remise": {
+    "label": "Remise effective enregistrée",
+    "tone": "green"
+   },
+   "retrait": {
+    "label": "Retrait sans cérémonie enregistré",
+    "tone": "green"
+   }
+  },
+  "withdrawalStates": {
+   "demande": {
+    "label": "Demande reçue",
+    "tone": "yellow"
+   },
+   "valide": {
+    "label": "Autorisation enregistrée",
+    "tone": "blue"
+   },
+   "remis": {
+    "label": "Retrait enregistré",
+    "tone": "green"
+   },
+   "refuse": {
+    "label": "Demande refusée",
+    "tone": "red"
+   }
+  },
+  "recetteStates": {
+   "a_emettre": {
+    "label": "Ordre à émettre",
+    "tone": "slate"
+   },
+   "emis": {
+    "label": "Émis — paiement attendu",
+    "tone": "blue"
+   },
+   "recu_depose": {
+    "label": "Reçu déposé — à vérifier",
+    "tone": "yellow"
+   },
+   "verifie": {
+    "label": "Paiement vérifié",
+    "tone": "green"
+   },
+   "rejete": {
+    "label": "Reçu rejeté",
+    "tone": "red"
+   }
+  },
+  "controlStates": {
+   "a_controler": {
+    "label": "À contrôler",
+    "tone": "slate"
+   },
+   "conforme": {
+    "label": "Contrôle conforme",
+    "tone": "green"
+   },
+   "anomalie": {
+    "label": "Anomalie signalée",
+    "tone": "red"
+   },
+   "correction": {
+    "label": "Correction demandée",
+    "tone": "yellow"
+   }
+  },
+  "recoursStates": {
+   "depose": {
+    "label": "Recours déposé",
+    "tone": "blue"
+   },
+   "en_examen": {
+    "label": "Recours en examen",
+    "tone": "yellow"
+   },
+   "accepte": {
+    "label": "Recours accepté",
+    "tone": "green"
+   },
+   "rejete": {
+    "label": "Recours rejeté",
+    "tone": "red"
+   }
+  },
+  "transmissionStates": {
+   "recu": {
+    "label": "Reçu — à enregistrer",
+    "tone": "yellow"
+   },
+   "enregistre": {
+    "label": "Enregistré",
+    "tone": "blue"
+   },
+   "classe": {
+    "label": "Classé",
+    "tone": "slate"
+   },
+   "transmis": {
+    "label": "Transmis",
+    "tone": "navy"
+   },
+   "traite": {
+    "label": "Traité",
+    "tone": "green"
+   }
+  },
+  "docStates": {
+   "enregistre": {
+    "label": "Enregistré",
+    "tone": "slate"
+   },
+   "attente_visa": {
+    "label": "En attente de visa",
+    "tone": "yellow"
+   },
+   "vise": {
+    "label": "Visa apposé",
+    "tone": "green"
+   },
+   "envoye": {
+    "label": "Envoyé",
+    "tone": "blue"
+   },
+   "depose": {
+    "label": "Déposé",
+    "tone": "blue"
+   },
+   "illisible": {
+    "label": "Numérisation illisible",
+    "tone": "red"
+   },
+   "renum": {
+    "label": "Nouvelle numérisation demandée",
+    "tone": "yellow"
+   }
+  },
+  "dtsStates": {
+   "attendu": {
+    "label": "DTS attendue",
+    "tone": "yellow"
+   },
+   "saisi": {
+    "label": "DTS saisie",
+    "tone": "blue"
+   },
+   "verifie": {
+    "label": "DTS vérifiée",
+    "tone": "green"
+   },
+   "anomalie": {
+    "label": "DTS à corriger",
+    "tone": "red"
+   }
+  },
+  "accountStates": {
+   "actif": {
+    "label": "Actif",
+    "tone": "green"
+   },
+   "suspendu": {
+    "label": "Suspendu",
+    "tone": "yellow"
+   },
+   "desactive": {
+    "label": "Désactivé",
+    "tone": "red"
+   }
+  }
+ },
+ "steps": [
+  "Dépôt",
+  "Recevabilité",
+  "Instruction",
+  "Transmission",
+  "Décision",
+  "Remise"
+ ],
+ "medals": [
+  {
+   "id": "bronze",
+   "label": "Médaille d’honneur du travail — Bronze",
+   "short": "Bronze",
+   "minYears": 10,
+   "maxYears": 19
+  },
+  {
+   "id": "argent",
+   "label": "Médaille d’honneur du travail — Argent",
+   "short": "Argent",
+   "minYears": 20,
+   "maxYears": 29
+  },
+  {
+   "id": "or",
+   "label": "Médaille d’honneur du travail — Or",
+   "short": "Or",
+   "minYears": 30,
+   "maxYears": null
+  }
+ ],
+ "config": {
+  "referenceDate": "2026-10-15",
+  "dataVersion": "2026.10-r5",
+  "upload": {
+   "maxMb": 10,
+   "accept": [
+    "application/pdf",
+    "image/jpeg",
+    "image/png"
+   ],
+   "acceptLabel": "PDF, JPG ou PNG"
+  },
+  "map": {
+   "tileUrl": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+   "attribution": "&copy; contributeurs OpenStreetMap",
+   "center": [
+    -0.75,
+    11.5
+   ],
+   "zoom": 6
+  },
+  "payment": {
+   "currency": "FCFA",
+   "note": "Le paiement est effectué hors application ; l’application enregistre l’ordre de recette, le reçu déposé et sa vérification. Aucune transaction financière n’est effectuée par le prototype."
+  }
+ },
+ "nav": [
+  {
+   "key": "apercu",
+   "label": "Vue d’ensemble",
+   "icon": "grid",
+   "pages": [
+    {
+     "view": "apercu",
+     "label": "Vue d’ensemble",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "dossiers",
+   "label": "Dossiers",
+   "icon": "folder",
+   "pages": [
+    {
+     "view": "dossiers",
+     "label": "Tous les dossiers",
+     "can": null
+    },
+    {
+     "view": "nouveau",
+     "label": "Nouveau dossier",
+     "can": "create"
+    },
+    {
+     "view": "instruction",
+     "label": "File d’instruction",
+     "can": null
+    },
+    {
+     "view": "supervision",
+     "label": "Supervision du service",
+     "can": null
+    },
+    {
+     "view": "beneficiaires",
+     "label": "Bénéficiaires et récipiendaires",
+     "can": null
+    },
+    {
+     "view": "complements",
+     "label": "Compléments et relances",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "decisions",
+   "label": "Décisions",
+   "icon": "stamp",
+   "pages": [
+    {
+     "view": "decisions",
+     "label": "Dossiers transmis et décisions",
+     "can": null
+    },
+    {
+     "view": "recours",
+     "label": "Recours",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "courriers",
+   "label": "Courriers",
+   "icon": "mail",
+   "pages": [
+    {
+     "view": "courriers",
+     "label": "Courriers et documents",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "registre",
+   "label": "Registre",
+   "icon": "inbox",
+   "pages": [
+    {
+     "view": "transmissions",
+     "label": "Registre des courriers",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "ceremonies",
+   "label": "Cérémonies",
+   "icon": "calendar",
+   "pages": [
+    {
+     "view": "ceremonies",
+     "label": "Calendrier et propositions",
+     "can": null
+    },
+    {
+     "view": "remises",
+     "label": "Remises des médailles",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "finances",
+   "label": "Finances",
+   "icon": "cash",
+   "pages": [
+    {
+     "view": "recettes",
+     "label": "Ordres de recette et reçus",
+     "can": null
+    },
+    {
+     "view": "stock",
+     "label": "Stock des médailles",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "suivi",
+   "label": "Suivi",
+   "icon": "medal",
+   "pages": [
+    {
+     "view": "distinctions",
+     "label": "Mes distinctions",
+     "can": null
+    },
+    {
+     "view": "pieces",
+     "label": "DTS et pièces justificatives",
+     "can": null
+    },
+    {
+     "view": "retraits",
+     "label": "Retraits sans cérémonie",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "controle",
+   "label": "Contrôle",
+   "icon": "shield",
+   "pages": [
+    {
+     "view": "controle",
+     "label": "Contrôles et anomalies",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "statistiques",
+   "label": "Statistiques",
+   "icon": "chart",
+   "pages": [
+    {
+     "view": "statistiques",
+     "label": "Statistiques",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "journal",
+   "label": "Journal",
+   "icon": "clock",
+   "pages": [
+    {
+     "view": "journal",
+     "label": "Journal d’activité",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "administration",
+   "label": "Administration",
+   "icon": "database",
+   "pages": [
+    {
+     "view": "administration",
+     "label": "Comptes, paramètres et journaux",
+     "can": null
+    }
+   ]
+  },
+  {
+   "key": "notifications",
+   "label": "Notifications",
+   "icon": "bell",
+   "pages": [
+    {
+     "view": "notifications",
+     "label": "Notifications",
+     "can": null
+    }
+   ]
+  }
+ ],
+ "routes": [],
+ "counts": {
+  "dossiers": 21,
+  "documents": 25,
+  "dts": 8,
+  "distinctions": 3,
+  "person": 6,
+  "ceremonies": 5,
+  "notifications": 29,
+  "transmissions": 35,
+  "receiptOrders": 5,
+  "stock": 4,
+  "suppliers": 3,
+  "purchaseOrders": 3,
+  "deliveries": 2,
+  "stockMovements": 19,
+  "remises": 2,
+  "withdrawals": 1,
+  "complements": 3,
+  "relances": 1,
+  "controls": 3,
+  "recours": 1,
+  "audit": 5,
+  "accounts": 15,
+  "organisations": 8,
+  "venues": 7
+ }
+}

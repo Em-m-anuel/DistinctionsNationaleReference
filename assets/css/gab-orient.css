@@ -999,6 +999,76 @@ mark { background: var(--yellow-100); color: inherit; border-radius: 2px; paddin
 .funnel li { display: grid; grid-template-columns: 130px 1fr 72px; gap: 12px; align-items: center; padding: 8px 0; font-size: var(--fs-sm); }
 .funnel li span:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--navy-900); }
 
+/* 14 bis. JOURNAL, RÉGIE, DÉCISIONS, PROFIL -------------------------------- */
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.grid-6 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+
+/* Journal d'activité */
+.journal { list-style: none; margin: 0; padding: 0; }
+.journal-day { padding: 12px 18px 6px; font-size: var(--fs-xs); font-weight: 600; color: var(--faint); letter-spacing: 0.03em; background: var(--surface-2); border-bottom: 1px solid var(--line-soft); }
+.journal-row { display: grid; grid-template-columns: 62px 14px minmax(0, 1fr) 210px auto; gap: 12px; align-items: center; padding: 11px 18px; border-bottom: 1px solid var(--line-soft); }
+.journal-row:last-child { border-bottom: 0; }
+.journal-row:hover { background: var(--surface-2); }
+.journal-time { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 600; }
+.journal-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--faint); box-shadow: 0 0 0 3px var(--slate-50); }
+.journal-dot.lv-action { background: var(--blue-600); box-shadow: 0 0 0 3px var(--blue-50); }
+.journal-dot.lv-alerte { background: var(--red-600); box-shadow: 0 0 0 3px var(--red-50); }
+.journal-body { min-width: 0; display: grid; gap: 2px; }
+.journal-body strong { font-size: var(--fs-md); color: var(--navy-900); font-weight: 600; }
+.journal-detail { font-size: var(--fs-sm); color: var(--muted); }
+.journal-actor { display: grid; font-size: var(--fs-sm); color: var(--ink-2); }
+.journal-actor span { font-size: var(--fs-xs); color: var(--faint); }
+
+/* Accordéon (recours) */
+.accordion { border-top: 1px solid var(--line-soft); }
+.acc { border-bottom: 1px solid var(--line-soft); }
+.acc.is-open { background: var(--surface-2); }
+.acc-head { display: flex; align-items: stretch; }
+.acc-btn { flex: 1; display: grid; grid-template-columns: 128px minmax(0, 1fr) auto 18px; gap: 12px; align-items: center; padding: 14px 18px; background: none; border: 0; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.acc-btn:hover { background: var(--surface-2); }
+.acc-btn:focus-visible { box-shadow: var(--focus); outline: none; border-radius: var(--r-sm); }
+.acc-caret { color: var(--faint); transition: transform var(--t-med) var(--ease); }
+.acc.is-open .acc-caret { transform: rotate(180deg); }
+.acc-body { padding: 4px 18px 20px; display: grid; gap: 14px; animation: fade-up 240ms var(--ease-out); }
+.acc-body .d-section h4 { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+.d-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding-top: 4px; border-top: 1px dashed var(--line); margin-top: 4px; }
+
+/* Régie : cartes de stock */
+.stock-card .card-body { display: grid; gap: 4px; }
+.stock-card.is-alert { border-color: var(--yellow-100); box-shadow: 0 0 0 1px rgba(217, 168, 0, 0.25), var(--shadow-sm); }
+.stock-fig { display: flex; align-items: baseline; gap: 8px; }
+.stock-fig strong { font-family: var(--font-serif); font-size: 2rem; font-weight: 600; line-height: 1; color: var(--navy-900); }
+.stock-fig span { font-size: var(--fs-xs); }
+.stock-card .bar-track { height: 6px; }
+
+/* Profil */
+.profile-hero { display: flex; gap: 16px; align-items: center; padding: 4px 18px 14px; }
+.profile-hero h3 { font-family: var(--font-serif); font-size: var(--fs-xl); font-weight: 600; color: var(--navy-900); }
+.profile-hero p { font-size: var(--fs-sm); margin: 2px 0 8px; }
+.role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 4px 18px 16px; }
+.role-family h4 { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+.role-card { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; width: 100%; padding: 11px 13px; margin-bottom: 8px; text-align: left; cursor: pointer; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--shadow-xs); transition: border-color var(--t-fast), transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }
+.role-card:hover { border-color: var(--line-strong); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.role-card:focus-visible { box-shadow: var(--focus); outline: none; }
+.role-card strong { display: block; font-size: var(--fs-sm); color: var(--navy-900); }
+.role-card span span { display: block; font-size: var(--fs-xs); }
+.role-card.is-current { border-color: var(--green-600); background: var(--green-50); }
+.role-ico { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--surface-3); color: var(--navy-700); }
+.role-card.is-current .role-ico { background: var(--green-600); color: #fff; }
+@media (max-width: 1060px) {
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .journal-row { grid-template-columns: 54px 12px minmax(0, 1fr) auto; }
+  .journal-actor { display: none; }
+}
+@media (max-width: 760px) {
+  .grid-4, .grid-6 { grid-template-columns: minmax(0, 1fr); }
+  .acc-btn { grid-template-columns: minmax(0, 1fr) auto; }
+  .acc-btn .ref { grid-column: 1 / -1; }
+  .journal-row { grid-template-columns: 48px 12px minmax(0, 1fr); padding: 10px 14px; }
+  .journal-row .badge { grid-column: 3; justify-self: start; }
+  .grid-6 { gap: 12px; }
+}
+
 /* 15. ANIMATIONS ----------------------------------------------------------- */
 .reveal { opacity: 0; transform: translateY(10px); transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
 .reveal.is-in { opacity: 1; transform: none; }
@@ -1049,6 +1119,15 @@ html.reduce-motion .reveal { opacity: 1; transform: none; }
   .venue-layout { grid-template-columns: 300px minmax(0, 1fr); }
   .venue-layout > .venue-request { grid-column: 1 / -1; }
   .venue-request .card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+/* La barre de sections reste sur une seule ligne jusqu'au passage en navigation mobile (1060 px). */
+@media (max-width: 1280px) {
+  .main-nav ul { gap: 0; }
+  .main-nav .nav-link { gap: 5px; padding: 0 6px; font-size: var(--fs-sm); }
+  .main-nav .nav-caret { padding: 0 3px; }
+}
+@media (max-width: 1130px) {
+  .main-nav .nav-count { display: none; }
 }
 @media (max-width: 1200px) {
   .search-trigger { width: 220px; }

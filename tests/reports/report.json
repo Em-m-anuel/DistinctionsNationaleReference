@@ -1,0 +1,1407 @@
+{
+ "startedAt": "2026-10-15T14:23:13.801Z",
+ "base": "http://127.0.0.1:8123/index.html",
+ "roles": {
+  "demandeur_entreprise": {
+   "label": "Demandeur — Entreprise",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 12156,
+     "empty": "Aucune cérémonie à venir",
+     "buttons": 14,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Mes dossiers",
+     "len": 8289,
+     "empty": null,
+     "buttons": 11,
+     "tables": 1
+    },
+    "nouveau": {
+     "ok": true,
+     "h1": "Nouveau dossier de distinction",
+     "len": 7294,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "beneficiaires": {
+     "ok": true,
+     "h1": "Bénéficiaires et récipiendaires",
+     "len": 14895,
+     "empty": null,
+     "buttons": 13,
+     "tables": 1
+    },
+    "pieces": {
+     "ok": true,
+     "h1": "DTS et pièces justificatives",
+     "len": 6459,
+     "empty": "Aucune pièce",
+     "buttons": 5,
+     "tables": 1
+    },
+    "complements": {
+     "ok": true,
+     "h1": "Compléments et relances",
+     "len": 2594,
+     "empty": "Aucun complément",
+     "buttons": 0,
+     "tables": 1
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 2879,
+     "empty": "Aucun recours",
+     "buttons": 5,
+     "tables": 0
+    },
+    "recettes": {
+     "ok": true,
+     "h1": "Ordres de recette et reçus",
+     "len": 4685,
+     "empty": null,
+     "buttons": 3,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 5640,
+     "empty": null,
+     "buttons": 8,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13097,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 41,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 6655,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 7568,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8984,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "demandeur_ministere": {
+   "label": "Demandeur — Ministère",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 12309,
+     "empty": "Aucune cérémonie à venir",
+     "buttons": 15,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Mes dossiers",
+     "len": 6978,
+     "empty": null,
+     "buttons": 10,
+     "tables": 1
+    },
+    "nouveau": {
+     "ok": true,
+     "h1": "Nouveau dossier de distinction",
+     "len": 7686,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "beneficiaires": {
+     "ok": true,
+     "h1": "Bénéficiaires et récipiendaires",
+     "len": 13778,
+     "empty": null,
+     "buttons": 12,
+     "tables": 1
+    },
+    "pieces": {
+     "ok": true,
+     "h1": "DTS et pièces justificatives",
+     "len": 4930,
+     "empty": null,
+     "buttons": 4,
+     "tables": 1
+    },
+    "complements": {
+     "ok": true,
+     "h1": "Compléments et relances",
+     "len": 4347,
+     "empty": null,
+     "buttons": 1,
+     "tables": 2
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 2861,
+     "empty": "Aucun recours",
+     "buttons": 5,
+     "tables": 0
+    },
+    "recettes": {
+     "ok": true,
+     "h1": "Ordres de recette et reçus",
+     "len": 3462,
+     "empty": "Aucun ordre de recette",
+     "buttons": 1,
+     "tables": 0
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 6135,
+     "empty": null,
+     "buttons": 9,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13097,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 41,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 7184,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 2239,
+     "empty": "Aucune notification",
+     "buttons": 3,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8953,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "recipiendaire": {
+   "label": "Employé / Récipiendaire",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 10614,
+     "empty": "Aucune action en attente",
+     "buttons": 9,
+     "tables": 0
+    },
+    "distinctions": {
+     "ok": true,
+     "h1": "Mes distinctions",
+     "len": 5551,
+     "empty": "Aucune notification",
+     "buttons": 1,
+     "tables": 1
+    },
+    "pieces": {
+     "ok": true,
+     "h1": "Mes documents",
+     "len": 3225,
+     "empty": "Aucune DTS ne correspond",
+     "buttons": 1,
+     "tables": 1
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13077,
+     "empty": null,
+     "buttons": 40,
+     "tables": 0
+    },
+    "retraits": {
+     "ok": true,
+     "h1": "Retraits sans cérémonie",
+     "len": 5707,
+     "empty": "Aucun retrait sans cérémonie",
+     "buttons": 9,
+     "tables": 1
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Mes dossiers",
+     "len": 6805,
+     "empty": null,
+     "buttons": 9,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 6043,
+     "empty": null,
+     "buttons": 9,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 2239,
+     "empty": "Aucune notification",
+     "buttons": 3,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8554,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "sec_min": {
+   "label": "Secrétaire du Ministre",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 13433,
+     "empty": "Aucune action en attente",
+     "buttons": 8,
+     "tables": 0
+    },
+    "transmissions": {
+     "ok": true,
+     "h1": "Registre — Ministre",
+     "len": 14174,
+     "empty": null,
+     "buttons": 16,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 8897,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 10466,
+     "empty": null,
+     "buttons": 12,
+     "tables": 1
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 12676,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 39,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 8256,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 3125,
+     "empty": null,
+     "buttons": 5,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8822,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "sec_dgt": {
+   "label": "Secrétaire de la DGT",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 14686,
+     "empty": "Aucune action en attente",
+     "buttons": 9,
+     "tables": 0
+    },
+    "transmissions": {
+     "ok": true,
+     "h1": "Registre — DGT",
+     "len": 21534,
+     "empty": null,
+     "buttons": 23,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 12136,
+     "empty": null,
+     "buttons": 18,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 15666,
+     "empty": null,
+     "buttons": 16,
+     "tables": 1
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13827,
+     "empty": null,
+     "buttons": 41,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 8831,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 5267,
+     "empty": null,
+     "buttons": 9,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8834,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "sec_dr": {
+   "label": "Secrétaire de la DR",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 13476,
+     "empty": "Aucune action en attente",
+     "buttons": 8,
+     "tables": 0
+    },
+    "transmissions": {
+     "ok": true,
+     "h1": "Registre — DR Estuaire",
+     "len": 15062,
+     "empty": null,
+     "buttons": 17,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 7285,
+     "empty": null,
+     "buttons": 11,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 13088,
+     "empty": null,
+     "buttons": 14,
+     "tables": 1
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 12682,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 39,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 9359,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 4210,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8862,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "chef": {
+   "label": "Chef de service",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 20282,
+     "empty": null,
+     "buttons": 22,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 31844,
+     "empty": null,
+     "buttons": 29,
+     "tables": 1
+    },
+    "nouveau": {
+     "ok": true,
+     "h1": "Nouveau dossier de distinction",
+     "len": 7212,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "instruction": {
+     "ok": true,
+     "h1": "File d’instruction",
+     "len": 18778,
+     "empty": null,
+     "buttons": 21,
+     "tables": 1
+    },
+    "supervision": {
+     "ok": true,
+     "h1": "Supervision du service",
+     "len": 14685,
+     "empty": null,
+     "buttons": 18,
+     "tables": 3
+    },
+    "beneficiaires": {
+     "ok": true,
+     "h1": "Bénéficiaires et récipiendaires",
+     "len": 80159,
+     "empty": null,
+     "buttons": 79,
+     "tables": 1
+    },
+    "complements": {
+     "ok": true,
+     "h1": "Compléments et relances",
+     "len": 6716,
+     "empty": null,
+     "buttons": 7,
+     "tables": 2
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 5123,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "recettes": {
+     "ok": true,
+     "h1": "Ordres de recette et reçus",
+     "len": 8287,
+     "empty": null,
+     "buttons": 8,
+     "tables": 1
+    },
+    "remises": {
+     "ok": true,
+     "h1": "Remises des médailles",
+     "len": 4971,
+     "empty": null,
+     "buttons": 6,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 18159,
+     "empty": null,
+     "buttons": 31,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 14236,
+     "empty": null,
+     "buttons": 43,
+     "tables": 0
+    },
+    "statistiques": {
+     "ok": true,
+     "h1": "Statistiques",
+     "len": 28909,
+     "empty": null,
+     "buttons": 6,
+     "tables": 7
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 9881,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 13525,
+     "empty": null,
+     "buttons": 28,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 9817,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "agent": {
+   "label": "Agent du Service des Distinctions",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 20235,
+     "empty": null,
+     "buttons": 21,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 31832,
+     "empty": null,
+     "buttons": 29,
+     "tables": 1
+    },
+    "nouveau": {
+     "ok": true,
+     "h1": "Nouveau dossier de distinction",
+     "len": 7212,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "instruction": {
+     "ok": true,
+     "h1": "File d’instruction",
+     "len": 16363,
+     "empty": null,
+     "buttons": 18,
+     "tables": 1
+    },
+    "beneficiaires": {
+     "ok": true,
+     "h1": "Bénéficiaires et récipiendaires",
+     "len": 80159,
+     "empty": null,
+     "buttons": 79,
+     "tables": 1
+    },
+    "complements": {
+     "ok": true,
+     "h1": "Compléments et relances",
+     "len": 6716,
+     "empty": null,
+     "buttons": 7,
+     "tables": 2
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 5123,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "recettes": {
+     "ok": true,
+     "h1": "Ordres de recette et reçus",
+     "len": 8287,
+     "empty": null,
+     "buttons": 8,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 18141,
+     "empty": null,
+     "buttons": 31,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 14242,
+     "empty": null,
+     "buttons": 43,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 10415,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 13525,
+     "empty": null,
+     "buttons": 28,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 9356,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "inspecteur": {
+   "label": "Inspecteur",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 16573,
+     "empty": "Aucune action en attente",
+     "buttons": 10,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 31681,
+     "empty": null,
+     "buttons": 28,
+     "tables": 1
+    },
+    "controle": {
+     "ok": true,
+     "h1": "Contrôles et anomalies",
+     "len": 9793,
+     "empty": null,
+     "buttons": 15,
+     "tables": 1
+    },
+    "beneficiaires": {
+     "ok": true,
+     "h1": "Bénéficiaires et récipiendaires",
+     "len": 79996,
+     "empty": null,
+     "buttons": 78,
+     "tables": 1
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 18159,
+     "empty": null,
+     "buttons": 31,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13827,
+     "empty": null,
+     "buttons": 41,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 11031,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 3155,
+     "empty": null,
+     "buttons": 5,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8722,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "dgt": {
+   "label": "DGT — Directeur général du Travail",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 18279,
+     "empty": null,
+     "buttons": 18,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 15666,
+     "empty": null,
+     "buttons": 16,
+     "tables": 1
+    },
+    "decisions": {
+     "ok": true,
+     "h1": "Dossiers transmis et décisions",
+     "len": 14390,
+     "empty": null,
+     "buttons": 18,
+     "tables": 2
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 5309,
+     "empty": null,
+     "buttons": 8,
+     "tables": 0
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 10943,
+     "empty": null,
+     "buttons": 18,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13827,
+     "empty": null,
+     "buttons": 41,
+     "tables": 0
+    },
+    "statistiques": {
+     "ok": true,
+     "h1": "Statistiques",
+     "len": 26372,
+     "empty": null,
+     "buttons": 6,
+     "tables": 7
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 11576,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 5267,
+     "empty": null,
+     "buttons": 9,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 9136,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "ministre": {
+   "label": "Ministre du Travail",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 13423,
+     "empty": "Aucune cérémonie à venir",
+     "buttons": 10,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 10466,
+     "empty": null,
+     "buttons": 12,
+     "tables": 1
+    },
+    "decisions": {
+     "ok": true,
+     "h1": "Dossiers transmis et décisions",
+     "len": 4766,
+     "empty": "Aucun dossier dans cette vue",
+     "buttons": 5,
+     "tables": 1
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 2864,
+     "empty": "Aucun recours",
+     "buttons": 5,
+     "tables": 0
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 8879,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 12682,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 39,
+     "tables": 0
+    },
+    "statistiques": {
+     "ok": true,
+     "h1": "Statistiques",
+     "len": 25030,
+     "empty": null,
+     "buttons": 6,
+     "tables": 7
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 12116,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 3125,
+     "empty": null,
+     "buttons": 5,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 9125,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "dr": {
+   "label": "DR — Directeur régional du Travail",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 13475,
+     "empty": "Aucune cérémonie à venir",
+     "buttons": 10,
+     "tables": 0
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 13088,
+     "empty": null,
+     "buttons": 14,
+     "tables": 1
+    },
+    "decisions": {
+     "ok": true,
+     "h1": "Dossiers transmis et décisions",
+     "len": 4640,
+     "empty": "Aucun dossier dans cette vue",
+     "buttons": 5,
+     "tables": 1
+    },
+    "recours": {
+     "ok": true,
+     "h1": "Recours",
+     "len": 2864,
+     "empty": "Aucun recours",
+     "buttons": 5,
+     "tables": 0
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers de l’autorité",
+     "len": 7285,
+     "empty": null,
+     "buttons": 11,
+     "tables": 0
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 12682,
+     "empty": "Aucune cérémonie ce mois-ci",
+     "buttons": 39,
+     "tables": 0
+    },
+    "statistiques": {
+     "ok": true,
+     "h1": "Statistiques",
+     "len": 26106,
+     "empty": null,
+     "buttons": 6,
+     "tables": 7
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 12671,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 4210,
+     "empty": null,
+     "buttons": 7,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 9061,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "regisseur": {
+   "label": "Régisseur des médailles",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 13929,
+     "empty": null,
+     "buttons": 11,
+     "tables": 1
+    },
+    "recettes": {
+     "ok": true,
+     "h1": "Ordres de recette et reçus",
+     "len": 8909,
+     "empty": null,
+     "buttons": 9,
+     "tables": 1
+    },
+    "stock": {
+     "ok": true,
+     "h1": "Stock des médailles",
+     "len": 22463,
+     "empty": null,
+     "buttons": 4,
+     "tables": 4
+    },
+    "remises": {
+     "ok": true,
+     "h1": "Remises des médailles",
+     "len": 4971,
+     "empty": null,
+     "buttons": 6,
+     "tables": 1
+    },
+    "retraits": {
+     "ok": true,
+     "h1": "Retraits sans cérémonie",
+     "len": 4650,
+     "empty": null,
+     "buttons": 7,
+     "tables": 1
+    },
+    "dossiers": {
+     "ok": true,
+     "h1": "Dossiers",
+     "len": 31681,
+     "empty": null,
+     "buttons": 28,
+     "tables": 1
+    },
+    "ceremonies": {
+     "ok": true,
+     "h1": "Cérémonies",
+     "len": 13827,
+     "empty": null,
+     "buttons": 41,
+     "tables": 0
+    },
+    "courriers": {
+     "ok": true,
+     "h1": "Courriers et documents",
+     "len": 18159,
+     "empty": null,
+     "buttons": 31,
+     "tables": 0
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 13219,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 4425,
+     "empty": null,
+     "buttons": 8,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8903,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  },
+  "admin": {
+   "label": "Administrateur",
+   "views": {
+    "apercu": {
+     "ok": true,
+     "h1": "Vue d’ensemble",
+     "len": 14875,
+     "empty": "Aucune action en attente",
+     "buttons": 9,
+     "tables": 0
+    },
+    "administration": {
+     "ok": true,
+     "h1": "Comptes, paramètres et journaux",
+     "len": 17376,
+     "empty": null,
+     "buttons": 35,
+     "tables": 1
+    },
+    "journal": {
+     "ok": true,
+     "h1": "Journal d’activité",
+     "len": 13758,
+     "empty": null,
+     "buttons": 1,
+     "tables": 0
+    },
+    "notifications": {
+     "ok": true,
+     "h1": "Notifications",
+     "len": 2893,
+     "empty": null,
+     "buttons": 4,
+     "tables": 0
+    },
+    "profil": {
+     "ok": true,
+     "h1": "Mon profil",
+     "len": 8427,
+     "empty": null,
+     "buttons": 14,
+     "tables": 0
+    }
+   },
+   "jsErrors": [],
+   "extBlocked": 0,
+   "perView": {}
+  }
+ },
+ "flows": [
+  {
+   "name": "profil annonceur → changement de profil par le menu",
+   "ok": true,
+   "note": "Chef du Service des Distinctions",
+   "errors": []
+  },
+  {
+   "name": "dossiers → ouverture du panneau de détail",
+   "ok": true,
+   "note": "Compagnie Forestière de l’Ogooué",
+   "errors": []
+  },
+  {
+   "name": "dossiers → recherche et filtre par statut",
+   "ok": true,
+   "note": "lignes 21 → 4",
+   "errors": []
+  },
+  {
+   "name": "dossier reçu → ouverture de l’instruction (modale + validation)",
+   "ok": true,
+   "note": "dossier DNG-2026-018 — première action: Demander un complément",
+   "errors": []
+  },
+  {
+   "name": "cérémonies → onglet « Proposer un lieu et une date » et carte",
+   "ok": true,
+   "note": "7 lieux → 3 après recherche, fiche 371 caractères",
+   "errors": []
+  },
+  {
+   "name": "cérémonies → calendrier : navigation de mois et sélection de jour",
+   "ok": true,
+   "note": "novembre 2026 — détail 209 caractères",
+   "errors": []
+  },
+  {
+   "name": "nouveau dossier → assistant : étape 1 valide, étape 2 bloquée sans récipiendaire",
+   "ok": true,
+   "note": "Nouveau dossier de distinction — étape « 2RécipiendairesPersonnes proposées » puis 11 message(s) de validation, étape courante « 2RécipiendairesPersonnes proposées »",
+   "errors": []
+  },
+  {
+   "name": "bénéficiaires → filtres et recherche (demandeur)",
+   "ok": true,
+   "note": "12 ligne(s)",
+   "errors": []
+  },
+  {
+   "name": "journal → recherche et filtre de niveau (administrateur)",
+   "ok": true,
+   "note": "8 → 0 événements",
+   "errors": []
+  },
+  {
+   "name": "administration → onglets comptes / paramètres / données",
+   "ok": true,
+   "note": "paramètres OK — 3 table(s) de référentiel",
+   "errors": []
+  },
+  {
+   "name": "stock → modale de mouvement et refus d’une quantité invalide",
+   "ok": true,
+   "note": "Enregistrer un mouvement de stock — modale maintenue, 1 erreur(s)",
+   "errors": []
+  },
+  {
+   "name": "remises → registre et état des réservations",
+   "ok": true,
+   "note": "1 ligne(s)",
+   "errors": []
+  },
+  {
+   "name": "retraits → demandeur : dépôt d’une demande sans cérémonie",
+   "ok": true,
+   "note": "aucune action proposée pour ce profil",
+   "errors": []
+  },
+  {
+   "name": "recours → instruction par la DGT",
+   "ok": true,
+   "note": "1 recours listé(s)",
+   "errors": []
+  },
+  {
+   "name": "décisions → onglets et suivi (DGT)",
+   "ok": true,
+   "note": "3 filtres — 6 décision(s) rendue(s)",
+   "errors": []
+  },
+  {
+   "name": "registre → classement d’un courrier reçu (secrétariat DGT)",
+   "ok": true,
+   "note": "16 courrier(s) au registre",
+   "errors": []
+  },
+  {
+   "name": "compléments → relance depuis la liste (service)",
+   "ok": true,
+   "note": "3 complément(s)",
+   "errors": []
+  },
+  {
+   "name": "écriture 1 — ouvrir l’instruction d’un dossier reçu (chef) puis vérifier la persistance",
+   "ok": true,
+   "note": "DNG-2026-018: recu → en_cours, conservé après rechargement",
+   "errors": []
+  },
+  {
+   "name": "écriture 2 — mouvement de stock : entrée de 5 médailles Bronze (régie)",
+   "ok": true,
+   "note": "stock Bronze 148 → 153, mouvement enregistré",
+   "errors": []
+  },
+  {
+   "name": "écriture 3 — réponse à un complément (demandeur ministère) puis reprise de l’instruction",
+   "ok": true,
+   "note": "DNG-2026-012 : complément déposé, instruction reprise",
+   "errors": []
+  },
+  {
+   "name": "écriture 4 — demande de retrait sans cérémonie (récipiendaire) visible par la régie",
+   "ok": true,
+   "note": "demande créée et visible par la régie (2 ligne(s))",
+   "errors": []
+  },
+  {
+   "name": "écriture 5 — création d’un compte puis journalisation (administrateur)",
+   "ok": true,
+   "note": "compte créé (16 comptes) et journalisé",
+   "errors": []
+  },
+  {
+   "name": "recherche globale (Ctrl+K) et ouverture d’un résultat",
+   "ok": true,
+   "note": "12 résultat(s) — #/dossiers/DNG-2026-001",
+   "errors": []
+  }
+ ],
+ "errors": [],
+ "notes": [
+  "App chargée — titre: Vue d’ensemble · GAB-ORIENT"
+ ],
+ "finishedAt": "2026-10-15T14:25:05.748Z"
+}
