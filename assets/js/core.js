@@ -2,6 +2,7 @@
    GAB-ORIENT — Noyau de l'application
    - utilitaires (dates, formats, échappement)
    - état local (données de référence + modifications persistées sur le poste)
+   - profils de travail : portées de visibilité, permissions, navigation
    - composants partagés (badges, toasts, modales, panneau latéral, menus,
      infobulles, compteurs animés, apparition au défilement)
    - coquille (en-tête, navigation, recherche, compte) et routeur
@@ -47,7 +48,7 @@ window.GO = (function () {
     return fmtDate(s, 'short');
   }
   const plural = (n, one, many) => `${n} ${n > 1 ? many : one}`;
-  const norm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
   const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('reduce-motion');
   const wait = ms => new Promise(r => setTimeout(r, reduced() ? Math.min(ms, 40) : ms));
@@ -77,28 +78,187 @@ window.GO = (function () {
   function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch (e) { /* ignoré */ } }
   function resetState() { S = freshState(); GO.S = S; try { localStorage.removeItem(STORE_KEY); } catch (e) { /* ignoré */ } }
 
-  const role = () => D.roles[S.role];
+  const role = () => D.roles[S.role] || D.roles.chef;
   const can = k => !!role().can[k];
-  const user = () => D.users[role().user];
+  const family = () => role().family;
+  const isFamily = (...f) => f.includes(role().family);
+
+  function user() {
+    const r = role(), u = D.users[r.user] || {};
+    if (r.scope && r.scope.kind === 'person' && S.person) {
+      const p = S.person, o = D.organisations.find(x => x.id === p.org);
+      return Object.assign({}, u, {
+        name: `${p.prenom} ${p.nom}`, initials: `${p.prenom[0]}${p.nom[0]}`.toUpperCase(),
+        title: p.fonction, unit: o ? o.name : u.unit, email: u.email
+      });
+    }
+    return u;
+  }
   const org = id => D.organisations.find(o => o.id === id);
   const venue = id => D.venues.find(v => v.id === id);
-  const medal = id => D.medals.find(m => m.id === id);
+  // Un intitulé lisible pour tout article de stock (médailles et diplômes).
+  const medal = id => D.medals.find(m => m.id === id) || (() => {
+    const it = (D.seed.stock || []).find(s => s.item === id);
+    return it ? { id, label: it.label, short: it.label.replace(/^Médaille /, ''), minYears: 0, maxYears: null } : { id, label: String(id), short: String(id), minYears: 0, maxYears: null };
+  })();
+  const authority = id => D.authorities.find(a => a.id === id);
+  const scopeAuthority = () => (role().scope && role().scope.kind === 'authority') ? authority(role().scope.value) : null;
   const getDossier = ref => S.dossiers.find(d => d.ref === ref);
   const getDoc = id => S.documents.find(d => d.id === id);
   const getCer = id => S.ceremonies.find(c => c.id === id);
-  const myDossiers = () => S.dossiers.filter(d => !role().scope || d.org === role().scope);
-  const myDocs = () => S.documents.filter(doc => { const d = getDossier(doc.dossier); return d && (!role().scope || (d.org === role().scope && !doc.internal)); });
-  const myNotifs = () => S.notifications.filter(n => role().scope ? n.aud === 'org:' + role().scope : n.aud === 'service');
-  const myCers = () => S.ceremonies.filter(c => { const d = getDossier(c.dossier); return d && (!role().scope || d.org === role().scope); });
+
+  // Visibilité : organisme demandeur, personne bénéficiaire ou autorité destinataire.
+  function scopeMatch(d) {
+    const s = role().scope;
+    if (!s) return true;
+    if (s.kind === 'org') return d.org === s.value;
+    if (s.kind === 'person') { const ids = Array.isArray(s.value) ? s.value : [s.value]; return d.recipients.some(r => ids.includes(r.id)); }
+    if (s.kind === 'authority') return d.authority === s.value;
+    return true;
+  }
+  const external = () => isFamily('demandeur', 'recipiendaire');
+  const myDossiers = () => S.dossiers.filter(scopeMatch);
+  const myDocs = () => S.documents.filter(doc => { const d = getDossier(doc.dossier); return d && scopeMatch(d) && !(external() && doc.internal); });
+  const myCers = () => S.ceremonies.filter(c => { const d = getDossier(c.dossier); return d && scopeMatch(d); });
+  const myDts = () => S.dts.filter(x => { const d = getDossier(x.dossier); return d && scopeMatch(d); });
   const sortHist = h => h.slice().sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
   const lastActivity = d => sortHist(d.history).at(-1);
   const docsOf = ref => S.documents.filter(x => x.dossier === ref);
   const cersOf = ref => S.ceremonies.filter(c => c.dossier === ref).sort((a, b) => b.date.localeCompare(a.date));
   const activeCer = ref => S.ceremonies.find(c => c.dossier === ref && ['propose', 'negociation', 'confirme'].includes(c.state));
   const closure = date => D.closures.find(c => c.date === date);
-  function actorName() { return S.role === 'demandeur' ? org(role().scope).name : S.role === 'chef' ? 'Chef du Service' : 'Service des Distinctions'; }
-  function addHistory(d, kind, label, actor) { d.history.push(Object.assign(stamp(), { kind, label, actor: actor || actorName(), isNew: true })); }
-  function notify(n) { S.notifications.unshift(Object.assign({ id: 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), read: false }, stamp(), n)); }
+
+  /* ---------- Objets métier (registre, recettes, stock, contrôle…) ---------- */
+  const receiptOrder = ref => S.receiptOrders.find(o => o.dossier === ref);
+  const myReceiptOrders = () => S.receiptOrders.filter(o => { const d = getDossier(o.dossier); return d && scopeMatch(d); });
+  const receiptOf = ref => { const o = receiptOrder(ref); return o && o.receipts && o.receipts.length ? o.receipts[o.receipts.length - 1] : null; };
+  const remiseOf = ref => S.remises.find(r => r.dossier === ref);
+  const myRemises = () => S.remises.filter(r => { const d = getDossier(r.dossier); return d && scopeMatch(d); });
+  const withdrawalOf = ref => S.withdrawals.find(w => w.dossier === ref);
+  const myWithdrawals = () => S.withdrawals.filter(w => { const d = getDossier(w.dossier); return d && scopeMatch(d); });
+  const controlOf = ref => S.controls.find(c => c.dossier === ref);
+  const myControls = () => S.controls.filter(c => { const d = getDossier(c.dossier); return d && scopeMatch(d); });
+  const recoursOf = ref => S.recours.find(r => r.dossier === ref);
+  const myRecours = () => S.recours.filter(r => { const d = getDossier(r.dossier); return d && scopeMatch(d); });
+  const complementOf = ref => S.complements.find(c => c.dossier === ref);
+  const myComplements = () => S.complements.filter(c => { const d = getDossier(c.dossier); return d && scopeMatch(d); });
+  const myRelances = () => S.relances.filter(r => { const d = getDossier(r.dossier); return d && scopeMatch(d); });
+  const stockOf = item => S.stock.find(s => s.item === item);
+  const stockTotal = () => S.stock.filter(s => s.item !== 'diplome').reduce((a, s) => a + s.available, 0);
+  const distinctOf = personId => S.distinctions.filter(x => x.person === personId);
+  // Registre des courriers : un secrétariat ou une autorité ne voit que son registre,
+  // le demandeur et le bénéficiaire ne voient que les courriers de leurs dossiers.
+  const myTransmissions = () => {
+    const s = role().scope;
+    if (s && s.kind === 'authority') return S.transmissions.filter(t => t.authority === s.value);
+    if (external()) return S.transmissions.filter(t => {
+      const doc = t.file && getDoc(t.file);
+      const d = getDossier(t.dossier);
+      return d && scopeMatch(d) && !(doc && doc.internal) && t.channel !== 'Navette interne';
+    });
+    return S.transmissions;
+  };
+  // Journal technique : scoped pour l'administrateur et les profils internes.
+  const myAudit = () => {
+    if (isFamily('administration')) return S.audit;
+    if (isFamily('service', 'inspection')) return S.audit.filter(a => !role().scope ? true : true);
+    const mine = new Set(myDossiers().map(d => d.ref));
+    return S.audit.filter(a => !a.ref || mine.has(a.ref));
+  };
+
+  function actorName() {
+    const r = role();
+    if (r.scope && r.scope.kind === 'authority') return 'Secrétariat — ' + authority(r.scope.value).short;
+    switch (r.family) {
+      case 'service': return r.user === 'u1' ? 'Chef du Service' : 'Service des Distinctions';
+      case 'inspection': return 'Inspection du travail';
+      case 'regie': return 'Régie des médailles';
+      case 'administration': return 'Administration GAB-ORIENT';
+      case 'autorite': return authority(r.scope.value).label;
+      case 'demandeur': return org(r.scope.value).name;
+      case 'recipiendaire': return `${user().name} (bénéficiaire)`;
+      default: return user().name;
+    }
+  }
+  function addHistory(d, kind, label, actor, opts) {
+    const entry = Object.assign(stamp(), { kind, label, actor: actor || actorName(), isNew: true });
+    d.history.push(entry);
+    audit(runActor(), label, (opts && opts.detail) || d.ref, opts && opts.level);
+    return entry;
+  }
+  function runActor() { return `${user().name} (${role().label})`; }
+  function notify(n) {
+    S.notifications.unshift(Object.assign({ id: 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), read: false }, stamp(), n));
+  }
+  function audit(actor, action, detail, level) {
+    S.audit = S.audit || [];
+    S.audit.unshift({ id: 'LOG-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 4), date: REF_ISO, time: stamp().time, actor, role: role().label, action, detail: detail || '', level: level || 'info' });
+    if (S.audit.length > 400) S.audit.length = 400;
+  }
+  function moveStock(o) {
+    // field : 'available' (stock physique) ou 'reserved' (réservation réversible)
+    const item = stockOf(o.item); if (!item) return null;
+    item[o.field] += o.qty;
+    const mv = Object.assign({ id: 'MV-2026-' + String(1000 + S.stockMovements.length + 1).slice(-4), date: REF_ISO, author: actorName() }, o);
+    S.stockMovements.unshift(mv);
+    audit(runActor(), 'Mouvement de stock', `${mv.id} · ${o.item} ${o.qty > 0 ? '+' : ''}${o.qty} (${o.field === 'reserved' ? 'réservation' : 'stock'})`, 'info');
+    return mv;
+  }
+  function addTransmission(o) {
+    const t = Object.assign({ id: 'TR-2026-' + String(149 + S.transmissions.length - 34 + 1).padStart(4, '0'), date: REF_ISO, time: stamp().time, authority: null }, o);
+    S.transmissions.unshift(t);
+    return t;
+  }
+  function nextRef(prefix, list, start) {
+    const nums = list.map(x => +String(x.id).replace(/\D/g, '').slice(-4)).filter(n => !isNaN(n));
+    const base = String(prefix).replace(/-+$/, '');
+    const n = Math.max(start - 1, ...nums) + 1;
+    return `${base}-${String(n).padStart(4, '0')}`;
+  }
+  function nextDocNumber() {
+    const nums = S.documents.map(x => /N° (\d+)\/SDN/.exec(x.number || '')).filter(Boolean).map(m => +m[1]);
+    return `N° ${Math.max(130, ...nums) + 1}/SDN`;
+  }
+  // Ajoute une ligne au registre tenu par le secrétariat de l'autorité destinataire.
+  function registryAdd(doc, dossier) {
+    const d = dossier || (doc && getDossier(doc.dossier));
+    if (!d) return null;
+    const row = doc ? D.registryDoc(doc) : D.registryDossier(d);
+    if (!row) return null;
+    const n = Math.max(149, ...S.transmissions.map(t => +String(t.id).slice(-4)) ) + 1;
+    const t = Object.assign({ id: 'TR-2026-' + String(n).padStart(4, '0'), time: stamp().time }, row);
+    S.transmissions.unshift(t);
+    return t;
+  }
+  function newDoc(o) {
+    const doc = Object.assign({ id: 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), pages: 1 }, o);
+    S.documents.push(doc);
+    registryAdd(doc);
+    return doc;
+  }
+  async function withLoading(btn, ms) {
+    if (!btn) { await wait(ms || 400); return; }
+    btn.classList.add('is-loading');
+    const html = btn.innerHTML;
+    btn.innerHTML = `<span class="spinner"></span>${btn.textContent.trim()}`;
+    await wait(ms || 400);
+    btn.innerHTML = html;
+    btn.classList.remove('is-loading');
+  }
+  function fieldError(field, msg) {
+    if (!field) return;
+    $$('.error-msg', field).forEach(n => n.remove());
+    field.classList.toggle('has-error', !!msg);
+    const ctl = $('input,textarea,select', field);
+    if (msg) {
+      const id = 'e' + Math.random().toString(36).slice(2, 7);
+      field.insertAdjacentHTML('beforeend', `<p class="error-msg" id="${id}">${icon('alert-circle')}${esc(msg)}</p>`);
+      if (ctl) { ctl.setAttribute('aria-invalid', 'true'); ctl.setAttribute('aria-describedby', id); }
+    } else if (ctl) { ctl.removeAttribute('aria-invalid'); ctl.removeAttribute('aria-describedby'); }
+  }
+  // Prévient la vue courante qu'un dossier a changé (liste, panneau, en-tête).
+  const hooks = {};
+  function refreshDossier(d, flash = true) { if (hooks.dossierChanged) hooks.dossierChanged(d, flash); }
   function commit() { save(); renderCounts(); }
 
   // Position dans le circuit : 0 Dépôt … 5 Remise (6 = terminé)
@@ -109,11 +269,22 @@ window.GO = (function () {
     return { cur, wait: d.status === 'complement', stop: d.status === 'refuse' };
   }
 
+  // Ancienneté et échelon : repères de la maquette fonctionnelle
+  // (Bronze 10-19 ans, Argent 20-29 ans, Or 30 ans et plus).
+  function eligibility(r) {
+    const years = seniority(r.entree);
+    const declared = medal(r.medal) || D.medals[0];
+    const expected = medal(D.medalForYears(years || 0));
+    const ok = years !== null && years >= declared.minYears && (declared.maxYears === null || years <= declared.maxYears);
+    return { years, declared, expected, ok, gap: ok ? 0 : Math.max(0, declared.minYears - (years || 0)), above: !!(declared.maxYears !== null && years !== null && years > declared.maxYears) };
+  }
+
   /* ---------- Composants ---------- */
   const badge = (label, tone, extra = '') => `<span class="badge tone-${tone} ${extra}">${esc(label)}</span>`;
-  const statusBadge = (s, short) => badge(short ? D.statuses[s].short : D.statuses[s].label, D.statuses[s].tone);
+  const statusBadge = (s, short) => badge(D.statuses[s].short && short ? D.statuses[s].short : D.statuses[s].label, D.statuses[s].tone);
   const cerBadge = s => badge(D.ceremonyStates[s].label, D.ceremonyStates[s].tone);
   const docBadge = s => badge(D.docStates[s].label, D.docStates[s].tone);
+  const dictBadge = (dict, key) => (dict && dict[key]) ? badge(dict[key].label, dict[key].tone) : badge(String(key || '—'), 'slate');
   const refChip = (ref, link = true) => link ? `<a class="ref-chip ref" href="#/dossiers/${esc(ref)}">${esc(ref)}</a>` : `<span class="ref-chip ref">${esc(ref)}</span>`;
 
   function stepMini(d) {
@@ -138,7 +309,50 @@ window.GO = (function () {
       <div class="skeleton sk-card mt" style="height:280px"></div></div><span class="sr-only">Chargement…</span>`;
   }
 
-  /* Toasts */
+  /* ---------- Boîte à outils des vues (mêmes conventions graphiques) ---------- */
+  const ui = {
+    head(o) {
+      return `<section class="page-head reveal">
+        <div>${o.eyebrow ? `<div class="page-eyebrow">${esc(o.eyebrow)}</div>` : ''}<h1 class="page-title">${esc(o.title)}</h1>${o.sub ? `<p class="page-sub">${o.sub}</p>` : ''}</div>
+        ${o.actions ? `<div class="page-actions">${o.actions}</div>` : ''}</section>`;
+    },
+    card(o) {
+      return `<section class="card ${o.cls || ''} reveal" style="--i:${o.i ?? 1}"${o.id ? ` id="${o.id}"` : ''}${o.label ? ` aria-labelledby="${o.label}"` : ''}>
+        <div class="card-head"><div><h2 class="card-title"${o.label ? ` id="${o.label}"` : ''}>${o.icon ? icon(o.icon) : ''}${esc(o.title)}</h2>${o.sub ? `<p class="card-sub">${o.sub}</p>` : ''}</div>${o.tools || ''}</div>
+        ${o.body !== undefined ? o.body : ''}</section>`;
+    },
+    kpis(items, o = {}) {
+      return `<div class="kpi-strip">${items.map(k => `<div class="kpi">
+        <div class="kpi-label">${esc(k.label)}</div>
+        <div class="kpi-value"${k.count !== undefined ? ` data-c="${k.count}"` : ''}>${k.count !== undefined ? k.count : (k.value || '—')}</div>
+        <div class="kpi-note">${k.note || ''}</div></div>`).join('')}</div>`;
+    },
+    table(cols, rows, o = {}) {
+      const head = cols.map(c => `<th scope="col"${c.cls ? ` class="${c.cls}"` : ''}>${c.head !== undefined ? c.head : (c.label ? esc(c.label) : '<span class="sr-only">Actions</span>')}</th>`).join('');
+      const body = rows.map((r, i) => `<tr class="row-in${o.clickable ? ' is-clickable' : ''}" style="--i:${Math.min(i, 14)}"${o.rowAttrs ? ' ' + o.rowAttrs(r) : ''}>${cols.map(c => {
+        const dl = c.mobile === false || !c.label ? '' : ` data-label="${esc(c.label)}"`;
+        const cls = [c.cls, c.cellCls].filter(Boolean).join(' ');
+        return `<td${dl}${cls ? ` class="${cls}"` : ''}>${c.cell(r, i)}</td>`;
+      }).join('')}</tr>`).join('');
+      return `<div class="table-wrap"><table class="data-table responsive">${o.caption ? `<caption class="sr-only">${esc(o.caption)}</caption>` : ''}<thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+    },
+    chips(items, active, o = {}) {
+      return `<div class="chip-row" role="group" aria-label="${esc(o.label || 'Filtrer')}">${items.map(it => `<button type="button" class="chip${it.tone ? ' tone-' + it.tone : ''}" ${o.attr || 'data-f'}="${esc(it.key)}" aria-pressed="${it.key === active}">${it.tone ? '<span class="sdot"></span>' : ''}${esc(it.label)}<span class="chip-n">${it.n}</span></button>`).join('')}</div>`;
+    },
+    dl(items, cls = '') { return `<dl class="dl-grid ${cls}">${items.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v === undefined || v === null || v === '' ? '—' : v}</dd></div>`).join('')}</dl>`; },
+    timeline(items, o = {}) {
+      return `<ol class="timeline">${items.map(h => `<li class="tl-item ${h.isNew ? 'is-new' : ''}"><span class="tl-dot k-${esc(h.kind || 'courrier')}">${icon(h.icon || 'check')}</span>
+        <div class="tl-body"><strong>${esc(h.label)}</strong><div class="tl-meta">${h.ref ? `<span class="ref">${esc(h.ref)}</span>` : ''}${h.actor ? `<span>${esc(h.actor)}</span>` : ''}${h.date ? `<span class="tnum">${fmtDate(h.date, 'short')}${h.time ? ' · ' + esc(h.time) : ''}</span>` : ''}</div></div></li>`).join('')}</ol>`;
+    },
+    toolbar(o) {
+      return `<div class="toolbar">${o.search ? `<div class="field grow"><label class="mini-label" for="${o.search.id}">${esc(o.search.label || 'Rechercher')}</label><div class="search-field">${icon('search')}<input id="${o.search.id}" class="input" type="search" placeholder="${esc(o.search.placeholder || '')}" value="${esc(o.search.value || '')}" autocomplete="off"></div></div>` : ''}
+        ${(o.selects || []).map(s => `<div class="field"><label class="mini-label" for="${s.id}">${esc(s.label)}</label><select class="select" id="${s.id}">${s.options.map(op => `<option value="${esc(op.value)}"${op.value === s.value ? ' selected' : ''}>${esc(op.label)}</option>`).join('')}</select></div>`).join('')}</div>`;
+    },
+    filterBar(chips, count) { return `<div class="filter-bar"${chips ? '' : ' style="justify-content:flex-end"'} >${chips || ''}<span class="result-count">${count || ''}</span></div>`; },
+    kv(label, value) { return `<div><dt>${esc(label)}</dt><dd>${value}</dd></div>`; }
+  };
+
+  /* ---------- Toasts ---------- */
   function toast(type, title, msg) {
     const host = $('#toasts');
     const el = document.createElement('div');
@@ -153,7 +367,7 @@ window.GO = (function () {
     setTimeout(close, 5200);
   }
 
-  /* Couches (modales, panneau latéral, menu mobile) : inertie, focus, Échap */
+  /* ---------- Couches (modales, panneau latéral, menu mobile) ---------- */
   const layers = [];
   const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
   function pushLayer(el, onEscape) {
@@ -338,7 +552,8 @@ window.GO = (function () {
 
   /* Compteurs animés */
   function countUp(el, to) {
-    const from = parseInt(el.dataset.v ?? el.textContent, 10) || 0;
+    // data-c : la valeur est déjà écrite, l'animation part de zéro.
+    const from = el.dataset.v !== undefined ? (+el.dataset.v || 0) : (el.dataset.c !== undefined ? 0 : (parseInt(el.textContent, 10) || 0));
     el.dataset.v = to;
     if (reduced() || from === to) { el.textContent = to; return; }
     const t0 = performance.now(), dur = 650;
@@ -375,49 +590,96 @@ window.GO = (function () {
   }
 
   /* ---------- Coquille ---------- */
+  // Sections de navigation : une page n'appartient qu'à une seule section.
+  // Les libellés s'adaptent au profil (une section à page unique prend le
+  // libellé de cette page).
   const NAV = [
-    { view: 'apercu', label: 'Vue d’ensemble', icon: 'grid' },
-    { view: 'dossiers', label: 'Dossiers', icon: 'folder', menu: [
-      { label: 'Tous les dossiers', href: '#/dossiers?status=all', icon: 'list' },
-      { label: 'À traiter', href: '#/dossiers?status=recu', icon: 'inbox', can: 'instruct' },
-      { label: 'Compléments attendus', href: '#/dossiers?status=complement', icon: 'alert-triangle' },
-      { label: 'Nouveau dossier', href: '#/nouveau', icon: 'plus', can: 'create' }] },
-    { view: 'courriers', label: 'Courriers', icon: 'mail' },
-    { view: 'ceremonies', label: 'Cérémonies', icon: 'calendar', menu: [
-      { label: 'Calendrier', href: '#/ceremonies', icon: 'calendar' },
-      { label: 'Proposer un lieu et une date', href: '#/ceremonies/proposer', icon: 'pin', can: 'propose' }] },
-    { view: 'statistiques', label: 'Statistiques', icon: 'chart' },
-    { view: 'notifications', label: 'Notifications', icon: 'bell', count: true }
+    { key: 'apercu', label: 'Vue d’ensemble', icon: 'grid', pages: [{ view: 'apercu', label: 'Vue d’ensemble' }] },
+    { key: 'dossiers', label: 'Dossiers', icon: 'folder', pages: [
+      { view: 'dossiers', label: 'Tous les dossiers' },
+      { view: 'nouveau', label: 'Nouveau dossier', can: 'create' },
+      { view: 'instruction', label: 'File d’instruction' },
+      { view: 'supervision', label: 'Supervision du service' },
+      { view: 'beneficiaires', label: 'Bénéficiaires et récipiendaires' },
+      { view: 'complements', label: 'Compléments et relances' }] },
+    { key: 'decisions', label: 'Décisions', icon: 'stamp', pages: [
+      { view: 'decisions', label: 'Dossiers transmis et décisions' },
+      { view: 'recours', label: 'Recours' }] },
+    { key: 'courriers', label: 'Courriers', icon: 'mail', pages: [{ view: 'courriers', label: 'Courriers et documents' }] },
+    { key: 'registre', label: 'Registre', icon: 'inbox', pages: [{ view: 'transmissions', label: 'Registre des courriers' }] },
+    { key: 'ceremonies', label: 'Cérémonies', icon: 'calendar', pages: [
+      { view: 'ceremonies', label: 'Calendrier et propositions' },
+      { view: 'remises', label: 'Remises des médailles' }] },
+    { key: 'finances', label: 'Finances', icon: 'cash', pages: [
+      { view: 'recettes', label: 'Ordres de recette et reçus' },
+      { view: 'stock', label: 'Stock des médailles' }] },
+    { key: 'suivi', label: 'Suivi', icon: 'medal', pages: [
+      { view: 'distinctions', label: 'Mes distinctions' },
+      { view: 'pieces', label: 'DTS et pièces justificatives' },
+      { view: 'retraits', label: 'Retraits sans cérémonie' }] },
+    { key: 'controle', label: 'Contrôle', icon: 'shield', pages: [{ view: 'controle', label: 'Contrôles et anomalies' }] },
+    { key: 'statistiques', label: 'Statistiques', icon: 'chart', pages: [{ view: 'statistiques', label: 'Statistiques' }] },
+    { key: 'journal', label: 'Journal', icon: 'clock', pages: [{ view: 'journal', label: 'Journal d’activité' }] },
+    { key: 'administration', label: 'Administration', icon: 'database', pages: [{ view: 'administration', label: 'Comptes, paramètres et journaux' }] },
+    { key: 'notifications', label: 'Notifications', icon: 'bell', pages: [{ view: 'notifications', label: 'Notifications' }], count: true }
   ];
+  const SHORT_NAV = {
+    recours: 'Recours', pieces: 'DTS et pièces', beneficiaires: 'Bénéficiaires', completions: 'Compléments',
+    complements: 'Compléments', distinctions: 'Mes distinctions', retraits: 'Retraits', remises: 'Remises',
+    stock: 'Stock', recettes: 'Ordres de recette', transmissions: 'Registre', decisions: 'Décisions',
+    instruction: 'Instruction', supervision: 'Supervision', controle: 'Contrôle', journal: 'Journal',
+    administration: 'Administration', courriers: 'Courriers', ceremonies: 'Cérémonies'
+  };
   const navFor = v => (v === 'nouveau' ? 'dossiers' : v);
+  function navSections() {
+    const views = role().views;
+    return NAV.map(sec => {
+      const pages = sec.pages.filter(p => views.includes(p.view) && (!p.can || can(p.can)));
+      if (!pages.length) return null;
+      return Object.assign({}, sec, {
+        pages, href: '#/' + pages[0].view,
+        label: pages.length === 1 ? (SHORT_NAV[pages[0].view] || sec.label) : sec.label
+      });
+    }).filter(Boolean);
+  }
+  // Audiences de notification du profil courant
+  function audiences() {
+    const s = role().scope, out = [];
+    if (s && s.kind === 'authority') out.push('authority:' + s.value);
+    if (s && s.kind === 'org') out.push('org:' + s.value);
+    if (s && s.kind === 'person') (Array.isArray(s.value) ? s.value : [s.value]).forEach(p => out.push('person:' + p));
+    if (isFamily('service')) out.push('service');
+    if (isFamily('inspection')) out.push('inspecteur');
+    if (isFamily('regie')) out.push('regie');
+    if (isFamily('administration')) out.push('admin');
+    if (!out.length) out.push('service');
+    return out;
+  }
+  const myNotifs = () => { const aud = audiences(); return S.notifications.filter(n => aud.includes(n.aud)); };
   const unread = () => myNotifs().filter(n => !n.read).length;
 
   function renderNav() {
-    const views = role().views;
+    const secs = navSections();
     const active = navFor(current.view);
     const n = unread();
-    $('#nav-list').innerHTML = NAV.filter(it => views.includes(it.view)).map(it => {
-      const cur = it.view === active ? 'aria-current="page"' : '';
-      const cnt = it.count ? `<span class="nav-count ${n ? '' : 'is-zero'}" data-nav-count>${n}</span>` : '';
-      const menu = (it.menu || []).filter(m => !m.can || can(m.can));
+    $('#nav-list').innerHTML = secs.map(sec => {
+      const cur = sec.pages.some(p => p.view === active) ? 'aria-current="page"' : '';
+      const cnt = sec.count ? `<span class="nav-count ${n ? '' : 'is-zero'}" data-nav-count>${n}</span>` : '';
+      const menu = sec.pages.length > 1 ? `<button class="nav-caret" type="button" data-dd="nav-${sec.key}" aria-expanded="false" aria-controls="nav-${sec.key}" aria-label="Autres accès : ${esc(sec.label)}">${icon('chevron-down')}</button>
+          <div class="dd-menu" id="nav-${sec.key}" hidden>${sec.pages.map(p => `<a class="menu-item" href="${p.view === 'nouveau' ? '#/nouveau' : '#/' + p.view}">${icon(p.view === 'nouveau' ? 'plus' : sec.icon)}${esc(p.label)}</a>`).join('')}</div>` : '';
       return `<li class="nav-item">
-        <a class="nav-link" href="#/${it.view}" ${cur}>${icon(it.icon)}${it.label}${cnt}</a>
-        ${menu.length > 1 ? `<button class="nav-caret" type="button" data-dd="nav-${it.view}" aria-expanded="false" aria-controls="nav-${it.view}" aria-label="Autres accès : ${esc(it.label)}">${icon('chevron-down')}</button>
-          <div class="dd-menu" id="nav-${it.view}" hidden>${menu.map(m => `<a class="menu-item" href="${m.href}">${icon(m.icon)}${esc(m.label)}</a>`).join('')}</div>` : ''}
-      </li>`;
+        <a class="nav-link" href="${sec.href}" ${cur}>${icon(sec.icon)}${esc(sec.label)}${cnt}</a>${menu}</li>`;
     }).join('');
-    $('#mobile-nav-list').innerHTML = NAV.filter(it => views.includes(it.view)).map(it => {
-      const menu = (it.menu || []).filter(m => !m.can || can(m.can)).slice(1);
-      return `<a href="#/${it.view}" ${it.view === active ? 'aria-current="page"' : ''}>${icon(it.icon)}${it.label}${it.count ? `<span class="nav-count ${n ? '' : 'is-zero'}">${n}</span>` : ''}</a>
-        ${menu.length ? `<div class="mobile-nav-sub">${menu.map(m => `<a href="${m.href}">${esc(m.label)}</a>`).join('')}</div>` : ''}`;
-    }).join('') + `<div class="menu-sep"></div><a href="#/profil" ${current.view === 'profil' ? 'aria-current="page"' : ''}>${icon('user')}Mon profil</a>`;
+    $('#mobile-nav-list').innerHTML = secs.map(sec => `<a href="${sec.href}" ${sec.pages.some(p => p.view === active) ? 'aria-current="page"' : ''}>${icon(sec.icon)}${esc(sec.label)}${sec.count ? `<span class="nav-count ${n ? '' : 'is-zero'}">${n}</span>` : ''}</a>
+        ${sec.pages.length > 1 ? `<div class="mobile-nav-sub">${sec.pages.slice(1).map(p => `<a href="${p.view === 'nouveau' ? '#/nouveau' : '#/' + p.view}">${esc(p.label)}</a>`).join('')}</div>` : ''}`).join('')
+      + `<div class="menu-sep"></div><a href="#/profil" ${current.view === 'profil' ? 'aria-current="page"' : ''}>${icon('user')}Mon profil</a>`;
   }
 
   function renderAccount() {
-    const u = user();
+    const u = user(), s = role().scope;
     $('#acc-initials').textContent = u.initials;
     $('#acc-name').textContent = u.name;
-    $('#acc-role').textContent = role().scope ? org(role().scope).name : u.title;
+    $('#acc-role').textContent = s && s.kind === 'org' ? org(s.value).name : (s && s.kind === 'authority' ? authority(s.value).label : u.title);
     $('#account-btn').setAttribute('aria-label', `Compte : ${u.name}, ${role().label}`);
     $('#account-menu').innerHTML = `
       <div class="menu-head"><span class="avatar">${esc(u.initials)}</span><div><strong>${esc(u.name)}</strong><span>${esc(u.title)} · ${esc(u.unit)}</span></div></div>
@@ -425,7 +687,8 @@ window.GO = (function () {
       <a class="menu-item" role="menuitem" href="#/profil">${icon('user')}Mon profil et préférences</a>
       <div class="menu-sep"></div>
       <div class="menu-label">Profil de travail</div>
-      ${Object.entries(D.roles).map(([k, r]) => `<button class="menu-item" type="button" role="menuitemradio" aria-checked="${k === S.role}" data-role="${k}">${icon(k === S.role ? 'check' : 'swap')}${esc(r.label)}</button>`).join('')}
+      ${D.roleFamilies.map(f => `<div class="menu-label" style="padding-top:6px;font-weight:700;color:var(--muted)">${esc(f.label)}</div>
+        ${f.roles.map(k => { const r = D.roles[k]; return `<button class="menu-item" type="button" role="menuitemradio" aria-checked="${k === S.role}" data-role="${k}" title="${esc(r.label)}">${icon(k === S.role ? 'check' : 'swap')}<span style="display:grid;gap:0"><span>${esc(r.label)}</span><span class="menu-hint" style="margin:0">${esc(r.short)}</span></span></button>`; }).join('')}`).join('')}
       <div class="menu-sep"></div>
       <button class="menu-item" type="button" role="menuitem" data-action="reset">${icon('refresh')}Réinitialiser les données du poste</button>
       <button class="menu-item" type="button" role="menuitem" data-action="logout">${icon('logout')}Se déconnecter</button>`;
@@ -440,7 +703,7 @@ window.GO = (function () {
         <span><strong>${esc(x.title)}</strong><span>${esc(x.ref || '')} · ${esc(relDay(x.date))} à ${esc(x.time)}</span></span></button>`).join('') || empty('bell', 'Aucune notification', 'Les nouvelles notifications s’afficheront ici.')}</div>
       <div class="dd-notif-foot"><a class="btn btn-secondary btn-sm btn-block" href="#/notifications">Voir toutes les notifications</a></div>`;
   };
-  const NOTIF_ICON = { depot: 'inbox', visa: 'stamp', conflit: 'alert-triangle', complement: 'paperclip', ceremonie: 'medal', transmission: 'send', decision: 'check-circle' };
+  const NOTIF_ICON = { depot: 'inbox', visa: 'stamp', conflit: 'alert-triangle', complement: 'paperclip', ceremonie: 'medal', transmission: 'send', decision: 'check-circle', recours: 'scale', stock: 'box', controle: 'shield', remise: 'medal', paiement: 'cash' };
   GO.NOTIF_ICON = NOTIF_ICON;
 
   let lastCount = null;
@@ -463,18 +726,26 @@ window.GO = (function () {
     if (!n) return;
     n.read = true; commit();
     closeDropdown();
-    location.hash = n.doc && role().views.includes('courriers') && getDoc(n.doc) ? '#/courriers/' + n.doc : '#/dossiers/' + n.ref;
+    const views = role().views;
+    if (n.doc && views.includes('courriers') && getDoc(n.doc)) location.hash = '#/courriers/' + n.doc;
+    else if (n.ref && views.includes('dossiers')) location.hash = '#/dossiers/' + n.ref;
+    else if (views.includes('journal')) location.hash = '#/journal';
+    else location.hash = '#/notifications';
   });
 
   // Actions du menu compte
   document.addEventListener('click', async e => {
     const r = e.target.closest('[data-role]');
     if (r) {
-      S.role = r.dataset.role; save();
+      const prev = S.role;
+      S.role = r.dataset.role;
+      audit(`${user().name} (${D.roles[prev].label})`, 'Changement de profil de travail', `Nouveau profil : ${D.roles[S.role].label}`);
+      save();
       closeDrawer(true);
       renderShell();
       toast('info', 'Profil de travail modifié', esc(role().label));
-      forceRoute('#/apercu');
+      const first = role().views.includes('apercu') ? 'apercu' : role().views[0];
+      forceRoute('#/' + first);
       return;
     }
     const a = e.target.closest('[data-action]');
@@ -496,6 +767,8 @@ window.GO = (function () {
     myDossiers().forEach(d => { const o = org(d.org); out.push({ g: 'Dossiers', ic: 'folder', t: d.ref, s: `${o.name} · ${D.statuses[d.status].label}`, k: `${d.ref} ${o.name} ${o.short} ${o.city}`, href: '#/dossiers/' + d.ref }); });
     if (role().views.includes('courriers')) myDocs().forEach(x => out.push({ g: 'Courriers et documents', ic: 'file', t: x.title, s: `${x.dossier} · ${D.docTypes[x.type]} · ${fmtDate(x.date, 'short')}`, k: `${x.title} ${x.dossier} ${x.from} ${x.number || ''}`, href: '#/courriers/' + x.id }));
     myCers().forEach(c => { const v = venue(c.venue); const o = org(getDossier(c.dossier).org); out.push({ g: 'Cérémonies', ic: 'calendar', t: `${c.id} · ${o.short}`, s: `${fmtDate(c.date)} · ${v.name} · ${D.ceremonyStates[c.state].label}`, k: `${c.id} ${c.dossier} ${v.name} ${v.city} ${o.name}`, href: '#/ceremonies/' + c.id }); });
+    if (role().views.includes('transmissions')) myTransmissions().forEach(t => out.push({ g: 'Registre des courriers', ic: 'inbox', t: `${t.id} · ${t.subject}`, s: `${t.direction === 'entrant' ? 'Entrant' : 'Sortant'} · ${t.from} → ${t.to}`, k: `${t.id} ${t.subject} ${t.from} ${t.to} ${t.dossier || ''}`, href: '#/transmissions?q=' + encodeURIComponent(t.id) }));
+    if (role().views.includes('recettes')) myReceiptOrders().forEach(o => out.push({ g: 'Ordres de recette', ic: 'cash', t: o.id, s: `${o.dossier} · ${o.amount} · ${D.recetteStates[o.state].label}`, k: `${o.id} ${o.dossier} ${o.amount}`, href: '#/recettes?q=' + encodeURIComponent(o.id) }));
     return out;
   }
   function highlight(text, q) {
@@ -521,7 +794,7 @@ window.GO = (function () {
       const v = q.value.trim();
       const nv = norm(v);
       items = v ? idx.filter(x => nv.split(/\s+/).every(t => norm(x.k + ' ' + x.t).includes(t))).slice(0, 12)
-                : myDossiers().slice().sort((a, b) => { const la = lastActivity(a), lb = lastActivity(b); return (lb.date + lb.time).localeCompare(la.date + la.time); }).slice(0, 5).map(d => idx.find(x => x.href === '#/dossiers/' + d.ref));
+        : myDossiers().slice().sort((a, b) => { const la = lastActivity(a), lb = lastActivity(b); return (lb.date + lb.time).localeCompare(la.date + la.time); }).slice(0, 5).map(d => idx.find(x => x.href === '#/dossiers/' + d.ref)).filter(Boolean);
       sel = 0;
       if (!items.length) { res.innerHTML = empty('search', 'Aucun résultat', `Aucun dossier, courrier ou cérémonie ne correspond à « ${esc(v)} ».`); return; }
       let g = '';
@@ -672,16 +945,22 @@ window.GO = (function () {
     $('#to-top').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: reduced() ? 'auto' : 'smooth' }); $('#view').focus({ preventScroll: true }); });
     $('#relogin').addEventListener('click', () => { $('#logged-out').hidden = true; $('#app').inert = false; toast('success', 'Session ouverte', esc(user().name)); $('#account-btn').focus(); });
     window.addEventListener('hashchange', () => route());
-    if (!location.hash) history.replaceState(null, '', '#/apercu');
+    const first = role().views.includes('apercu') ? 'apercu' : role().views[0];
+    if (!location.hash) history.replaceState(null, '', '#/' + first);
     route();
   }
 
   Object.assign(GO, {
-    $, $$, esc, icon, pad, parseISO, iso, REF, REF_ISO, MONTHS, MONTHS_S, DAYS, fmtDate, daysBetween, ageDays, relDay, plural, norm, debounce, reduced, wait, stamp, seniority,
-    save, commit, role, can, user, org, venue, medal, getDossier, getDoc, getCer, myDossiers, myDocs, myNotifs, myCers, sortHist, lastActivity, docsOf, cersOf, activeCer, closure,
-    addHistory, notify, stepInfo, actorName,
-    badge, statusBadge, cerBadge, docBadge, refChip, stepMini, stepper, empty, toast, modal, confirmDialog, openDrawer, setDrawer, closeDrawer, isDrawerOpen: () => !!drawer, drawerKey: () => drawer && drawer.key,
-    countUp, reveal, tabs, renderCounts, renderNav, renderShell, setHash, forceRoute, current: () => current, boot, openSearch
+    D, DATA: D,
+    $, $$, esc, icon, pad, parseISO, iso, REF, REF_ISO, MONTHS, MONTHS_S, DAYS, fmtDate, daysBetween, ageDays, relDay, plural, norm, debounce, reduced, wait, stamp, seniority, eligibility,
+    save, commit, audit, role, can, family, isFamily, user, org, venue, medal, authority, scopeAuthority, scopeMatch, external,
+    getDossier, getDoc, getCer, myDossiers, myDocs, myCers, myDts, myNotifs, myTransmissions, myAudit, sortHist, lastActivity, docsOf, cersOf, activeCer, closure,
+    receiptOrder, myReceiptOrders, receiptOf, remiseOf, myRemises, withdrawalOf, myWithdrawals, controlOf, myControls, recoursOf, myRecours,
+    complementOf, myComplements, myRelances, stockOf, stockTotal, distinctOf, moveStock, addTransmission, nextRef,
+    addHistory, notify, stepInfo, actorName, nextDocNumber, newDoc, registryAdd, withLoading, fieldError, refreshDossier, hooks,
+    scopeOrg: () => { const s = role().scope; return s && s.kind === 'org' ? org(s.value) : null; },
+    badge, statusBadge, cerBadge, docBadge, dictBadge, refChip, stepMini, stepper, empty, ui, toast, modal, confirmDialog, openDrawer, setDrawer, closeDrawer, isDrawerOpen: () => !!drawer, drawerKey: () => drawer && drawer.key,
+    countUp, reveal, tabs, renderCounts, renderNav, renderShell, setHash, forceRoute, current: () => current, boot, openSearch, navSections, audiences
   });
   return GO;
 })();

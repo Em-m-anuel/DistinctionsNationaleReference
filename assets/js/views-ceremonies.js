@@ -1,10 +1,11 @@
 /* ==========================================================================
-   GAB-ORIENT — Vue « Cérémonies » : calendrier mensuel + sélection du lieu
-   et de la date (proposition soumise à validation).
+   GAB-ORIENT — Vue « Cérémonies » : calendrier mensuel, fiche de cérémonie,
+   négociation de date et proposition soumise à validation.
    ========================================================================== */
 (function (GO) {
   'use strict';
   const { $, $$, esc, icon, D, fmtDate, plural, norm } = GO;
+  const ui = GO.ui;
 
   const CAL = { y: GO.REF.getFullYear(), m: GO.REF.getMonth(), sel: null, ev: null, focus: null };
   const PF = { q: '', venue: null, dossier: null, date: '', time: '10:00' };
@@ -19,17 +20,15 @@
     const tab = r.id === 'proposer' && GO.can('propose') ? 'prop' : 'cal';
     applyRoute(r);
     main.innerHTML = `
-      <section class="page-head reveal">
-        <div><div class="page-eyebrow">Organisation</div><h1 class="page-title">Cérémonies</h1>
-          <p class="page-sub">Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.</p></div>
-        <div class="tabs" role="tablist" aria-label="Vues des cérémonies"><span class="tab-ink" aria-hidden="true"></span>
+      ${ui.head({ eyebrow: 'Organisation', title: 'Cérémonies',
+        sub: 'Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.',
+        actions: `<div class="tabs" role="tablist" aria-label="Vues des cérémonies"><span class="tab-ink" aria-hidden="true"></span>
           <button class="tab" role="tab" type="button" id="tb-cal" data-tab="cal" aria-controls="tp-cal" aria-selected="${tab === 'cal'}">${icon('calendar', 'ic-sm')}Calendrier</button>
           ${GO.can('propose') ? `<button class="tab" role="tab" type="button" id="tb-prop" data-tab="prop" aria-controls="tp-prop" aria-selected="${tab === 'prop'}">${icon('pin', 'ic-sm')}Proposer un lieu et une date</button>` : ''}
-        </div>
-      </section>
+        </div>` })}
       <div id="tp-cal" role="tabpanel" aria-labelledby="tb-cal" ${tab === 'cal' ? '' : 'hidden'}></div>
       <div id="tp-prop" role="tabpanel" aria-labelledby="tb-prop" ${tab === 'prop' ? '' : 'hidden'}></div>`;
-    GO.tabs($('.page-head', main), t => {
+    GO.tabs(main, t => {
       if (t === 'prop') GO.setHash('#/ceremonies/proposer' + (PF.dossier ? '?dossier=' + PF.dossier : ''));
       else GO.setHash(CAL.ev ? '#/ceremonies/' + CAL.ev : '#/ceremonies');
       showTab(t);
@@ -112,10 +111,8 @@
     grid.innerHTML = cells;
     grid.classList.remove('anim-next', 'anim-prev');
     if (dir) { void grid.offsetWidth; grid.classList.add(dir === 1 ? 'anim-next' : 'anim-prev'); }
-    // Garantit un jour focalisable dans le mois affiché
     if (!$('.cal-day[tabindex="0"]', grid)) { const f = $('.cal-cell:not(.is-out) .cal-day', grid); if (f) f.tabIndex = 0; }
     if (CAL.focus) { const b = $(`.cal-day[data-day="${CAL.focus}"]`, grid); if (b) b.focus(); CAL.focus = null; }
-    // Liste du mois
     const monthKey = `${CAL.y}-${GO.pad(CAL.m + 1)}`;
     const monthEvs = GO.myCers().filter(c => c.date.startsWith(monthKey)).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
     $('#ml-title').textContent = `Cérémonies de ${GO.MONTHS[CAL.m]} ${CAL.y}`;
@@ -198,7 +195,7 @@
     return {
       propose: ['Examen de la proposition par le Service des Distinctions', 'Validation de la date par l’autorité compétente', 'Envoi de la convocation au demandeur'],
       negociation: ['Arrêter une date avec le lieu et le demandeur', c.note ? 'Alternative en discussion : ' + c.note : 'Faire valider la date retenue'],
-      confirme: ['Préparer les médailles et la liste d’appel', 'Confirmer la présence des récipiendaires'],
+      confirme: ['Préparer les médailles et la liste d’appel à la régie', 'Confirmer la présence des récipiendaires', 'Enregistrer la remise effective après la cérémonie'],
       termine: ['Archiver le procès-verbal de remise'],
       conflit: ['Proposer une autre date ou un autre lieu', c.note || 'Vérifier les réservations du lieu']
     }[c.state];
@@ -210,11 +207,21 @@
     if (c) {
       const d = GO.getDossier(c.dossier), o = GO.org(d.org), v = GO.venue(c.venue), dt = GO.parseISO(c.date);
       const same = eventsOn(c.date).filter(x => x.id !== c.id);
+      const rem = GO.remiseOf(d.ref), or = GO.receiptOrder(d.ref), wd = GO.withdrawalOf(d.ref);
+      const remEffective = rem && (rem.state === 'remise' || rem.state === 'retrait');
       const acts = [];
-      if (GO.can('coordinate') && c.state === 'propose') acts.push(`<button class="btn btn-secondary btn-sm" type="button" data-cact="negotiate" data-id="${c.id}">${icon('message', 'ic-sm')}Ouvrir la négociation</button>`);
-      if (GO.can('coordinate') && (c.state === 'propose' || c.state === 'negociation')) acts.push(`<button class="btn btn-primary btn-sm" type="button" data-cact="validate" data-id="${c.id}">${icon('check', 'ic-sm')}Enregistrer la validation</button>`);
+      const canCoordinate = GO.can('coordinate');
+      const canValidate = GO.can('valider_ceremonie');
+      if (canCoordinate && (c.state === 'propose' || c.state === 'negociation')) acts.push(`<button class="btn btn-secondary btn-sm" type="button" data-cact="negotiate" data-id="${c.id}">${icon('message', 'ic-sm')}${c.state === 'propose' ? 'Ouvrir la négociation' : 'Poursuivre la négociation'}</button>`);
+      if (canCoordinate && (c.state === 'propose' || c.state === 'negociation')) acts.push(`<button class="btn btn-primary btn-sm" type="button" data-cact="validate" data-id="${c.id}">${icon('check', 'ic-sm')}Enregistrer la validation reçue</button>`);
+      if (canValidate && (c.state === 'propose' || c.state === 'negociation')) acts.push(`<button class="btn btn-primary btn-sm" type="button" data-cact="validate" data-id="${c.id}">${icon('shield', 'ic-sm')}Valider la date de cérémonie</button>`);
       if (GO.can('propose') && c.state === 'conflit') acts.push(`<a class="btn btn-primary btn-sm" href="#/ceremonies/proposer?dossier=${c.dossier}">${icon('pin', 'ic-sm')}Proposer une autre date</a>`);
-      if (GO.can('coordinate') && c.state === 'confirme' && c.date <= GO.REF_ISO) acts.push(`<button class="btn btn-primary btn-sm" type="button" data-cact="done" data-id="${c.id}">${icon('check', 'ic-sm')}Marquer comme terminée</button>`);
+      if (GO.can('remise') && c.state === 'confirme') acts.push(`<a class="btn btn-secondary btn-sm" href="#/remises">${icon('medal', 'ic-sm')}${rem ? 'Suivre la remise' : 'Préparer les médailles'}</a>`);
+      if (canCoordinate && c.state === 'confirme' && c.date <= GO.REF_ISO) {
+        if (remEffective) acts.push(`<button class="btn btn-primary btn-sm" type="button" data-cact="done" data-id="${c.id}">${icon('check', 'ic-sm')}Marquer comme terminée</button>`);
+        else acts.push(`<span data-tip="La remise effective doit d’abord être enregistrée par la Régie des médailles." tabindex="0"><button class="btn btn-secondary btn-sm" type="button" disabled>${icon('clock', 'ic-sm')}Clôture en attente de la remise</button></span>`);
+        void rem;
+      }
       host.innerHTML = `<div class="cal-detail-body">
         <div class="ev-hero">
           <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">${GO.cerBadge(c.state)}<span class="ref">${esc(c.id)}</span></div>
@@ -229,10 +236,14 @@
           <div class="ev-row">${icon('pin')}<dt>Lieu</dt><dd>${esc(v.name)}<br><span class="muted" style="font-weight:400;font-size:12px">${esc(v.address)}</span></dd></div>
           <div class="ev-row">${icon('users')}<dt>Récipiendaires</dt><dd>${d.recipients.length}</dd></div>
           <div class="ev-row">${icon('shield')}<dt>Validation</dt><dd>${c.validation ? esc(c.validation) : '<span class="muted" style="font-weight:500">Non validée</span>'}</dd></div>
+          <div class="ev-row">${icon('medal')}<dt>Remise</dt><dd>${rem ? GO.dictBadge(D.remiseStates, rem.state) : '<span class="muted" style="font-weight:500">Non préparée</span>'}</dd></div>
+          <div class="ev-row">${icon('cash')}<dt>Ordre de recette</dt><dd>${or ? `${GO.dictBadge(D.recetteStates, or.state)}<br><span class="muted" style="font-weight:400;font-size:12px">${esc(or.amount)}</span>` : '<span class="muted" style="font-weight:500">Non émis</span>'}</dd></div>
+          ${wd ? `<div class="ev-row">${icon('medal')}<dt>Retrait sans cérémonie</dt><dd>${GO.dictBadge(D.withdrawalStates, wd.state)}</dd></div>` : ''}
           ${same.length ? `<div class="ev-row">${icon('calendar')}<dt>Même jour</dt><dd>${same.map(x => `<button class="link-btn" type="button" data-ev="${x.id}">${esc(x.id)}</button> (${hm(x.time)})`).join(', ')}</dd></div>` : ''}
         </dl>
         <div class="card-body" style="border-top:1px solid var(--line-soft)"><h4 style="font-size:13px;margin-bottom:6px">Prochaines étapes</h4><ul class="next-steps">${cerSteps(c).map(s => `<li>${icon('chevron-right')}<span style="font-size:13.5px">${esc(s)}</span></li>`).join('')}</ul></div>
-        ${acts.length ? `<div class="card-foot" style="justify-content:flex-end;flex-wrap:wrap">${acts.join('')}</div>` : ''}
+        ${c.state === 'confirme' || c.state === 'termine' ? `<div class="card-body" style="border-top:1px solid var(--line-soft)"><p class="hint">${icon('info', 'ic-sm')} Le paiement et la remise sont suivis séparément : la régie prépare les médailles sur cérémonie confirmée et n’enregistre la remise effective qu’après la remise aux récipiendaires.</p></div>` : ''}
+        ${acts.length ? `<div class="card-foot" style="justify-content:flex-end;flex-wrap:wrap;gap:8px">${acts.join('')}</div>` : ''}
       </div>`;
       return;
     }
@@ -249,44 +260,58 @@
 
   const CER_ACTIONS = {
     async negotiate(c) {
-      const ok = await GO.confirmDialog({ title: 'Ouvrir la négociation de date ?', tone: 'yellow', icon: 'message', confirm: 'Ouvrir la négociation',
-        message: `<p>La proposition ${esc(c.id)} passera à l’état « En négociation ». Le demandeur et le lieu seront informés que la date est en discussion.</p>` });
-      if (!ok) return;
-      c.state = 'negociation';
-      const d = GO.getDossier(c.dossier);
-      GO.addHistory(d, 'ceremonie', 'Négociation de la date de cérémonie ouverte');
-      GO.notify({ type: 'ceremonie', aud: 'org:' + d.org, ref: d.ref, title: 'Date de cérémonie en discussion', msg: `La date du ${fmtDate(c.date)} est en cours de négociation.` });
-      GO.commit(); drawCalendar();
-      GO.toast('success', 'Négociation ouverte', esc(c.id));
+      GO.formModal({
+        title: c.state === 'propose' ? 'Ouvrir la négociation de date' : 'Poursuivre la négociation', icon: 'message', tone: 'yellow',
+        intro: `<p>La proposition ${esc(c.id)} (${fmtDate(c.date)} à ${hm(c.time)}, ${esc(GO.venue(c.venue).name)}) passe à l’état « En négociation ». Le demandeur et le lieu sont informés que la date est en discussion.</p>`,
+        fields: [{ id: 'note', label: 'Point de discussion', type: 'textarea', rows: 3, required: true, value: c.note || '', validate: v => v.length >= 5 ? '' : 'Précisez le point en discussion.' }],
+        submit: 'Enregistrer la négociation', iconSubmit: 'message', kind: 'secondary',
+        run: v => {
+          c.state = 'negociation'; c.note = v.note;
+          const d = GO.getDossier(c.dossier);
+          GO.addHistory(d, 'ceremonie', 'Négociation de la date de cérémonie ouverte', undefined, { detail: v.note });
+          GO.notify({ type: 'ceremonie', aud: 'org:' + d.org, ref: d.ref, title: 'Date de cérémonie en discussion', msg: `${c.id} — ${v.note}` });
+          GO.commit(); drawCalendar();
+          GO.toast('success', 'Négociation ouverte', esc(c.id));
+        }
+      });
     },
     validate(c) {
-      GO.modal({
-        title: 'Enregistrer la validation de la date', tone: 'green', icon: 'shield', size: 'lg',
-        body: `<p>Enregistre la validation de la date du <strong>${fmtDate(c.date)}</strong> à ${hm(c.time)} (${esc(GO.venue(c.venue).name)}) <strong>décidée par l’autorité compétente</strong>.</p>
-          <div class="field"><label class="label" for="val-ref">Référence de la validation <span class="req" aria-hidden="true">*</span></label><input class="input" id="val-ref" placeholder="Exemple : Confirmation du ${fmtDate(GO.REF_ISO)}"></div>
-          <label class="check"><input type="checkbox" id="val-check"> <span>La date a été validée par l’autorité compétente et le lieu a confirmé sa disponibilité.</span></label>`,
-        actions: [{ label: 'Annuler', value: 'cancel' }, { label: 'Confirmer la cérémonie', value: 'ok', kind: 'primary' }],
-        onAction: async (v, h, b) => {
-          const ref = $('#val-ref', h.el), chk = $('#val-check', h.el);
-          GO.fieldError(ref.closest('.field'), ref.value.trim().length >= 4 ? '' : 'Saisissez la référence de la validation.');
-          if (ref.value.trim().length < 4) { ref.focus(); return false; }
-          if (!chk.checked) { GO.toast('warn', 'Validation non cochée', 'Cochez la case attestant la validation par l’autorité compétente.'); chk.focus(); return false; }
-          await GO.withLoading(b, 500);
-          c.state = 'confirme'; c.validation = ref.value.trim(); delete c.note;
-          const d = GO.getDossier(c.dossier);
-          GO.addHistory(d, 'ceremonie', 'Date de cérémonie confirmée');
-          GO.newDoc({ dossier: d.ref, kind: 'convocation', type: 'sortant', title: 'Convocation à la cérémonie de remise', date: GO.REF_ISO, from: 'Service des Distinctions', state: 'envoye', number: GO.nextDocNumber() });
+      const d = GO.getDossier(c.dossier);
+      const byAuthority = GO.can('valider_ceremonie');
+      GO.formModal({
+        title: byAuthority ? 'Valider la date de cérémonie' : 'Enregistrer la validation reçue', icon: 'shield', tone: 'green',
+        intro: `<div class="alert alert-info">${icon('info')}<div>${byAuthority
+          ? `Vous validez la date <strong>au nom de ${esc(GO.actorName())}</strong>. La validation rend la cérémonie « confirmée » et déclenche la convocation du demandeur.`
+          : 'Vous enregistrez la validation <strong>décidée par l’autorité compétente</strong> et reçue par courrier. Cette saisie ne vaut pas décision.'}</div></div>
+          <dl class="modal-summary mt"><div><dt>Dossier</dt><dd class="ref">${esc(d.ref)}</dd></div><div><dt>Date proposée</dt><dd>${fmtDate(c.date)} · ${hm(c.time)}</dd></div><div><dt>Lieu</dt><dd>${esc(GO.venue(c.venue).name)}</dd></div><div><dt>Récipiendaires</dt><dd>${d.recipients.length}</dd></div></dl>`,
+        fields: [
+          { id: 'ref', label: 'Référence de la validation', type: 'text', required: true, placeholder: `Exemple : Validation du ${fmtDate(GO.REF_ISO)}`, validate: v => v.length >= 4 ? '' : 'Saisissez la référence de la validation.' },
+          { id: 'obs', label: 'Observation (facultatif)', type: 'textarea', rows: 2 }
+        ],
+        submit: 'Confirmer la cérémonie', iconSubmit: 'check',
+        run: v => {
+          c.state = 'confirme'; c.validation = v.ref;
+          c.validatedBy = `${GO.actorName()} — ${GO.role().label}`;
+          delete c.note;
+          GO.addHistory(d, 'ceremonie', 'Date de cérémonie confirmée', c.validatedBy, { detail: v.ref });
+          GO.newDoc({ dossier: d.ref, kind: 'convocation', type: 'sortant', title: 'Convocation à la cérémonie de remise', date: GO.REF_ISO, from: GO.actorName(), state: 'envoye', number: GO.nextDocNumber() });
           GO.notify({ type: 'ceremonie', aud: 'org:' + d.org, ref: d.ref, title: 'Cérémonie confirmée', msg: `${c.id} est confirmée le ${fmtDate(c.date)} à ${GO.venue(c.venue).name}.` });
+          GO.notify({ type: 'ceremonie', aud: 'regie', ref: d.ref, title: 'Médailles à préparer', msg: `${c.id} — ${plural(d.recipients.length, 'récipiendaire', 'récipiendaires')} le ${fmtDate(c.date)}.` });
+          GO.notify({ type: 'ceremonie', aud: 'service', ref: d.ref, title: 'Cérémonie confirmée', msg: `${c.id} — ${v.ref}` });
           GO.commit(); drawCalendar();
           GO.toast('success', 'Cérémonie confirmée', `${esc(c.id)} — convocation adressée au demandeur.`);
+          void v.obs;
         }
       });
     },
     async done(c) {
-      const ok = await GO.confirmDialog({ title: 'Marquer la cérémonie comme terminée ?', message: `<p>${esc(c.id)} sera archivée et le dossier ${esc(c.dossier)} clôturé.</p>`, confirm: 'Marquer comme terminée' });
+      const d = GO.getDossier(c.dossier), rem = GO.remiseOf(d.ref);
+      const ok = await GO.confirmDialog({ title: 'Marquer la cérémonie comme terminée ?', tone: 'green', icon: 'check-circle', confirm: 'Marquer comme terminée',
+        message: `<p>${esc(c.id)} du ${fmtDate(c.date)} sera archivée et le dossier ${esc(d.ref)} clôturé.</p>
+          <div class="modal-summary" style="margin-top:10px"><div><dt>Remise enregistrée</dt><dd>${rem ? GO.dictBadge(D.remiseStates, rem.state) : '—'}</dd></div><div><dt>Date de remise</dt><dd>${rem ? fmtDate(rem.date) : '—'}</dd></div></div>` });
       if (!ok) return;
       c.state = 'termine';
-      GO.addHistory(GO.getDossier(c.dossier), 'ceremonie', 'Cérémonie de remise effectuée');
+      GO.addHistory(d, 'ceremonie', 'Cérémonie de remise effectuée — dossier clôturé');
       GO.commit(); drawCalendar();
       GO.toast('success', 'Cérémonie terminée', esc(c.id));
     }
@@ -341,13 +366,10 @@
     $('#pv-list', host).addEventListener('click', e => { const b = e.target.closest('[data-venue]'); if (b) selectVenue(b.dataset.venue); });
     if (el.length) {
       $('#pr-dossier', host).addEventListener('change', e => { PF.dossier = e.target.value; GO.setHash('#/ceremonies/proposer?dossier=' + PF.dossier); drawChecks(); });
-      $('#pr-date', host).addEventListener('change', e => { PF.date = e.target.value; drawChecks(); });
-      $('#pr-date', host).addEventListener('input', e => { PF.date = e.target.value; drawChecks(); });
-      $('#pr-time', host).addEventListener('change', e => { PF.time = e.target.value; drawChecks(); });
+      ['date', 'time'].forEach(k => { const sel = $(k === 'date' ? '#pr-date' : '#pr-time', host); ['change', 'input'].forEach(ev => sel.addEventListener(ev, e => { PF[k] = e.target.value; drawChecks(); })); });
       $('#pr-submit', host).addEventListener('click', submitProposal);
       drawChecks();
     }
-    // Carte (Leaflet si disponible, sinon plan schématique)
     if (mapApi) { mapApi.destroy(); mapApi = null; }
     {
       const mapEl = $('#pv-map', host), tok = ++mapTok;
@@ -408,6 +430,7 @@
     else out.push(['ok', `Date disponible au calendrier (${GO.fmtDate(PF.date, 'full')})`]);
     if (v && PF.date && PF.date > GO.REF_ISO) {
       const own = GO.cersOf(PF.dossier)[0];
+      if (own && own.state === 'conflit') out.push(['warn', `La date proposée remplacera celle en conflit de ${own.id}`]);
       const clash = GO.S.ceremonies.find(c => c.venue === v.id && c.date === PF.date && c.state !== 'termine' && c !== own && c.state !== 'conflit');
       out.push(clash ? ['err', `Conflit : ${clash.id} est déjà prévue dans ce lieu le ${fmtDate(clash.date, 'dm')} à ${hm(clash.time)}`] : ['ok', 'Aucune autre cérémonie dans ce lieu ce jour-là']);
       const other = GO.S.ceremonies.filter(c => c.date === PF.date && c.venue !== v.id && c.state !== 'termine' && c !== own);
@@ -425,6 +448,7 @@
     $('#pr-recap').innerHTML = `
       <div><dt>Dossier</dt><dd>${d ? `<span class="ref">${d.ref}</span>` : '—'}</dd></div>
       <div><dt>Demandeur</dt><dd>${d ? esc(GO.org(d.org).name) : '—'}</dd></div>
+      <div><dt>Autorité destinataire</dt><dd>${d ? esc(GO.authority(d.authority).short) : '—'}</dd></div>
       <div><dt>Lieu</dt><dd>${v ? esc(v.name) : '—'}</dd></div>
       <div><dt>Date et heure</dt><dd>${PF.date ? `${fmtDate(PF.date, 'short')} · ${hm(PF.time)}` : '—'}</dd></div>
       <div><dt>État après envoi</dt><dd>${GO.cerBadge('propose')}</dd></div>`;
@@ -446,13 +470,14 @@
       delete c.note;
     } else {
       const n = Math.max(0, ...GO.S.ceremonies.map(x => +x.id.split('-')[2])) + 1;
-      c = { id: `CER-2026-${GO.pad(n)}`, dossier: d.ref, date: PF.date, time: PF.time, venue: PF.venue, state: 'propose' };
+      c = { id: `CER-2026-${GO.pad(n)}`, dossier: d.ref, date: PF.date, time: PF.time, venue: PF.venue, state: 'propose', proposedBy: `${GO.actorName()} — ${GO.role().label}` };
       GO.S.ceremonies.push(c);
     }
     GO.addHistory(d, 'ceremonie', `Date proposée pour la cérémonie : ${fmtDate(PF.date, 'dm')}, ${v.name}`);
-    GO.notify(GO.role().scope
+    GO.notify(GO.external()
       ? { type: 'ceremonie', aud: 'service', ref: d.ref, title: 'Proposition de cérémonie reçue', msg: `${GO.org(d.org).name} propose le ${fmtDate(PF.date)} (${v.name}).` }
       : { type: 'ceremonie', aud: 'org:' + d.org, ref: d.ref, title: 'Date de cérémonie proposée', msg: `Le ${fmtDate(PF.date)} à ${v.name}, sous réserve de validation.` });
+    GO.notify({ type: 'ceremonie', aud: 'authority:' + d.authority, ref: d.ref, title: 'Date de cérémonie à valider', msg: `${c.id} — ${fmtDate(PF.date)} à ${GO.venue(PF.venue).name}, proposée par ${GO.actorName()}.` });
     GO.commit();
     GO.toast('success', 'Proposition enregistrée', `${esc(c.id)} apparaît au calendrier comme « date proposée ».`);
     const d0 = GO.parseISO(PF.date); CAL.y = d0.getFullYear(); CAL.m = d0.getMonth(); CAL.ev = c.id; CAL.sel = c.date;
@@ -471,4 +496,5 @@
       else if (want === 'cal') drawCalendar(); else drawProposer();
     }
   };
+  void ui;
 })(window.GO);
