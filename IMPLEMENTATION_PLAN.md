@@ -49,9 +49,14 @@ Les lacunes identifiées :
 | 3.9 | DGT, Ministre, DR : dossiers transmis, décision/avis, recours, validation de cérémonie, journal | fait |
 | 3.10 | Régisseur : recettes, reçus, stock, mouvements, commandes, livraisons, remises effectives, retraits | fait |
 | 3.11 | Administrateur : comptes, paramètres, journaux techniques | fait |
-| 4 | Cohérence des données de démonstration entre profils | fait |
-| 5 | Tests (analyse statique, DOM simulé, parcours par profil) | fait — voir `TEST_REPORT.md` |
-| 6 | Bilan, ambiguïtés métier | fait — § 5 ci-dessous |
+| 4.1 | Cohérence inter-profils : mêmes référence, statut et historique pour un dossier, du secrétariat au récipiendaire | fait — 8 contrôles C1 à C8 (voir `TEST_REPORT.md` § 4) |
+| 4.2 | Règles de circuit verrouillées (stock, cérémonie, retrait, paiement) | fait — § 4 ci-dessous |
+| 5.1 | Parcours automatisé : 14 profils, 143 couples profil × page, 0 erreur JS, 0 page en échec | fait |
+| 5.2 | Parcours d’interaction : 23 scénarios dont 4 écritures persistées après rechargement | fait |
+| 5.3 | Adaptation de la mise en page : 7 formats de 390 px à 1440 px, 175 chargements mesurés | fait |
+| 5.4 | États vides : 30 pages à état vide explicite (aucune page blanche) | fait |
+| 6.1 | Bilan, ambiguïtés métier | fait — § 5 ci-dessous |
+| 6.2 | Documents de suivi : `ROLE_COMPONENT_MAPPING.md`, `PAGES_MAP.md`, `TEST_REPORT.md` | fait — § 6 ci-dessous |
 
 ## 3. Parcours couvert de bout en bout
 
@@ -71,8 +76,13 @@ Les lacunes identifiées :
 
 ## 4. Règles de cohérence appliquées
 
-- Le **stock ne diminue que sur « Enregistrer la remise effective »** ; la réservation est une opération
-  distincte et réversible, enregistrée comme mouvement de type `reservation`.
+- Le **stock physique ne diminue que sur « Enregistrer la remise effective »** (ou « Enregistrer le retrait
+  effectif ») : chaque médaille fait alors l’objet de deux mouvements, `available` (sortie physique) et
+  `reserved` (libération de la réservation). La réservation seule, enregistrée comme mouvement `reserved`
+  positif, est réversible et ne modifie pas le stock physique.
+- La **clôture d’une cérémonie** n’est proposée au Service qu’après une remise effective (`remise` ou
+  `retrait`) ; la Régie ne clôture pas la cérémonie, elle en informe le service.
+- Un **dossier dont les distinctions ont été remises** n’ouvre plus de demande de retrait sans cérémonie.
 - Une **date proposée n'est jamais confirmée** avant l'action « Enregistrer la validation » (référence + attestation).
 - Une **décision** est toujours *enregistrée* au nom de l'autorité compétente avec la référence de son courrier ;
   l'application ne décide pas.
@@ -88,9 +98,34 @@ Les lacunes identifiées :
 |---|---|---|
 | 1 | Intitulé exact du sigle **DTS** (la maquette principale parle de « Document de travail et de synthèse ») | Libellé neutre « DTS — déclaration de travail et de salaire », à confirmer ; le champ est isolé dans `data.js` |
 | 2 | Autorité compétente pour valider une date de cérémonie | Le **Chef du Service** coordonne et propose ; la **validation** est ouverte au Chef, au Ministre et à la DGT. À trancher |
-| 3 | Effet du paiement sur la remise | Le prototype exige un **reçu déposé** pour enregistrer une remise effective et signale un avertissement si le reçu n'est pas encore vérifié. Règle à confirmer |
+| 3 | Effet du paiement sur la remise | **Non tranché** : le prototype ne conditionne pas la remise au paiement. L'état du paiement (ordre émis → reçu déposé → reçu vérifié) est suivi dans le tiroir de dossier, la vue « Ordres de recette et reçus » et les points d'attention ; la remise effective reste décidée par la Régie selon la disponibilité du stock. À trancher : la remise est-elle subordonnée à un reçu vérifié ? |
 | 4 | Décision finale : DR (dossier initial) vs Ministre | Repris de la maquette principale : la **DR rend la décision finale sur le dossier initial** dont elle est destinataire ; le Ministre et la DGT interviennent selon le routage. À valider |
 | 5 | Stock initial et seuils d'alerte | Valeurs de démonstration, modifiables par le régisseur dans le prototype |
 | 6 | Frais de dossier / montants des ordres de recette | Montants fictifs, signalés comme tels ; aucune valeur comptable |
 | 7 | Confidentialité des courriers internes | Les notes internes restent invisibles au demandeur et au récipiendaire |
 | 8 | Suppression d'un dossier | Non prévue : la procédure ne prévoit pas de suppression, seulement rejet/recours |
+
+## 6. Résultats de la campagne de tests (15 octobre 2026)
+
+| Niveau | Volume | Résultat |
+|---|---|---|
+| Parcours par profil | 14 profils · 143 couples profil × page · 129 pages de navigation | 0 erreur JavaScript, 0 page en échec, 30 états vides explicites |
+| Parcours d’interaction | 23 scénarios, dont 4 écritures contrôlées après rechargement | 23 / 23 |
+| Cohérence inter-profils | 8 contrôles (cloisonnement, complément, décision/recette/reçu, remise + clôture, cérémonie, retrait, contrôle, journal) | 8 / 8 |
+| Adaptation | 7 formats (1440 → 390 px) · 175 chargements mesurés | 0 débordement horizontal |
+
+Dix anomalies ont été trouvées et corrigées pendant la campagne (aperçu de document détruit par un
+`setTimeout`, périmètre du récipiendaire, indicateurs figés à zéro, points d’attention des profils externes,
+état de remise, clôture de cérémonie par la régie, format des références générées, retrait sur dossier déjà
+remis, débordement de la barre de navigation entre 1061 px et 1280 px, titre des modales). Le détail,
+les preuves et les limites sont dans `TEST_REPORT.md`.
+
+Documents de suivi livrés ou mis à jour :
+
+| Document | Contenu |
+|---|---|
+| `ROLE_COMPONENT_MAPPING.md` | 14 acteurs, périmètres, permissions, œuvres attendues, composants réutilisés, 26 actions, règles de gestion, notifications, volumes de démonstration |
+| `PAGES_MAP.md` | 24 pages, fichiers sources, routes et paramètres, sections de navigation, pages par profil, identifiants DOM observés |
+| `TEST_REPORT.md` | campagne de tests : méthode, couverture, résultats, anomalies corrigées, limites |
+| `IMPLEMENTATION_PLAN.md` | ce document : avancement, parcours couvert, règles de cohérence, points ouverts, bilan |
+| `DESIGN_REFERENCE.md` | référence visuelle d’origine, inchangée |

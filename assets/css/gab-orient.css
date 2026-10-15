@@ -1120,6 +1120,15 @@ html.reduce-motion .reveal { opacity: 1; transform: none; }
   .venue-layout > .venue-request { grid-column: 1 / -1; }
   .venue-request .card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 }
+/* La barre de sections reste sur une seule ligne jusqu'au passage en navigation mobile (1060 px). */
+@media (max-width: 1280px) {
+  .main-nav ul { gap: 0; }
+  .main-nav .nav-link { gap: 5px; padding: 0 6px; font-size: var(--fs-sm); }
+  .main-nav .nav-caret { padding: 0 3px; }
+}
+@media (max-width: 1130px) {
+  .main-nav .nav-count { display: none; }
+}
 @media (max-width: 1200px) {
   .search-trigger { width: 220px; }
   .search-trigger kbd { display: none; }
