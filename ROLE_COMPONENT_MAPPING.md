@@ -278,11 +278,17 @@
 |---|---|
 | `dossiers` | 21 |
 | `documents` | 25 |
-| `transmissions` | 35 |
 | `dts` | 8 |
+| `distinctions` | 3 |
+| `person` | 6 |
 | `ceremonies` | 5 |
 | `notifications` | 29 |
+| `transmissions` | 35 |
 | `receiptOrders` | 5 |
+| `stock` | 4 |
+| `suppliers` | 3 |
+| `purchaseOrders` | 3 |
+| `deliveries` | 2 |
 | `stockMovements` | 19 |
 | `remises` | 2 |
 | `withdrawals` | 1 |
@@ -292,12 +298,8 @@
 | `recours` | 1 |
 | `audit` | 5 |
 | `accounts` | 15 |
-| `distinctions` | 3 |
-| `suppliers` | 3 |
-| `purchaseOrders` | 3 |
-| `deliveries` | 2 |
-| `venues` | 7 |
 | `organisations` | 8 |
+| `venues` | 7 |
 
 Stock initial (disponible / réservé / seuil) : Bronze 148/32/60 · Argent 96/24/40 · Or 43/18/30 · Diplômes 360/86/100 — chaque valeur est la somme des 19 `stockMovements`.
 

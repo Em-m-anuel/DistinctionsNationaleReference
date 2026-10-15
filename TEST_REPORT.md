@@ -11,12 +11,12 @@
 |---|---|
 | Application | fichiers statiques servis par `python3 -m http.server 8123` depuis la racine du dépôt |
 | Navigateur | Chromium 131 (binaire local) piloté par `puppeteer-core`, sans interface graphique |
-| Harnais | `/home/user/pwtest/*.mjs` — **hors dépôt** : `run.mjs` (parcours), `consistency.mjs` (cohérence inter-profils), `responsive.mjs` (mise en page), `pagemeta.mjs` (inventaire des pages) |
+| Harnais | `tests/` (versionné) : `run.mjs` (parcours), `consistency.mjs` (cohérence inter-profils), `responsive.mjs` (mise en page), `pagemeta.mjs` (inventaire des pages), `inventory.mjs` (inventaire statique), `gen_docs.py` (documents de suivi) — voir `tests/README.md` |
 | Fonctions sensibles simulées | Leaflet et tuiles OpenStreetMap non joignables depuis l’environnement : la carte bascule sur le plan schématique prévu par `map.js` (`#pm-sub` l’indique) ; aucun autre appel réseau n’est requis |
-| Reproductibilité | `cd /home/user/pwtest && node run.mjs --flows && node consistency.mjs && node responsive.mjs` |
+| Reproductibilité | `cd tests && npm install` puis `node run.mjs --flows`, `node consistency.mjs`, `node responsive.mjs` |
 
-Les résultats bruts sont conservés en JSON : `report.json`, `consistency.json`, `responsive.json`,
-`pagemeta.json` (harnais) — ils ne sont pas versionnés dans le dépôt de l’application.
+Les résultats bruts sont conservés en JSON dans `tests/reports/` : `report.json`, `consistency.json`,
+`responsive.json`, `pagemeta.json`, `inventory.json`, `viewmeta.json`.
 
 ## 2. Couverture
 
@@ -66,7 +66,7 @@ Les résultats bruts sont conservés en JSON : `report.json`, `consistency.json`
 par exemple `demandeur_entreprise/pieces` — « Aucune pièce », `recipiendaire/retraits` — « Aucun retrait sans
 cérémonie », `ministre/decisions` — « Aucun dossier dans cette vue », `sec_*/apercu` — « Aucune action en
 attente ». Aucune page ne reste blanche ni ne signale une erreur : la liste complète figure dans
-`report.json` (`roles.<profil>.views.<page>.empty`).
+`tests/reports/report.json` (`roles.<profil>.views.<page>.empty`).
 
 ## 4. Cohérence inter-profils (8 contrôles)
 
@@ -83,7 +83,7 @@ Chaque contrôle écrit avec un profil et vérifie l’effet avec un autre ; **8
 | C7 | Contrôle documentaire inspecteur → service | `CTL-2026-0005` (DNG-2026-009), conclusion « anomalie », visible dans le dossier côté service, 2 notifications liées |
 | C8 | Journalisation et traçabilité | journal 5 → 65 entrées, 65 lignes affichées, 9 acteurs distincts journalisés (agent, chef de service, inspecteur, régisseur, récipiendaire, secrétariat, autorité, demandeur, administrateur) |
 
-Détail complet : `consistency.json`.
+Détail complet : `tests/reports/consistency.json`.
 
 ## 5. Mise en page et adaptation (7 formats)
 

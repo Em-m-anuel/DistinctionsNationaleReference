@@ -54,6 +54,7 @@ Les lacunes identifiées :
 | 5.1 | Parcours automatisé : 14 profils, 143 couples profil × page, 0 erreur JS, 0 page en échec | fait |
 | 5.2 | Parcours d’interaction : 23 scénarios dont 4 écritures persistées après rechargement | fait |
 | 5.3 | Adaptation de la mise en page : 7 formats de 390 px à 1440 px, 175 chargements mesurés | fait |
+| 5.5 | Harnais de tests versionné (`tests/`, relevés JSON dans `tests/reports/`) | fait — voir `tests/README.md` |
 | 5.4 | États vides : 30 pages à état vide explicite (aucune page blanche) | fait |
 | 6.1 | Bilan, ambiguïtés métier | fait — § 5 ci-dessous |
 | 6.2 | Documents de suivi : `ROLE_COMPONENT_MAPPING.md`, `PAGES_MAP.md`, `TEST_REPORT.md` | fait — § 6 ci-dessous |
