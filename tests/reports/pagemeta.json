@@ -1,0 +1,5736 @@
+{
+ "demandeur_entreprise": {
+  "label": "Okoumé Énergie SA",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Hervé. Votre espace de suivi : dossiers, récipiendaires, pièces justificatives, cérémonies et notifications.",
+    "kpis": [
+     "Dossiers suivis = 3 (visibles avec ce profil)",
+     "Actions en attente = 2 (voir les points d’attention)",
+     "Décisions notifiées = 1 (1 attribution(s))",
+     "Courriers à traiter = 0 (visas et numérisations)",
+     "Notifications = 3 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Courriers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Proposer une cérémonie",
+     "Ouvrir",
+     "Tous les courriers",
+     "Consulter",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Mes dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Demandes déposées par votre organisme, leur avancement et les pièces échangées.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 3,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous3",
+     "À traiter1",
+     "En instruction1",
+     "Complément0",
+     "Transmis0",
+     "Approuvé1",
+     "Refusé0"
+    ],
+    "drawers": 3
+   },
+   "nouveau": {
+    "ids": [
+     "f-authority",
+     "f-city",
+     "f-contact",
+     "f-contactRole",
+     "f-email",
+     "f-org",
+     "f-phone",
+     "f-sector",
+     "f-type",
+     "help-t",
+     "org-list",
+     "wz-bar",
+     "wz-body",
+     "wz-foot",
+     "wz-form",
+     "wz-help",
+     "wz-steps",
+     "wz-title"
+    ],
+    "h1": "Nouveau dossier de distinction",
+    "eyebrow": "Dossiers",
+    "sub": "Préparez la demande en quatre étapes. Les informations saisies sont conservées lorsque vous passez d’une étape à l’autre.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Informations du demandeur",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Aide",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Annuler",
+     "Précédent",
+     "Suivant"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "beneficiaires": {
+    "ids": [
+     "bf-count",
+     "bf-dts",
+     "bf-empty",
+     "bf-medal",
+     "bf-q",
+     "bf-status",
+     "bf-table",
+     "bf-wrap"
+    ],
+    "h1": "Bénéficiaires et récipiendaires",
+    "eyebrow": "Suivi",
+    "sub": "Personnes proposées ou distinguées, ancienneté déclarée, pièces au dossier et suites du circuit.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Nom et prénom",
+       "Organisme",
+       "Fonction",
+       "Ancienneté",
+       "Médaille",
+       "Dossier",
+       "DTS",
+       "Remise",
+       "Actions"
+      ],
+      "rows": 12,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 12
+   },
+   "pieces": {
+    "ids": [
+     "pc-add",
+     "pc-count",
+     "pc-docs",
+     "pc-docs-t",
+     "pc-dossier",
+     "pc-empty",
+     "pc-q",
+     "pc-state",
+     "pc-table"
+    ],
+    "h1": "DTS et pièces justificatives",
+    "eyebrow": "Instruction",
+    "sub": "Déclarations de travail et de salaire et pièces jointes de vos dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Récipiendaire",
+       "Dossier",
+       "Référence de la DTS",
+       "Date d’entrée",
+       "Déposée le",
+       "État",
+       "Actions"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Pièces justificatives",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune pièceLes pièces versées aux dossiers apparaîtront ici."
+     }
+    ],
+    "actions": [
+     "Déposer une pièce",
+     "Compléter"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "complements": {
+    "ids": [
+     "kf-empty",
+     "kf-q",
+     "kf-state",
+     "kf-table"
+    ],
+    "h1": "Compléments et relances",
+    "eyebrow": "Instruction",
+    "sub": "Éléments demandés par le Service des Distinctions et réponses à transmettre.",
+    "kpis": [
+     "Compléments en cours = 0 (toutes périodes)",
+     "En retard = 0 (plus de 15 jours sans réponse)",
+     "Relancés = 0 (0 relance envoyée)",
+     "Satisfaits = 0 (pièces reçues)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun complément",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Demandé le",
+       "Échéance",
+       "Éléments attendus",
+       "Relances",
+       "État",
+       "Actions"
+      ],
+      "rows": 0,
+      "empty": "Aucun complémentAucune demande de complément ne correspond à ces critères."
+     }
+    ],
+    "actions": [],
+    "panels": [],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours gracieux formés contre une décision, suivi de leur instruction et de la réponse notifiée.",
+    "kpis": [
+     "Recours enregistrés = 0 (toutes périodes)",
+     "En cours d’examen = 0 (aucun recours en attente)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun recours",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun recoursAucun recours n’est enregistré pour les dossiers accessibles avec ce profil."
+     }
+    ],
+    "actions": [],
+    "panels": [
+     "Tous les recours0",
+     "Recours déposé0",
+     "Recours en examen0",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "recettes": {
+    "ids": [
+     "rf-count",
+     "rf-q",
+     "rf-sort",
+     "rf-state",
+     "rf-table"
+    ],
+    "h1": "Ordres de recette et reçus",
+    "eyebrow": "Régie et finances",
+    "sub": "Ordres de recette émis, reçus de paiement déposés par les demandeurs et vérification de leur conformité.",
+    "kpis": [
+     "Ordres de recette = 1 (dossiers approuvés)",
+     "Paiement attendu = 0 (0 hors délai)",
+     "Reçus à vérifier = 0 (déposés par les demandeurs)",
+     "Paiements vérifiés = 1 (reçus conformes)",
+     "Reçus rejetés = 0 (à régulariser)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Ordre de recette",
+       "Dossier",
+       "Montant",
+       "Émis le",
+       "Échéance",
+       "Reçu de paiement"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Remises des médailles",
+     "Pièce",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tb-prop",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui",
+     "Proposer une cérémonie ce jour"
+    ],
+    "panels": [
+     "Calendrier",
+     "Proposer un lieu et une date"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 6 (périmètre du profil)",
+     "Aujourd’hui = 2 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Dossier enregistré au secrétariat",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Marquer non lue",
+     "Calendrier"
+    ],
+    "panels": [
+     "Toutes 5",
+     "Non lues 3"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "demandeur_ministere": {
+  "label": "Ministère de la Santé",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Olga. Votre espace de suivi : dossiers, récipiendaires, pièces justificatives, cérémonies et notifications.",
+    "kpis": [
+     "Dossiers suivis = 2 (visibles avec ce profil)",
+     "Actions en attente = 2 (voir les points d’attention)",
+     "Décisions notifiées = 0 (0 attribution(s))",
+     "Courriers à traiter = 0 (visas et numérisations)",
+     "Notifications = 0 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Courriers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Proposer une cérémonie",
+     "Ouvrir",
+     "Tous les courriers",
+     "Consulter",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Mes dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Demandes déposées par votre organisme, leur avancement et les pièces échangées.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 2,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous2",
+     "À traiter0",
+     "En instruction0",
+     "Complément1",
+     "Transmis1",
+     "Approuvé0",
+     "Refusé0"
+    ],
+    "drawers": 2
+   },
+   "nouveau": {
+    "ids": [
+     "f-authority",
+     "f-city",
+     "f-contact",
+     "f-contactRole",
+     "f-email",
+     "f-org",
+     "f-phone",
+     "f-sector",
+     "f-type",
+     "help-t",
+     "org-list",
+     "wz-bar",
+     "wz-body",
+     "wz-foot",
+     "wz-form",
+     "wz-help",
+     "wz-steps",
+     "wz-title"
+    ],
+    "h1": "Nouveau dossier de distinction",
+    "eyebrow": "Dossiers",
+    "sub": "Préparez la demande en quatre étapes. Les informations saisies sont conservées lorsque vous passez d’une étape à l’autre.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Informations du demandeur",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Aide",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Annuler",
+     "Précédent",
+     "Suivant"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "beneficiaires": {
+    "ids": [
+     "bf-count",
+     "bf-dts",
+     "bf-empty",
+     "bf-medal",
+     "bf-q",
+     "bf-status",
+     "bf-table",
+     "bf-wrap"
+    ],
+    "h1": "Bénéficiaires et récipiendaires",
+    "eyebrow": "Suivi",
+    "sub": "Personnes proposées ou distinguées, ancienneté déclarée, pièces au dossier et suites du circuit.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Nom et prénom",
+       "Organisme",
+       "Fonction",
+       "Ancienneté",
+       "Médaille",
+       "Dossier",
+       "DTS",
+       "Remise",
+       "Actions"
+      ],
+      "rows": 11,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 11
+   },
+   "pieces": {
+    "ids": [
+     "pc-add",
+     "pc-count",
+     "pc-docs",
+     "pc-docs-t",
+     "pc-dossier",
+     "pc-empty",
+     "pc-q",
+     "pc-state",
+     "pc-table"
+    ],
+    "h1": "DTS et pièces justificatives",
+    "eyebrow": "Instruction",
+    "sub": "Déclarations de travail et de salaire et pièces jointes de vos dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Récipiendaire",
+       "Dossier",
+       "Référence de la DTS",
+       "Date d’entrée",
+       "Déposée le",
+       "État",
+       "Actions"
+      ],
+      "rows": 2,
+      "empty": ""
+     },
+     {
+      "title": "Pièces justificatives",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Déposer une pièce",
+     "Compléter",
+     "Consulter"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "complements": {
+    "ids": [
+     "kf-empty",
+     "kf-q",
+     "kf-state",
+     "kf-table"
+    ],
+    "h1": "Compléments et relances",
+    "eyebrow": "Instruction",
+    "sub": "Éléments demandés par le Service des Distinctions et réponses à transmettre.",
+    "kpis": [
+     "Compléments en cours = 1 (toutes périodes)",
+     "En retard = 1 (plus de 15 jours sans réponse)",
+     "Relancés = 1 (1 relance envoyée)",
+     "Satisfaits = 0 (pièces reçues)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Demandé le",
+       "Échéance",
+       "Éléments attendus",
+       "Relances",
+       "État",
+       "Actions"
+      ],
+      "rows": 1,
+      "empty": ""
+     },
+     {
+      "title": "Relances adressées",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Date",
+       "De → À",
+       "Motif"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours gracieux formés contre une décision, suivi de leur instruction et de la réponse notifiée.",
+    "kpis": [
+     "Recours enregistrés = 0 (toutes périodes)",
+     "En cours d’examen = 0 (aucun recours en attente)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun recours",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun recoursAucun recours n’est enregistré pour les dossiers accessibles avec ce profil."
+     }
+    ],
+    "actions": [],
+    "panels": [
+     "Tous les recours0",
+     "Recours déposé0",
+     "Recours en examen0",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "recettes": {
+    "ids": [
+     "rf-count",
+     "rf-q",
+     "rf-sort",
+     "rf-state",
+     "rf-table"
+    ],
+    "h1": "Ordres de recette et reçus",
+    "eyebrow": "Régie et finances",
+    "sub": "Ordres de recette émis, reçus de paiement déposés par les demandeurs et vérification de leur conformité.",
+    "kpis": [
+     "Ordres de recette = 0 (dossiers approuvés)",
+     "Paiement attendu = 0 (0 hors délai)",
+     "Reçus à vérifier = 0 (déposés par les demandeurs)",
+     "Paiements vérifiés = 0 (reçus conformes)",
+     "Reçus rejetés = 0 (à régulariser)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun ordre de recette",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun ordre de recetteLes ordres de recette émis pour les dossiers approuvés apparaîtront ici."
+     }
+    ],
+    "actions": [
+     "Remises des médailles"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tb-prop",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui",
+     "Proposer une cérémonie ce jour"
+    ],
+    "panels": [
+     "Calendrier",
+     "Proposer un lieu et une date"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 7 (périmètre du profil)",
+     "Aujourd’hui = 3 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Aucune notification",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune notificationAucune notification ne correspond à ce filtre."
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu"
+    ],
+    "panels": [
+     "Toutes 0",
+     "Non lues 0"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "recipiendaire": {
+  "label": "Chef d’équipe",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Ghislain. Vos distinctions, les documents qui vous sont accessibles et les cérémonies qui vous concernent.",
+    "kpis": [
+     "Distinctions = 2 (rattachées à votre profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "Documents accessibles = 3 (versés à vos dossiers)",
+     "Cérémonies à venir = 1 (vous concernant)",
+     "Notifications = 0 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Courriers à traiter",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun courrier en attenteLes notes à viser et les pièces à renumériser apparaîtront ici."
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Mes distinctions",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Calendrier",
+     "Courriers",
+     "Détail"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "distinctions": {
+    "ids": [
+     "dz-retrait",
+     "dz-t"
+    ],
+    "h1": "Mes distinctions",
+    "eyebrow": "Bénéficiaire",
+    "sub": "Relevé des distinctions attribuées à Ghislain Assoumou — Chef d’équipe.",
+    "kpis": [
+     "Distinctions attribuées = 3 (depuis 2015)",
+     "Remises effectuées = 1 (médaille et diplôme reçus)",
+     "En attente de remise = 2 (après validation de la cérémonie)",
+     "Cérémonies à venir = 1 (vous concernant)"
+    ],
+    "cards": [
+     {
+      "title": "Relevé des distinctions",
+      "heads": [
+       "Distinction",
+       "Année",
+       "Dossier",
+       "Cérémonie",
+       "État"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies à venir",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Notifications récentes",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune notificationVous serez notifié à chaque étape vous concernant."
+     },
+     {
+      "title": "Mes affiliations",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Demander un retrait sans cérémonie"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "pieces": {
+    "ids": [
+     "pc-count",
+     "pc-docs",
+     "pc-docs-t",
+     "pc-dossier",
+     "pc-empty",
+     "pc-q",
+     "pc-state",
+     "pc-table"
+    ],
+    "h1": "Mes documents",
+    "eyebrow": "Instruction",
+    "sub": "Déclarations de travail et de salaire et pièces versées aux dossiers vous concernant.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Aucune DTS ne correspond",
+      "heads": [
+       "Récipiendaire",
+       "Dossier",
+       "Référence de la DTS",
+       "Date d’entrée",
+       "Déposée le",
+       "État",
+       "Actions"
+      ],
+      "rows": 0,
+      "empty": "Aucune DTS ne correspondModifiez la recherche ou l’état sélectionné."
+     },
+     {
+      "title": "Pièces justificatives",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Consulter"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "retraits": {
+    "ids": [
+     "wd-chips",
+     "wd-count",
+     "wd-new",
+     "wd-q",
+     "wd-table"
+    ],
+    "h1": "Retraits sans cérémonie",
+    "eyebrow": "Retraits",
+    "sub": "Procédure de retrait des distinctions à la régie lorsque aucune cérémonie n’est organisée pour votre dossier.",
+    "kpis": [
+     "Demandes reçues = 0 (en attente d’autorisation)",
+     "Autorisations enregistrées = 0 (retrait à organiser)",
+     "Retraits effectués = 0 (stock mis à jour)",
+     "Demandes refusées = 0 (motif consigné)"
+    ],
+    "cards": [
+     {
+      "title": "Mes distinctions et la procédure de retrait",
+      "heads": [
+       "Dossier",
+       "Distinctions",
+       "Cérémonie",
+       "Retrait",
+       "Actions"
+      ],
+      "rows": 2,
+      "empty": ""
+     },
+     {
+      "title": "Aucun retrait sans cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun retrait sans cérémonieAucune demande de retrait n’est enregistrée pour les dossiers accessibles avec ce profil."
+     }
+    ],
+    "actions": [
+     "Demander un retrait",
+     "Dossier"
+    ],
+    "panels": [
+     "Tous les états0",
+     "Demande reçue0",
+     "Autorisation enregistrée0",
+     "Retrait enregistré0",
+     "Demande refusée0"
+    ],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Mes dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Demandes déposées par votre organisme, leur avancement et les pièces échangées.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 2,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous2",
+     "À traiter0",
+     "En instruction0",
+     "Complément0",
+     "Transmis0",
+     "Approuvé2",
+     "Refusé0"
+    ],
+    "drawers": 2
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Aucune notification",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune notificationAucune notification ne correspond à ce filtre."
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu"
+    ],
+    "panels": [
+     "Toutes 0",
+     "Non lues 0"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "sec_min": {
+  "label": "Cabinet du Ministre du Travail",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Sylvie. Réception, enregistrement, classement et transmission des courriers de votre autorité.",
+    "kpis": [
+     "Dossiers suivis = 5 (visibles avec ce profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "À enregistrer = 1 (courriers reçus)",
+     "À transmettre = 3 (enregistrés, non transmis)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Registre du jour",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Registre complet",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "transmissions": {
+    "ids": [
+     "tr-chips",
+     "tr-count",
+     "tr-direction",
+     "tr-empty",
+     "tr-new",
+     "tr-q",
+     "tr-sort",
+     "tr-state",
+     "tr-table",
+     "tr-wrap"
+    ],
+    "h1": "Registre — Ministre",
+    "eyebrow": "Registre",
+    "sub": "Courriers reçus pour Cabinet du Ministre du Travail et transmissions vers le Service des Distinctions.",
+    "kpis": [
+     "Courriers au registre = 9 (1 enregistré(s) aujourd’hui)",
+     "À accuser réception = 1 (arrivés le jour même)",
+     "À traiter = 3 (enregistrés, non transmis)",
+     "Transmis au service = 1 (pour instruction)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Reçu le",
+       "Sens",
+       "Expéditeur → destinataire",
+       "Objet",
+       "Dossier",
+       "Voie",
+       "État",
+       "Actions"
+      ],
+      "rows": 9,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Enregistrer un courrier reçu",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous9",
+     "Reçu — à enregistrer1",
+     "Enregistré3",
+     "Classé0",
+     "Transmis1",
+     "Traité4"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 5,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous5",
+     "À traiter2",
+     "En instruction1",
+     "Complément1",
+     "Transmis0",
+     "Approuvé1",
+     "Refusé0"
+    ],
+    "drawers": 5
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 9 (périmètre du profil)",
+     "Aujourd’hui = 5 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Dossier reçu au cabinet",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 1",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "sec_dgt": {
+  "label": "Direction générale du Travail",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Brice. Réception, enregistrement, classement et transmission des courriers de votre autorité.",
+    "kpis": [
+     "Dossiers suivis = 9 (visibles avec ce profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "À enregistrer = 0 (courriers reçus)",
+     "À transmettre = 0 (enregistrés, non transmis)",
+     "Notifications = 3 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Registre du jour",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Calendrier",
+     "Registre complet",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "transmissions": {
+    "ids": [
+     "tr-chips",
+     "tr-count",
+     "tr-direction",
+     "tr-empty",
+     "tr-new",
+     "tr-q",
+     "tr-sort",
+     "tr-state",
+     "tr-table",
+     "tr-wrap"
+    ],
+    "h1": "Registre — DGT",
+    "eyebrow": "Registre",
+    "sub": "Courriers reçus pour Direction générale du Travail et transmissions vers le Service des Distinctions.",
+    "kpis": [
+     "Courriers au registre = 16 (0 enregistré(s) aujourd’hui)",
+     "À accuser réception = 0 (arrivés le jour même)",
+     "À traiter = 0 (enregistrés, non transmis)",
+     "Transmis au service = 3 (pour instruction)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Reçu le",
+       "Sens",
+       "Expéditeur → destinataire",
+       "Objet",
+       "Dossier",
+       "Voie",
+       "État",
+       "Actions"
+      ],
+      "rows": 16,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Enregistrer un courrier reçu",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous16",
+     "Reçu — à enregistrer0",
+     "Enregistré0",
+     "Classé0",
+     "Transmis3",
+     "Traité13"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 9,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous9",
+     "À traiter0",
+     "En instruction0",
+     "Complément0",
+     "Transmis3",
+     "Approuvé5",
+     "Refusé1"
+    ],
+    "drawers": 9
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 10 (périmètre du profil)",
+     "Aujourd’hui = 6 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Recours en examen",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 3",
+     "Non lues 3"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "sec_dr": {
+  "label": "Direction régionale du Travail — Estuaire",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Ghislain. Réception, enregistrement, classement et transmission des courriers de votre autorité.",
+    "kpis": [
+     "Dossiers suivis = 7 (visibles avec ce profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "À enregistrer = 0 (courriers reçus)",
+     "À transmettre = 3 (enregistrés, non transmis)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Registre du jour",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Registre complet",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "transmissions": {
+    "ids": [
+     "tr-chips",
+     "tr-count",
+     "tr-direction",
+     "tr-empty",
+     "tr-new",
+     "tr-q",
+     "tr-sort",
+     "tr-state",
+     "tr-table",
+     "tr-wrap"
+    ],
+    "h1": "Registre — DR Estuaire",
+    "eyebrow": "Registre",
+    "sub": "Courriers reçus pour Direction régionale du Travail — Estuaire et transmissions vers le Service des Distinctions.",
+    "kpis": [
+     "Courriers au registre = 10 (0 enregistré(s) aujourd’hui)",
+     "À accuser réception = 0 (arrivés le jour même)",
+     "À traiter = 3 (enregistrés, non transmis)",
+     "Transmis au service = 2 (pour instruction)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Reçu le",
+       "Sens",
+       "Expéditeur → destinataire",
+       "Objet",
+       "Dossier",
+       "Voie",
+       "État",
+       "Actions"
+      ],
+      "rows": 10,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Enregistrer un courrier reçu",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous10",
+     "Reçu — à enregistrer0",
+     "Enregistré3",
+     "Classé0",
+     "Transmis2",
+     "Traité5"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "visa-zone",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 7,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous7",
+     "À traiter2",
+     "En instruction2",
+     "Complément2",
+     "Transmis0",
+     "Approuvé1",
+     "Refusé0"
+    ],
+    "drawers": 7
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 11 (périmètre du profil)",
+     "Aujourd’hui = 7 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Courrier à enregistrer",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Marquer non lue"
+    ],
+    "panels": [
+     "Toutes 2",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "chef": {
+  "label": "Chef du Service des Distinctions",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Joséphine. Dossiers en cours d’instruction, échéances, compléments et suites à donner.",
+    "kpis": [
+     "Dossiers suivis = 21 (visibles avec ce profil)",
+     "Actions en attente = 15 (voir les points d’attention)",
+     "Récipiendaires proposés = 78 (3 dossier(s) en attente de décision)",
+     "Notes à viser = 2 (visa interne du Chef du Service)",
+     "Notifications = 5 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Courriers à traiter",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Proposer une cérémonie",
+     "Ordres de recette",
+     "Ouvrir",
+     "Calendrier",
+     "Détails",
+     "Courriers",
+     "Consulter",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 21,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous21",
+     "À traiter4",
+     "En instruction3",
+     "Complément3",
+     "Transmis3",
+     "Approuvé7",
+     "Refusé1"
+    ],
+    "drawers": 21
+   },
+   "nouveau": {
+    "ids": [
+     "f-authority",
+     "f-city",
+     "f-contact",
+     "f-contactRole",
+     "f-email",
+     "f-org",
+     "f-phone",
+     "f-sector",
+     "f-type",
+     "help-t",
+     "org-list",
+     "wz-bar",
+     "wz-body",
+     "wz-foot",
+     "wz-form",
+     "wz-help",
+     "wz-steps",
+     "wz-title"
+    ],
+    "h1": "Nouveau dossier de distinction",
+    "eyebrow": "Dossiers",
+    "sub": "Préparez la demande en quatre étapes. Les informations saisies sont conservées lorsque vous passez d’une étape à l’autre.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Informations du demandeur",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Aide",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Annuler",
+     "Précédent",
+     "Suivant"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "instruction": {
+    "ids": [
+     "if-chips",
+     "if-count",
+     "if-empty",
+     "if-q",
+     "if-sort",
+     "if-table"
+    ],
+    "h1": "File d’instruction",
+    "eyebrow": "Instruction",
+    "sub": "Dossiers qui attendent une action de votre part, classés par urgence. Chaque action s’effectue depuis le dossier.",
+    "kpis": [
+     "Actions de mon ressort = 13 (dossiers visibles avec ce profil)",
+     "Urgentes (plus de 15 jours) = 3 (délais à surveiller)",
+     "Compléments en attente = 3 (réponses du demandeur attendues)",
+     "Décisions attendues = 0 (autorités destinataires)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Dossier",
+       "Demandeur",
+       "Action attendue",
+       "Depuis",
+       "Étape",
+       "Actions"
+      ],
+      "rows": 13,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Traiter"
+    ],
+    "panels": [
+     "Toutes les actions13",
+     "À ouvrir4",
+     "À vérifier1",
+     "À viser2",
+     "Complément en retard3",
+     "Ordre de recette2",
+     "Cérémonie à programmer1"
+    ],
+    "drawers": 13
+   },
+   "supervision": {
+    "ids": [
+     "sv-t"
+    ],
+    "h1": "Supervision du service",
+    "eyebrow": "Pilotage",
+    "sub": "Charge du service, validations en attente, circuits à risque et suites financières et matérielles des dossiers.",
+    "kpis": [
+     "Dossiers suivis = 21 (2 agents instructeurs)",
+     "Notes à viser = 2 (visa interne du chef de service)",
+     "À transmettre aux autorités = 2 (notes visées)",
+     "Compléments en retard = 2 (plus de 15 jours)",
+     "Suites financières = 2 (ordres de recette en cours)",
+     "Cérémonies à suivre = 4 (propositions et confirmations)"
+    ],
+    "cards": [
+     {
+      "title": "Validations et transmissions en attente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Suites financières et matérielles",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Charge par agent instructeur",
+      "heads": [
+       "Agent",
+       "Dossiers",
+       "En instruction",
+       "Complément",
+       "Transmis",
+       "Approuvés"
+      ],
+      "rows": 2,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies du service",
+      "heads": [
+       "Cérémonie",
+       "Dossier",
+       "Date",
+       "Lieu",
+       "État",
+       "Actions"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers les plus anciens sans décision",
+      "heads": [
+       "Dossier",
+       "Demandeur",
+       "Dépôt",
+       "Ancienneté",
+       "Statut",
+       "Actions"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Statistiques",
+     "File d’instruction",
+     "Viser",
+     "Transmettre",
+     "Traiter",
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "beneficiaires": {
+    "ids": [
+     "bf-count",
+     "bf-dts",
+     "bf-empty",
+     "bf-medal",
+     "bf-q",
+     "bf-status",
+     "bf-table",
+     "bf-wrap"
+    ],
+    "h1": "Bénéficiaires et récipiendaires",
+    "eyebrow": "Suivi",
+    "sub": "Personnes proposées ou distinguées, ancienneté déclarée, pièces au dossier et suites du circuit.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Nom et prénom",
+       "Organisme",
+       "Fonction",
+       "Ancienneté",
+       "Médaille",
+       "Dossier",
+       "DTS",
+       "Remise",
+       "Actions"
+      ],
+      "rows": 78,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 78
+   },
+   "complements": {
+    "ids": [
+     "kf-empty",
+     "kf-q",
+     "kf-state",
+     "kf-table"
+    ],
+    "h1": "Compléments et relances",
+    "eyebrow": "Instruction",
+    "sub": "Demandes de complément en cours, échéances et relances adressées aux demandeurs.",
+    "kpis": [
+     "Compléments en cours = 3 (toutes périodes)",
+     "En retard = 2 (plus de 15 jours sans réponse)",
+     "Relancés = 1 (1 relance envoyée)",
+     "Satisfaits = 0 (pièces reçues)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Demandé le",
+       "Échéance",
+       "Éléments attendus",
+       "Relances",
+       "État",
+       "Actions"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Relances adressées",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Date",
+       "De → À",
+       "Motif"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "DTS et pièces",
+     "Relancer",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-acc",
+     "rc-b-RCS-2026-0001",
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours reçus, instruction par l’autorité compétente et suites données au dossier.",
+    "kpis": [
+     "Recours enregistrés = 1 (toutes périodes)",
+     "En cours d’examen = 1 (dont 0 à ouvrir)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [],
+    "actions": [
+     "Ouvrir le dossier"
+    ],
+    "panels": [
+     "Tous les recours1",
+     "Recours déposé0",
+     "Recours en examen1",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "recettes": {
+    "ids": [
+     "rf-count",
+     "rf-q",
+     "rf-sort",
+     "rf-state",
+     "rf-table"
+    ],
+    "h1": "Ordres de recette et reçus",
+    "eyebrow": "Régie et finances",
+    "sub": "Ordres de recette émis, reçus de paiement déposés par les demandeurs et vérification de leur conformité.",
+    "kpis": [
+     "Ordres de recette = 5 (dossiers approuvés)",
+     "Paiement attendu = 2 (0 hors délai)",
+     "Reçus à vérifier = 0 (déposés par les demandeurs)",
+     "Paiements vérifiés = 3 (reçus conformes)",
+     "Reçus rejetés = 0 (à régulariser)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Ordre de recette",
+       "Dossier",
+       "Montant",
+       "Émis le",
+       "Échéance",
+       "Reçu de paiement"
+      ],
+      "rows": 5,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Pièce",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "remises": {
+    "ids": [
+     "rm-panel"
+    ],
+    "h1": "Remises des médailles",
+    "eyebrow": "Régie des médailles",
+    "sub": "Préparation et réservation des médailles, puis enregistrement de la remise effective. Le stock physique ne diminue qu’à l’enregistrement d’une remise effective.",
+    "kpis": [
+     "À préparer = 0 (cérémonie confirmée, médailles non réservées)",
+     "Préparées et réservées = 1 (stock physique non diminué)",
+     "Remises effectives = 1 (cérémonie ou retrait)",
+     "Distinctions remises = 6 (récipiendaires servis)",
+     "Retraits sans cérémonie = 1 (1 en cours)"
+    ],
+    "cards": [
+     {
+      "title": "Remises et réservations",
+      "heads": [
+       "Remise",
+       "Dossier",
+       "Préparée le",
+       "Récipiendaires",
+       "Enregistrée par"
+      ],
+      "rows": 1,
+      "empty": ""
+     },
+     {
+      "title": "Ce que la régie ne fait pas",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Stock et mouvements",
+     "Retraits sans cérémonie",
+     "Enregistrer la remise effective",
+     "Dossier"
+    ],
+    "panels": [
+     "À préparer",
+     "Registre des remises"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tb-prop",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui",
+     "Proposer une cérémonie ce jour"
+    ],
+    "panels": [
+     "Calendrier",
+     "Proposer un lieu et une date"
+    ],
+    "drawers": 0
+   },
+   "statistiques": {
+    "ids": [
+     "ch-cum",
+     "ch-dep",
+     "ch-dts",
+     "ch-fun",
+     "ch-med",
+     "ch-sec",
+     "ch-sta",
+     "ct-cum",
+     "ct-dep",
+     "ct-fun",
+     "ct-med",
+     "ct-sec",
+     "ct-sta",
+     "gkfqjws",
+     "st-kpis",
+     "st-period",
+     "st-sector",
+     "tbl-cum",
+     "tbl-dep",
+     "tbl-fun",
+     "tbl-med",
+     "tbl-sec",
+     "tbl-sta"
+    ],
+    "h1": "Statistiques",
+    "eyebrow": "Pilotage",
+    "sub": "Indicateurs calculés à partir des dossiers enregistrés dans GAB-ORIENT. Les filtres s’appliquent à la date de dépôt.",
+    "kpis": [
+     "Dossiers déposés = 21 (Année 2026 (à date))",
+     "Récipiendaires proposés = 78 (soit 3,7 par dossier en moyenne)",
+     "Taux d’approbation = 88% (7 approuvés sur 8 décisions)",
+     "Délai moyen dépôt → décision = 73jours (calculé sur 8 dossiers décidés)"
+    ],
+    "cards": [
+     {
+      "title": "Déclarations de travail et de salaire",
+      "heads": [
+       "État de la DTS",
+       "Nombre"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers déposés par mois",
+      "heads": [
+       "Mois",
+       "Dossiers déposés"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Récipiendaires proposés — cumul",
+      "heads": [
+       "Mois",
+       "Cumul des récipiendaires"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Répartition des statuts",
+      "heads": [
+       "Statut",
+       "Dossiers"
+      ],
+      "rows": 6,
+      "empty": ""
+     },
+     {
+      "title": "Échelons proposés",
+      "heads": [
+       "Échelon",
+       "Récipiendaires"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers par secteur",
+      "heads": [
+       "Secteur",
+       "Dossiers"
+      ],
+      "rows": 8,
+      "empty": ""
+     },
+     {
+      "title": "Avancement dans le circuit",
+      "heads": [
+       "Étape franchie",
+       "Dossiers",
+       "Part"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Voir les données"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 12 (périmètre du profil)",
+     "Aujourd’hui = 8 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Nouveau dossier reçu",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Consulter le courrier",
+     "Calendrier",
+     "Marquer non lue"
+    ],
+    "panels": [
+     "Toutes 10",
+     "Non lues 5"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "agent": {
+  "label": "Agent instructeur",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Landry. Dossiers en cours d’instruction, échéances, compléments et suites à donner.",
+    "kpis": [
+     "Dossiers suivis = 21 (visibles avec ce profil)",
+     "Actions en attente = 12 (voir les points d’attention)",
+     "Récipiendaires proposés = 78 (3 dossier(s) en attente de décision)",
+     "Notes à viser = 2 (visa interne du Chef du Service)",
+     "Notifications = 5 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Courriers à traiter",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Proposer une cérémonie",
+     "Ordres de recette",
+     "Ouvrir",
+     "Calendrier",
+     "Courriers",
+     "Consulter",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 21,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous21",
+     "À traiter4",
+     "En instruction3",
+     "Complément3",
+     "Transmis3",
+     "Approuvé7",
+     "Refusé1"
+    ],
+    "drawers": 21
+   },
+   "nouveau": {
+    "ids": [
+     "f-authority",
+     "f-city",
+     "f-contact",
+     "f-contactRole",
+     "f-email",
+     "f-org",
+     "f-phone",
+     "f-sector",
+     "f-type",
+     "help-t",
+     "org-list",
+     "wz-bar",
+     "wz-body",
+     "wz-foot",
+     "wz-form",
+     "wz-help",
+     "wz-steps",
+     "wz-title"
+    ],
+    "h1": "Nouveau dossier de distinction",
+    "eyebrow": "Dossiers",
+    "sub": "Préparez la demande en quatre étapes. Les informations saisies sont conservées lorsque vous passez d’une étape à l’autre.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Informations du demandeur",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Aide",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Annuler",
+     "Précédent",
+     "Suivant"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "instruction": {
+    "ids": [
+     "if-chips",
+     "if-count",
+     "if-empty",
+     "if-q",
+     "if-sort",
+     "if-table"
+    ],
+    "h1": "File d’instruction",
+    "eyebrow": "Instruction",
+    "sub": "Dossiers qui attendent une action de votre part, classés par urgence. Chaque action s’effectue depuis le dossier.",
+    "kpis": [
+     "Actions de mon ressort = 11 (dossiers visibles avec ce profil)",
+     "Urgentes (plus de 15 jours) = 3 (délais à surveiller)",
+     "Compléments en attente = 3 (réponses du demandeur attendues)",
+     "Décisions attendues = 0 (autorités destinataires)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Dossier",
+       "Demandeur",
+       "Action attendue",
+       "Depuis",
+       "Étape",
+       "Actions"
+      ],
+      "rows": 11,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Traiter"
+    ],
+    "panels": [
+     "Toutes les actions11",
+     "À ouvrir4",
+     "À vérifier1",
+     "Complément en retard3",
+     "Ordre de recette2",
+     "Cérémonie à programmer1"
+    ],
+    "drawers": 11
+   },
+   "beneficiaires": {
+    "ids": [
+     "bf-count",
+     "bf-dts",
+     "bf-empty",
+     "bf-medal",
+     "bf-q",
+     "bf-status",
+     "bf-table",
+     "bf-wrap"
+    ],
+    "h1": "Bénéficiaires et récipiendaires",
+    "eyebrow": "Suivi",
+    "sub": "Personnes proposées ou distinguées, ancienneté déclarée, pièces au dossier et suites du circuit.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Nom et prénom",
+       "Organisme",
+       "Fonction",
+       "Ancienneté",
+       "Médaille",
+       "Dossier",
+       "DTS",
+       "Remise",
+       "Actions"
+      ],
+      "rows": 78,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau dossier",
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 78
+   },
+   "complements": {
+    "ids": [
+     "kf-empty",
+     "kf-q",
+     "kf-state",
+     "kf-table"
+    ],
+    "h1": "Compléments et relances",
+    "eyebrow": "Instruction",
+    "sub": "Demandes de complément en cours, échéances et relances adressées aux demandeurs.",
+    "kpis": [
+     "Compléments en cours = 3 (toutes périodes)",
+     "En retard = 2 (plus de 15 jours sans réponse)",
+     "Relancés = 1 (1 relance envoyée)",
+     "Satisfaits = 0 (pièces reçues)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Demandé le",
+       "Échéance",
+       "Éléments attendus",
+       "Relances",
+       "État",
+       "Actions"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Relances adressées",
+      "heads": [
+       "Référence",
+       "Dossier",
+       "Date",
+       "De → À",
+       "Motif"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "DTS et pièces",
+     "Relancer",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-acc",
+     "rc-b-RCS-2026-0001",
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours reçus, instruction par l’autorité compétente et suites données au dossier.",
+    "kpis": [
+     "Recours enregistrés = 1 (toutes périodes)",
+     "En cours d’examen = 1 (dont 0 à ouvrir)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [],
+    "actions": [
+     "Ouvrir le dossier"
+    ],
+    "panels": [
+     "Tous les recours1",
+     "Recours déposé0",
+     "Recours en examen1",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "recettes": {
+    "ids": [
+     "rf-count",
+     "rf-q",
+     "rf-sort",
+     "rf-state",
+     "rf-table"
+    ],
+    "h1": "Ordres de recette et reçus",
+    "eyebrow": "Régie et finances",
+    "sub": "Ordres de recette émis, reçus de paiement déposés par les demandeurs et vérification de leur conformité.",
+    "kpis": [
+     "Ordres de recette = 5 (dossiers approuvés)",
+     "Paiement attendu = 2 (0 hors délai)",
+     "Reçus à vérifier = 0 (déposés par les demandeurs)",
+     "Paiements vérifiés = 3 (reçus conformes)",
+     "Reçus rejetés = 0 (à régulariser)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Ordre de recette",
+       "Dossier",
+       "Montant",
+       "Émis le",
+       "Échéance",
+       "Reçu de paiement"
+      ],
+      "rows": 5,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Pièce",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tb-prop",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui",
+     "Proposer une cérémonie ce jour"
+    ],
+    "panels": [
+     "Calendrier",
+     "Proposer un lieu et une date"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 13 (périmètre du profil)",
+     "Aujourd’hui = 9 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Nouveau dossier reçu",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Consulter le courrier",
+     "Calendrier",
+     "Marquer non lue"
+    ],
+    "panels": [
+     "Toutes 10",
+     "Non lues 5"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "inspecteur": {
+  "label": "Inspectrice du travail",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Rosine. Dossiers à contrôler, pièces vérifiées, observations et anomalies signalées.",
+    "kpis": [
+     "Dossiers suivis = 21 (visibles avec ce profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "Anomalies ouvertes = 2 (signalements en cours)",
+     "Contrôles effectués = 3 (depuis l’ouverture du registre)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Contrôles récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau contrôle",
+     "Calendrier",
+     "Tous les contrôles",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 21,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous21",
+     "À traiter4",
+     "En instruction3",
+     "Complément3",
+     "Transmis3",
+     "Approuvé7",
+     "Refusé1"
+    ],
+    "drawers": 21
+   },
+   "controle": {
+    "ids": [
+     "tf-list",
+     "tf-new",
+     "tf-q",
+     "tf-state"
+    ],
+    "h1": "Contrôles et anomalies",
+    "eyebrow": "Contrôle",
+    "sub": "Vérification documentaire des dossiers : pièces, cohérence des dates d’entrée et des déclarations de travail et de salaire. Aucune décision d’attribution n’est prise ici.",
+    "kpis": [
+     "Contrôles menés = 3 (depuis l’ouverture du registre)",
+     "Conformes = 1 (sans observation)",
+     "Anomalies ouvertes = 2 (suites à donner)",
+     "Dossiers contrôlés = 3 (sur les dossiers visibles)"
+    ],
+    "cards": [
+     {
+      "title": "Dossiers à contrôler",
+      "heads": [
+       "Dossier",
+       "Demandeur",
+       "Statut",
+       "Dernier contrôle",
+       "Actions"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Nouveau contrôle",
+     "Ouvrir le dossier",
+     "Compléter le contrôle",
+     "Signaler une anomalie",
+     "Contrôler"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "beneficiaires": {
+    "ids": [
+     "bf-count",
+     "bf-dts",
+     "bf-empty",
+     "bf-medal",
+     "bf-q",
+     "bf-status",
+     "bf-table",
+     "bf-wrap"
+    ],
+    "h1": "Bénéficiaires et récipiendaires",
+    "eyebrow": "Suivi",
+    "sub": "Personnes proposées ou distinguées, ancienneté déclarée, pièces au dossier et suites du circuit.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Nom et prénom",
+       "Organisme",
+       "Fonction",
+       "Ancienneté",
+       "Médaille",
+       "Dossier",
+       "DTS",
+       "Remise",
+       "Actions"
+      ],
+      "rows": 78,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [],
+    "drawers": 78
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 14 (périmètre du profil)",
+     "Aujourd’hui = 10 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Anomalies à suivre",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 1",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "dgt": {
+  "label": "Direction générale du Travail",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Aline. Dossiers qui relèvent de votre autorité : avis, décisions, recours et suites données.",
+    "kpis": [
+     "Dossiers suivis = 9 (visibles avec ce profil)",
+     "Actions en attente = 5 (voir les points d’attention)",
+     "À décider = 3 (dossiers transmis)",
+     "Recours à examiner = 1 (recours enregistrés)",
+     "Notifications = 3 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Transmis pour décision",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir",
+     "Calendrier",
+     "Détails",
+     "Décisions",
+     "Instruire",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 9,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous9",
+     "À traiter0",
+     "En instruction0",
+     "Complément0",
+     "Transmis3",
+     "Approuvé5",
+     "Refusé1"
+    ],
+    "drawers": 9
+   },
+   "decisions": {
+    "ids": [
+     "de-chips",
+     "de-count",
+     "de-medal",
+     "de-q",
+     "de-table"
+    ],
+    "h1": "Dossiers transmis et décisions",
+    "eyebrow": "Décision",
+    "sub": "Dossiers relevant de Direction générale du Travail : examen des dossiers transmis par le Service des Distinctions, avis, décisions et suites données.",
+    "kpis": [
+     "Dossiers en attente de décision = 0 (transmis par le service)",
+     "Décisions rendues = 1 (5 favorables, 1 refus)",
+     "Délai moyen dépôt → décision = 92jours (sur 6 dossiers décidés)",
+     "Recours à examiner = 0 (dont 2 dates de cérémonie à valider)"
+    ],
+    "cards": [
+     {
+      "title": "Dossiers en attente de décision",
+      "heads": [
+       "Dossier",
+       "Organisme demandeur",
+       "Échelons proposés",
+       "Transmis depuis",
+       "Pièces"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Dates de cérémonie soumises à votre validation",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Suivi des décisions",
+      "heads": [
+       "Dossier",
+       "Décision",
+       "Suites financières",
+       "Cérémonie / remise",
+       "Recours"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Courriers reçus",
+     "Recours (1)",
+     "Décider",
+     "Avis",
+     "Consulter",
+     "Ouvrir la fiche",
+     "Valider la date"
+    ],
+    "panels": [
+     "À décider3",
+     "Décisions rendues6",
+     "Dossiers en cours d’instruction0"
+    ],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-acc",
+     "rc-b-RCS-2026-0001",
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours reçus, instruction par l’autorité compétente et suites données au dossier.",
+    "kpis": [
+     "Recours enregistrés = 1 (toutes périodes)",
+     "En cours d’examen = 1 (dont 0 à ouvrir)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [],
+    "actions": [
+     "Enregistrer la suite donnée",
+     "Ouvrir le dossier"
+    ],
+    "panels": [
+     "Tous les recours1",
+     "Recours déposé0",
+     "Recours en examen1",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "statistiques": {
+    "ids": [
+     "ch-cum",
+     "ch-dep",
+     "ch-dts",
+     "ch-fun",
+     "ch-med",
+     "ch-sec",
+     "ch-sta",
+     "ct-cum",
+     "ct-dep",
+     "ct-fun",
+     "ct-med",
+     "ct-sec",
+     "ct-sta",
+     "g9leu41",
+     "st-kpis",
+     "st-period",
+     "st-sector",
+     "tbl-cum",
+     "tbl-dep",
+     "tbl-fun",
+     "tbl-med",
+     "tbl-sec",
+     "tbl-sta"
+    ],
+    "h1": "Statistiques",
+    "eyebrow": "Pilotage",
+    "sub": "Indicateurs calculés à partir des dossiers enregistrés dans GAB-ORIENT. Les filtres s’appliquent à la date de dépôt.",
+    "kpis": [
+     "Dossiers déposés = 9 (Année 2026 (à date))",
+     "Récipiendaires proposés = 37 (soit 4,1 par dossier en moyenne)",
+     "Taux d’approbation = 83% (5 approuvés sur 6 décisions)",
+     "Délai moyen dépôt → décision = 92jours (calculé sur 6 dossiers décidés)"
+    ],
+    "cards": [
+     {
+      "title": "Déclarations de travail et de salaire",
+      "heads": [
+       "État de la DTS",
+       "Nombre"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers déposés par mois",
+      "heads": [
+       "Mois",
+       "Dossiers déposés"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Récipiendaires proposés — cumul",
+      "heads": [
+       "Mois",
+       "Cumul des récipiendaires"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Répartition des statuts",
+      "heads": [
+       "Statut",
+       "Dossiers"
+      ],
+      "rows": 6,
+      "empty": ""
+     },
+     {
+      "title": "Échelons proposés",
+      "heads": [
+       "Échelon",
+       "Récipiendaires"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers par secteur",
+      "heads": [
+       "Secteur",
+       "Dossiers"
+      ],
+      "rows": 7,
+      "empty": ""
+     },
+     {
+      "title": "Avancement dans le circuit",
+      "heads": [
+       "Étape franchie",
+       "Dossiers",
+       "Part"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Voir les données"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 15 (périmètre du profil)",
+     "Aujourd’hui = 11 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Recours en examen",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 3",
+     "Non lues 3"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "ministre": {
+  "label": "Cabinet du Ministre du Travail",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Patrick. Dossiers qui relèvent de votre autorité : avis, décisions, recours et suites données.",
+    "kpis": [
+     "Dossiers suivis = 5 (visibles avec ce profil)",
+     "Actions en attente = 1 (voir les points d’attention)",
+     "À décider = 0 (dossiers transmis)",
+     "Recours à examiner = 0 (recours enregistrés)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Transmis pour décision",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun dossier en attenteLes dossiers transmis pour votre décision apparaîtront ici."
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir",
+     "Détails",
+     "Décisions",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 5,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous5",
+     "À traiter2",
+     "En instruction1",
+     "Complément1",
+     "Transmis0",
+     "Approuvé1",
+     "Refusé0"
+    ],
+    "drawers": 5
+   },
+   "decisions": {
+    "ids": [
+     "de-chips",
+     "de-count",
+     "de-medal",
+     "de-q",
+     "de-table"
+    ],
+    "h1": "Dossiers transmis et décisions",
+    "eyebrow": "Décision",
+    "sub": "Dossiers relevant de Cabinet du Ministre du Travail : examen des dossiers transmis par le Service des Distinctions, avis, décisions et suites données.",
+    "kpis": [
+     "Dossiers en attente de décision = 0 (transmis par le service)",
+     "Décisions rendues = 0 (1 favorable, 0 refus)",
+     "Délai moyen dépôt → décision = 9jours (sur 1 dossier décidé)",
+     "Recours à examiner = 0 (recours gracieux)"
+    ],
+    "cards": [
+     {
+      "title": "Dossiers en attente de décision",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun dossier dans cette vueAucun dossier ne correspond aux filtres sélectionnés."
+     },
+     {
+      "title": "Suivi des décisions",
+      "heads": [
+       "Dossier",
+       "Décision",
+       "Suites financières",
+       "Cérémonie / remise",
+       "Recours"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Courriers reçus",
+     "Recours"
+    ],
+    "panels": [
+     "À décider0",
+     "Décisions rendues1",
+     "Dossiers en cours d’instruction4"
+    ],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours reçus, instruction par l’autorité compétente et suites données au dossier.",
+    "kpis": [
+     "Recours enregistrés = 0 (toutes périodes)",
+     "En cours d’examen = 0 (aucun recours en attente)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun recours",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun recoursAucun recours n’est enregistré pour les dossiers accessibles avec ce profil."
+     }
+    ],
+    "actions": [],
+    "panels": [
+     "Tous les recours0",
+     "Recours déposé0",
+     "Recours en examen0",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "statistiques": {
+    "ids": [
+     "ch-cum",
+     "ch-dep",
+     "ch-dts",
+     "ch-fun",
+     "ch-med",
+     "ch-sec",
+     "ch-sta",
+     "ct-cum",
+     "ct-dep",
+     "ct-fun",
+     "ct-med",
+     "ct-sec",
+     "ct-sta",
+     "gdlhd4i",
+     "st-kpis",
+     "st-period",
+     "st-sector",
+     "tbl-cum",
+     "tbl-dep",
+     "tbl-fun",
+     "tbl-med",
+     "tbl-sec",
+     "tbl-sta"
+    ],
+    "h1": "Statistiques",
+    "eyebrow": "Pilotage",
+    "sub": "Indicateurs calculés à partir des dossiers enregistrés dans GAB-ORIENT. Les filtres s’appliquent à la date de dépôt.",
+    "kpis": [
+     "Dossiers déposés = 5 (Année 2026 (à date))",
+     "Récipiendaires proposés = 19 (soit 3,8 par dossier en moyenne)",
+     "Taux d’approbation = 100% (1 approuvé sur 1 décision)",
+     "Délai moyen dépôt → décision = 9jours (calculé sur 1 dossier décidé)"
+    ],
+    "cards": [
+     {
+      "title": "Déclarations de travail et de salaire",
+      "heads": [
+       "État de la DTS",
+       "Nombre"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers déposés par mois",
+      "heads": [
+       "Mois",
+       "Dossiers déposés"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Récipiendaires proposés — cumul",
+      "heads": [
+       "Mois",
+       "Cumul des récipiendaires"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Répartition des statuts",
+      "heads": [
+       "Statut",
+       "Dossiers"
+      ],
+      "rows": 6,
+      "empty": ""
+     },
+     {
+      "title": "Échelons proposés",
+      "heads": [
+       "Échelon",
+       "Récipiendaires"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers par secteur",
+      "heads": [
+       "Secteur",
+       "Dossiers"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Avancement dans le circuit",
+      "heads": [
+       "Étape franchie",
+       "Dossiers",
+       "Part"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Voir les données"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 16 (périmètre du profil)",
+     "Aujourd’hui = 12 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Dossier reçu au cabinet",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 1",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "dr": {
+  "label": "Direction régionale du Travail — Estuaire",
+  "views": {
+   "apercu": {
+    "ids": [
+     "ch-dep"
+    ],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Serge. Dossiers qui relèvent de votre autorité : avis, décisions, recours et suites données.",
+    "kpis": [
+     "Dossiers suivis = 7 (visibles avec ce profil)",
+     "Actions en attente = 1 (voir les points d’attention)",
+     "À décider = 0 (dossiers transmis)",
+     "Recours à examiner = 0 (recours enregistrés)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie à venirLes cérémonies proposées ou confirmées apparaîtront ici."
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dépôts mensuels 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Transmis pour décision",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun dossier en attenteLes dossiers transmis pour votre décision apparaîtront ici."
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir",
+     "Détails",
+     "Décisions",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 7,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous7",
+     "À traiter2",
+     "En instruction2",
+     "Complément2",
+     "Transmis0",
+     "Approuvé1",
+     "Refusé0"
+    ],
+    "drawers": 7
+   },
+   "decisions": {
+    "ids": [
+     "de-chips",
+     "de-count",
+     "de-medal",
+     "de-q",
+     "de-table"
+    ],
+    "h1": "Dossiers transmis et décisions",
+    "eyebrow": "Décision",
+    "sub": "Dossiers relevant de Direction régionale du Travail — Estuaire : examen des dossiers transmis par le Service des Distinctions, avis, décisions et suites données.",
+    "kpis": [
+     "Dossiers en attente de décision = 0 (transmis par le service)",
+     "Décisions rendues = 1 (1 favorable, 0 refus)",
+     "Délai moyen dépôt → décision = 24jours (sur 1 dossier décidé)",
+     "Recours à examiner = 0 (recours gracieux)"
+    ],
+    "cards": [
+     {
+      "title": "Dossiers en attente de décision",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun dossier dans cette vueAucun dossier ne correspond aux filtres sélectionnés."
+     },
+     {
+      "title": "Suivi des décisions",
+      "heads": [
+       "Dossier",
+       "Décision",
+       "Suites financières",
+       "Cérémonie / remise",
+       "Recours"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Courriers reçus",
+     "Recours"
+    ],
+    "panels": [
+     "À décider0",
+     "Décisions rendues1",
+     "Dossiers en cours d’instruction6"
+    ],
+    "drawers": 0
+   },
+   "recours": {
+    "ids": [
+     "rc-chips",
+     "rc-count",
+     "rc-list",
+     "rc-q"
+    ],
+    "h1": "Recours",
+    "eyebrow": "Voies de recours",
+    "sub": "Recours reçus, instruction par l’autorité compétente et suites données au dossier.",
+    "kpis": [
+     "Recours enregistrés = 0 (toutes périodes)",
+     "En cours d’examen = 0 (aucun recours en attente)",
+     "Recours acceptés = 0 (réexamen du dossier)",
+     "Recours rejetés = 0 (décision maintenue)"
+    ],
+    "cards": [
+     {
+      "title": "Aucun recours",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucun recoursAucun recours n’est enregistré pour les dossiers accessibles avec ce profil."
+     }
+    ],
+    "actions": [],
+    "panels": [
+     "Tous les recours0",
+     "Recours déposé0",
+     "Recours en examen0",
+     "Recours accepté0",
+     "Recours rejeté0"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "visa-zone",
+     "zoom-val"
+    ],
+    "h1": "Courriers de l’autorité",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune cérémonie ce mois-ciUtilisez les flèches pour parcourir les autres mois."
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "statistiques": {
+    "ids": [
+     "ch-cum",
+     "ch-dep",
+     "ch-dts",
+     "ch-fun",
+     "ch-med",
+     "ch-sec",
+     "ch-sta",
+     "ct-cum",
+     "ct-dep",
+     "ct-fun",
+     "ct-med",
+     "ct-sec",
+     "ct-sta",
+     "gn0f16t",
+     "st-kpis",
+     "st-period",
+     "st-sector",
+     "tbl-cum",
+     "tbl-dep",
+     "tbl-fun",
+     "tbl-med",
+     "tbl-sec",
+     "tbl-sta"
+    ],
+    "h1": "Statistiques",
+    "eyebrow": "Pilotage",
+    "sub": "Indicateurs calculés à partir des dossiers enregistrés dans GAB-ORIENT. Les filtres s’appliquent à la date de dépôt.",
+    "kpis": [
+     "Dossiers déposés = 7 (Année 2026 (à date))",
+     "Récipiendaires proposés = 22 (soit 3,1 par dossier en moyenne)",
+     "Taux d’approbation = 100% (1 approuvé sur 1 décision)",
+     "Délai moyen dépôt → décision = 24jours (calculé sur 1 dossier décidé)"
+    ],
+    "cards": [
+     {
+      "title": "Déclarations de travail et de salaire",
+      "heads": [
+       "État de la DTS",
+       "Nombre"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers déposés par mois",
+      "heads": [
+       "Mois",
+       "Dossiers déposés"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Récipiendaires proposés — cumul",
+      "heads": [
+       "Mois",
+       "Cumul des récipiendaires"
+      ],
+      "rows": 10,
+      "empty": ""
+     },
+     {
+      "title": "Répartition des statuts",
+      "heads": [
+       "Statut",
+       "Dossiers"
+      ],
+      "rows": 6,
+      "empty": ""
+     },
+     {
+      "title": "Échelons proposés",
+      "heads": [
+       "Échelon",
+       "Récipiendaires"
+      ],
+      "rows": 3,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers par secteur",
+      "heads": [
+       "Secteur",
+       "Dossiers"
+      ],
+      "rows": 6,
+      "empty": ""
+     },
+     {
+      "title": "Avancement dans le circuit",
+      "heads": [
+       "Étape franchie",
+       "Dossiers",
+       "Part"
+      ],
+      "rows": 6,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Voir les données"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 17 (périmètre du profil)",
+     "Aujourd’hui = 13 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Courrier à enregistrer",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Marquer non lue"
+    ],
+    "panels": [
+     "Toutes 2",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "regisseur": {
+  "label": "Régisseur des médailles",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Nadège. Stock, ordres de recette, remises effectives et retraits sans cérémonie.",
+    "kpis": [
+     "Dossiers suivis = 21 (visibles avec ce profil)",
+     "Actions en attente = 1 (voir les points d’attention)",
+     "Médailles en stock = 287 (160 réservées)",
+     "Reçus à vérifier = 0 (paiements déposés)",
+     "Notifications = 2 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "État du stock",
+      "heads": [
+       "Médaille",
+       "Physique",
+       "Réservé",
+       "Seuil"
+      ],
+      "rows": 4,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Stock des médailles",
+     "Ouvrir",
+     "Calendrier",
+     "Gérer",
+     "Tous"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "recettes": {
+    "ids": [
+     "rf-count",
+     "rf-q",
+     "rf-sort",
+     "rf-state",
+     "rf-table"
+    ],
+    "h1": "Ordres de recette et reçus",
+    "eyebrow": "Régie et finances",
+    "sub": "Ordres de recette émis, reçus de paiement déposés par les demandeurs et vérification de leur conformité.",
+    "kpis": [
+     "Ordres de recette = 5 (dossiers approuvés)",
+     "Paiement attendu = 2 (0 hors délai)",
+     "Reçus à vérifier = 0 (déposés par les demandeurs)",
+     "Paiements vérifiés = 3 (reçus conformes)",
+     "Reçus rejetés = 0 (à régulariser)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Ordre de recette",
+       "Dossier",
+       "Montant",
+       "Émis le",
+       "Échéance",
+       "Reçu de paiement"
+      ],
+      "rows": 5,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Remises des médailles",
+     "Pièce",
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "stock": {
+    "ids": [
+     "st-field",
+     "st-item",
+     "st-mv",
+     "st-new",
+     "st-po",
+     "st-sup",
+     "stb-mv",
+     "stb-po",
+     "stb-sup",
+     "stp-mv",
+     "stp-po",
+     "stp-sup"
+    ],
+    "h1": "Stock des médailles",
+    "eyebrow": "Régie des médailles",
+    "sub": "Stock physique, réservations par dossier ou campagne, mouvements, commandes et livraisons fournisseurs.",
+    "kpis": [
+     "Médailles en stock = 287 (hors diplômes)",
+     "Réservées = 74 (médailles immobilisées)",
+     "Diplômes disponibles = 360 (86 réservés)",
+     "Mouvements ce mois = 4 (depuis le 1 oct. 2026)",
+     "Alertes de seuil = 0 (stock au niveau du seuil)"
+    ],
+    "cards": [
+     {
+      "title": "Médaille Bronze",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Médaille Argent",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Médaille Or",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Diplôme de distinction",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Suivi de la régie",
+      "heads": [
+       "Mouvement",
+       "Article",
+       "Sens",
+       "Motif",
+       "Auteur",
+       "Commande",
+       "Fournisseur",
+       "Lignes",
+       "Attendue le",
+       "État",
+       "Livraison",
+       "Commande",
+       "Fournisseur",
+       "Réception",
+       "État",
+       "Réceptionnée par",
+       "Fournisseur",
+       "Articles fournis",
+       "Délai annoncé",
+       "Commandes en cours"
+      ],
+      "rows": 27,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Enregistrer un mouvement"
+    ],
+    "panels": [
+     "Mouvements",
+     "Approvisionnements",
+     "Fournisseurs"
+    ],
+    "drawers": 0
+   },
+   "remises": {
+    "ids": [
+     "rm-panel"
+    ],
+    "h1": "Remises des médailles",
+    "eyebrow": "Régie des médailles",
+    "sub": "Préparation et réservation des médailles, puis enregistrement de la remise effective. Le stock physique ne diminue qu’à l’enregistrement d’une remise effective.",
+    "kpis": [
+     "À préparer = 0 (cérémonie confirmée, médailles non réservées)",
+     "Préparées et réservées = 1 (stock physique non diminué)",
+     "Remises effectives = 1 (cérémonie ou retrait)",
+     "Distinctions remises = 6 (récipiendaires servis)",
+     "Retraits sans cérémonie = 1 (1 en cours)"
+    ],
+    "cards": [
+     {
+      "title": "Remises et réservations",
+      "heads": [
+       "Remise",
+       "Dossier",
+       "Préparée le",
+       "Récipiendaires",
+       "Enregistrée par"
+      ],
+      "rows": 1,
+      "empty": ""
+     },
+     {
+      "title": "Ce que la régie ne fait pas",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Stock et mouvements",
+     "Retraits sans cérémonie",
+     "Enregistrer la remise effective",
+     "Dossier"
+    ],
+    "panels": [
+     "À préparer",
+     "Registre des remises"
+    ],
+    "drawers": 0
+   },
+   "retraits": {
+    "ids": [
+     "wd-chips",
+     "wd-count",
+     "wd-q",
+     "wd-table"
+    ],
+    "h1": "Retraits sans cérémonie",
+    "eyebrow": "Retraits",
+    "sub": "Demandes reçues, autorisations enregistrées et retraits effectués à la régie.",
+    "kpis": [
+     "Demandes reçues = 1 (en attente d’autorisation)",
+     "Autorisations enregistrées = 0 (retrait à organiser)",
+     "Retraits effectués = 0 (stock mis à jour)",
+     "Demandes refusées = 0 (motif consigné)"
+    ],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Demande",
+       "Dossier",
+       "Demandeur",
+       "Date",
+       "Justification",
+       "Autorisation / rendez-vous",
+       "Retrait effectif"
+      ],
+      "rows": 1,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Autoriser le retrait",
+     "Dossier"
+    ],
+    "panels": [
+     "Tous les états1",
+     "Demande reçue1",
+     "Autorisation enregistrée0",
+     "Retrait enregistré0",
+     "Demande refusée0"
+    ],
+    "drawers": 0
+   },
+   "dossiers": {
+    "ids": [
+     "df-authority",
+     "df-chips",
+     "df-count",
+     "df-empty",
+     "df-period",
+     "df-q",
+     "df-sort",
+     "df-status",
+     "df-table",
+     "df-wrap"
+    ],
+    "h1": "Dossiers",
+    "eyebrow": "Instruction",
+    "sub": "Consultation et suivi des demandes de distinctions : recherche, filtres et détail de chaque dossier.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "",
+      "heads": [
+       "Référence",
+       "Demandeur",
+       "Dépôt",
+       "Récip.",
+       "Étape",
+       "Statut",
+       "Autorité",
+       "Dernière activité",
+       "Actions"
+      ],
+      "rows": 21,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Ouvrir"
+    ],
+    "panels": [
+     "Tous21",
+     "À traiter4",
+     "En instruction3",
+     "Complément3",
+     "Transmis3",
+     "Approuvé7",
+     "Refusé1"
+    ],
+    "drawers": 21
+   },
+   "ceremonies": {
+    "ids": [
+     "cal-detail",
+     "cal-grid",
+     "cal-title",
+     "ml-t",
+     "ml-title",
+     "month-list",
+     "tb-cal",
+     "tp-cal",
+     "tp-prop"
+    ],
+    "h1": "Cérémonies",
+    "eyebrow": "Organisation",
+    "sub": "Calendrier des remises de distinctions, états de validation et proposition de nouvelles dates.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Cérémonies de octobre 2026",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Aujourd’hui"
+    ],
+    "panels": [
+     "Calendrier"
+    ],
+    "drawers": 0
+   },
+   "courriers": {
+    "ids": [
+     "dl-count",
+     "dl-dossier",
+     "dl-list",
+     "dl-q",
+     "dl-state",
+     "dl-t",
+     "dl-type",
+     "v-stage",
+     "v-state",
+     "viewer",
+     "zoom-val"
+    ],
+    "h1": "Courriers et documents",
+    "eyebrow": "Consultation",
+    "sub": "Courriers numérisés, notes internes, pièces justificatives, décisions et quittances rattachés aux dossiers.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Documents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Dossier"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Événements enregistrés pour les dossiers accessibles avec ce profil, du dépôt à la remise.",
+    "kpis": [
+     "Événements enregistrés = 18 (périmètre du profil)",
+     "Aujourd’hui = 14 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Paiement à vérifier",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Ouvrir le dossier",
+     "Marquer comme lue",
+     "Calendrier"
+    ],
+    "panels": [
+     "Toutes 2",
+     "Non lues 2"
+    ],
+    "drawers": 0
+   }
+  }
+ },
+ "admin": {
+  "label": "Administrateur GAB-ORIENT",
+  "views": {
+   "apercu": {
+    "ids": [],
+    "h1": "Vue d’ensemble",
+    "eyebrow": "jeudi 15 octobre 2026",
+    "sub": "Bonjour Wilfried. Comptes de démonstration, paramètres, référentiels et journaux.",
+    "kpis": [
+     "Dossiers suivis = 21 (visibles avec ce profil)",
+     "Actions en attente = 0 (aucune action de votre ressort)",
+     "Comptes actifs = 14 (15 comptes référencés)",
+     "Événements journalisés = 19 (journal technique)",
+     "Notifications = 1 (non lues pour ce profil)"
+    ],
+    "cards": [
+     {
+      "title": "Points d’attention",
+      "heads": [],
+      "rows": 0,
+      "empty": "Aucune action en attenteLes actions attendues de votre profil apparaîtront ici dès qu’une étape vous concernera."
+     },
+     {
+      "title": "Prochaine cérémonie",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Circuit des dossiers",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Journal technique",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Activité récente",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     },
+     {
+      "title": "Dossiers récents",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Administration",
+     "Calendrier",
+     "Journal complet"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "administration": {
+    "ids": [
+     "ad-list",
+     "ad-new",
+     "ad-panel",
+     "ad-q"
+    ],
+    "h1": "Comptes, paramètres et journaux",
+    "eyebrow": "Administration",
+    "sub": "Gestion des comptes de démonstration, paramètres de la maquette et vérification des journaux. L’administrateur ne prend aucune décision sur les dossiers de distinctions.",
+    "kpis": [
+     "Comptes enregistrés = 15 (14 actifs)",
+     "Profils de travail = 14 (8 familles d’acteurs)",
+     "Événements du journal = 19 (lecture seule)",
+     "Référentiels = 8organismes (7 lieux · 3 échelons)"
+    ],
+    "cards": [
+     {
+      "title": "Base de démonstration",
+      "heads": [
+       "Compte",
+       "Utilisateur",
+       "Profil de travail",
+       "Dernière connexion",
+       "État"
+      ],
+      "rows": 15,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Journal d’activité",
+     "Créer un compte",
+     "Suspendre",
+     "Désactiver",
+     "Réactiver"
+    ],
+    "panels": [
+     "Comptes",
+     "Paramètres",
+     "Données de référence"
+    ],
+    "drawers": 0
+   },
+   "journal": {
+    "ids": [
+     "jf-actor",
+     "jf-count",
+     "jf-level",
+     "jf-list",
+     "jf-period",
+     "jf-print",
+     "jf-q"
+    ],
+    "h1": "Journal d’activité",
+    "eyebrow": "Traçabilité",
+    "sub": "Journal technique complet : connexions, changements de profil, enregistrements, courriers et mouvements de stock.",
+    "kpis": [
+     "Événements enregistrés = 19 (journal complet)",
+     "Aujourd’hui = 15 (jeudi 15 octobre 2026)",
+     "Actions = 0 (enregistrements et transmissions)",
+     "Alertes = 0 (écarts et anomalies)"
+    ],
+    "cards": [],
+    "actions": [
+     "Préparer un extrait"
+    ],
+    "panels": [],
+    "drawers": 0
+   },
+   "notifications": {
+    "ids": [
+     "nt-all",
+     "nt-list",
+     "nt-n-all",
+     "nt-n-unread",
+     "nt-type"
+    ],
+    "h1": "Notifications",
+    "eyebrow": "Suivi",
+    "sub": "Événements des dossiers qui concernent votre profil : dépôts, transmissions, visas, compléments, décisions, paiements et cérémonies.",
+    "kpis": [],
+    "cards": [
+     {
+      "title": "Compte suspendu détecté",
+      "heads": [],
+      "rows": 0,
+      "empty": ""
+     }
+    ],
+    "actions": [
+     "Tout marquer comme lu",
+     "Marquer comme lue"
+    ],
+    "panels": [
+     "Toutes 1",
+     "Non lues 1"
+    ],
+    "drawers": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gab-orient-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vérifications au navigateur de la référence GAB-ORIENT (profils, parcours, cohérence inter-profils, adaptation)",
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 8123 --directory ..",
+    "campagne": "node run.mjs --flows",
+    "pages": "node pagemeta.mjs",
+    "inventaire": "node inventory.mjs",
+    "coherence": "node consistency.mjs",
+    "responsive": "node responsive.mjs",
+    "docs": "python3 gen_docs.py",
+    "tout": "npm run inventaire && npm run pages && npm run campagne && npm run coherence && npm run responsive && npm run docs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "^131.0.1",
+    "puppeteer-core": "^23.11.1"
+  }
+}
